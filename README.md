@@ -16,6 +16,8 @@ Technology Used
 
 * Font Awesome / Glyphicons (Useful set of vector images)
 
+* Slick (New Image Carosel)
+
 * If time permits, an EmberJS / AngularJS portfolio will be created and discussed. 
 
 
