@@ -6,3 +6,17 @@ body {
     margin: 0;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: #ccc;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #ececec;
+    text-decoration: underline;
+}
