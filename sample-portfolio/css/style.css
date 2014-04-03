@@ -20,3 +20,31 @@ a:hover{
     color: #ececec;
     text-decoration: underline;
 }
+
+#main {
+    width: 960px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+header {
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul, ul.entries {
+    list-style-type: none;
+}
+
+nav li a{
+    float: left;
+    margin: 5px;
+}
+
+.content{
+    padding: 10px;
+}
