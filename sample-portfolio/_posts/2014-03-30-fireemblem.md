@@ -1,7 +1,7 @@
 ---
 layout: portfolio_entry
+title: Fire Emblem
 image: /img/demo.jpg
-title: Fire Emblem: Chronicles of the Abyss
 ---
 
 A Javascript remake of Fire emblem built using the ImpactJS Game Engine.
