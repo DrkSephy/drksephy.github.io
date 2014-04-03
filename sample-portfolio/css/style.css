@@ -48,3 +48,35 @@ nav li a{
 .content{
     padding: 10px;
 }
+
+ul.entries li {
+    position: relative;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ececec;
+    width: 600px;
+}
+
+ul.entries img {
+    width: 600px;
+}
+
+ul.entries li h3 {
+    position: absolute;
+    bottom: -18px;
+    left: 17px;
+    font-size: 2em;
+}
+
+ul.entries a {
+    color: #ececec;
+}
+
+ul.entries a:hover{
+    color: #fff;
+}
+
+footer {
+    font-size: 0.65em;
+    text-align: center;
+}
