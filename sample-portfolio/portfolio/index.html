@@ -10,8 +10,15 @@ title: Portfolio
 
     <script type="text/javascript">
         $(document).ready(function() {
-             $('#slider1').bxSlider({
-                auto: false,
+            $('#slider1').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+            });
+
+            $('#slider2').bxSlider({
+                auto: true,
                 pager: true,
                 slideWidth: 800,
                 captions: true
@@ -25,14 +32,26 @@ title: Portfolio
     
     <section>
         <h1>Project Portfolio</h1>
-        <ul id="slider1">
-          <li><img src="/img/technetium/manager.png" title="Technetium Subscription Manager" /></li>
-          <li><img src="/img/technetium/tracker.png" title="Centralized Issue Tracker" /></li>
-          <li><img src="/img/technetium/commits.png" title="Commit/Issue Report" /></li>
-          <li><img src="/img/technetium/graph.png" title="Commit Line Graph" /></li>
-          <li><img src="/img/technetium/piegraph.png" title="Commit Pie Chart" /></li>
+            <ul id="slider1">
+              <li><img src="/img/technetium/manager.png" title="Technetium Subscription Manager" /></li>
+              <li><img src="/img/technetium/tracker.png" title="Centralized Issue Tracker" /></li>
+              <li><img src="/img/technetium/commits.png" title="Commit/Issue Report" /></li>
+              <li><img src="/img/technetium/graph.png" title="Commit Line Graph" /></li>
+              <li><img src="/img/technetium/piegraph.png" title="Commit Pie Chart" /></li>
+            </ul>
 
-    </ul>
+            <ul id="slider2">
+              <li><img src="/img/koopa-krisis/titlescreen.png" title="Title Screen" /></li>
+              <li><img src="/img/koopa-krisis/snow.png" title="Snowy Level" /></li>
+              <li><img src="/img/koopa-krisis/grass.png" title="Grassy Level" /></li>
+              <li><img src="/img/koopa-krisis/ruins.png" title="Ruins Level" /></li>
+              <li><img src="/img/koopa-krisis/vine.png" title="Underground Level" /></li>
+              <li><img src="/img/koopa-krisis/ninji.png" title="Enemy: Ninji" /></li>
+              <li><img src="/img/koopa-krisis/boss.png" title="Final Boss" /></li>
+              <li><img src="/img/koopa-krisis/finalattack.png" title="Boss: Final Attack" /></li>
+            </ul>
+
+
 
     </section>
     
