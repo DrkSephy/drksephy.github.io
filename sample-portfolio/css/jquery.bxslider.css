@@ -187,9 +187,11 @@
 	background: #666\9;
 	background: rgba(80, 80, 80, 0.75);
 	width: 100%;
+	text-align: center;
 }
 
 .bx-wrapper .bx-caption span {
+	text-align: center;
 	color: #fff;
 	font-family: Arial;
 	display: block;
