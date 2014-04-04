@@ -122,11 +122,12 @@
 	width: 32px;
 	height: 32px;
 	text-indent: -9999px;
-	z-index: 9999;
+	z-index: 100%;
 }
 
 .bx-wrapper .bx-controls-direction a.disabled {
 	display: none;
+	z-index: 100%;
 }
 
 /* AUTO CONTROLS (START / STOP) */
@@ -181,7 +182,7 @@
 
 .bx-wrapper .bx-caption {
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	background: #666\9;
 	background: rgba(80, 80, 80, 0.75);
