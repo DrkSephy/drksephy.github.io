@@ -2,8 +2,13 @@
 layout: default
 ---
 
-<h2 class="content">{{page.title}}</h2>
+<div class="wrapper">
+        <section>
+        <h2 class="content">{{page.title}}</h2>
 
-<img src="{{ page.image}}" />
+        <img src="{{ page.image }}" />
 
-{{ content }}
+        {{ content }}
+    </section>
+
+</div>
