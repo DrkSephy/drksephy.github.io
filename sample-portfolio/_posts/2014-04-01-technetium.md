@@ -195,6 +195,35 @@ def commits_linegraph(changesets=None, count=50):
 
 {% endhighlight%}
 
+#### Challenges
+
+One of the main challenges faced on this project was the bottleneck of pulling all of the comment data from a repository. Due to the restriction of the comments endpoint on Bitbucket's API, comments have to be retrieved one at a time for a given issue - something which became time-consuming for repositories with a large amount of issues. 
+
+After a few days of searching, we realised that if there is a way to send all of these requests asynchronously, it would drastically speed up the performance of generating the comment tallies on our reports. Then it hit us: Python has a great library for making asynchronous calls: `grequests`. After some experimentation, we were able to solve this bottleneck with the following solution:
+
+{% highlight python %}
+
+def send_async_bitbucket_requests(req_urls, auth_tokens):
+    """
+    Use this method to send asynchronous requests for bitbucket
+    API when generating reports.
+
+    Parameters:
+    - req_urls: List (of URLS)
+    - auth_tokens: OAuth1
+
+    Returns => List (JSON Dictionaries)
+    """
+    urls = (grequests.get(url, auth=auth_tokens) for url in req_urls)
+    json_list = []
+    for response in grequests.map(urls):
+        try:
+            json_list.append(json.loads(response.content))
+        except Exception:
+            json_list.append({})
+    return json_list
+
+{% endhighlight %}
 
 
 
