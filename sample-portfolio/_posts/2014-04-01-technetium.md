@@ -47,7 +47,7 @@ The following screenshots contains some code snippets that I found particularly 
 
 Starting with the methods for parsing issues in a repository:
 
-{% highlight python %}
+{% highlight python linenos %}
 
     def parse_all_issues(repo_issues):
     """
@@ -106,7 +106,7 @@ def parse_issues(issues):
 
 The next one was particularly interesting to work on - generating the line graphs for commit data in a repository. 
 
-{% highlight python %}
+{% highlight python linenos %}
 
 def commits_linegraph(changesets=None, count=50):
     """
