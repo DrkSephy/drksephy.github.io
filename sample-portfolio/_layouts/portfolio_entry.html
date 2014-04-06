@@ -6,8 +6,13 @@ layout: default
         <section>
         <h2 class="content">{{page.title}}</h2>
 
-        <img src="{{ page.image }}" />
+          <p class="post-meta">
+                {{ page.date | date_to_string }}
+          </p>
 
+
+
+        <img src="{{ page.image }}" />
         {{ content }}
     </section>
 
