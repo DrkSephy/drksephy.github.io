@@ -52,7 +52,7 @@ After spending 4 weeks of developing, we managed to not only get a working demo 
 
 * 622 Commits
 * 42 Pull Requests
-* 7400+ Lines of code
+* 7400+ Lines of code, after several refactorings
 * Over 800+ hours of combined development
 
 To showcase our commitment to the project, our Github punchcard is shown below:
@@ -61,4 +61,19 @@ To showcase our commitment to the project, our Github punchcard is shown below:
 
 Based on the punchcard, there was development on our game almost every moment of the day - which really helped us get through all of our tasks. Our presentation went very well, with over 100 students and faculty in attendence - as well as some research opportunities presented to us for our hard work.
 
+#### Future Work
+
+Even though the game is entirely playable and bug-free as of our demo, there is still much work to be done. The features needed are listed below:
+
+* More advanced A* pathfinding algorithm - one which takes in arbitrary weights
+* Saving features using HTML5 localstorage
+* More Animations and playable maps
+* Map objectives and scripts
+* Harder Enemy Artificial Intelligence
+* Randomized Enemy Stats for more challenge
+
+#### Experiences
+
+Throughout this project, I have learned a multitude of new things. For the most part, my familiarity with JavaScript increased exceptionally, and I've been able to push myself to work even harder than before. The biggest skill I've learned is to manage a team by breaking down tasks down to their most basic functionality, which allows for better task coordination and management. On top of that, I've grown to get more used to refactoring code to keep the codebase organized and modular, especially when integrating new, bigger features.
+As this project goes on, this blog post will be updated. Stay tuned for more!
 
