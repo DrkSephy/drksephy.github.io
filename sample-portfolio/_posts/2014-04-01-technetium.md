@@ -23,4 +23,27 @@ With only 3 months to work on this project, our team decided it would be best to
 * Write a set of parsers for preparing the returned issue JSON data, as well as the templates needed to render it properly.
 * Find and hook up an admin theme (preferrably built with Bootstrap)
 
- 
+During the lifetime of this project, we agreed to strictly follow good software engineering practices - **D****R****Y** (Don't Repeat Yourself), as well as Agile/Scrum methdologies for managing the tasks. To make sure our code remainded readable and modular, refactoring was done every 2 weeks before new features were added.
+
+#### New Features
+
+After only a month of work, we managed to finish our main feature - the centralized issue tracker, shown in the screenshots below: 
+
+![Technetium Repository Manager]({{ site.url }}/img/technetium/manager.png)
+![Centralized Issue Tracker]({{ site.url }}/img/technetium/tracker.png)
+
+As seen from the screenshot above, the centralized issue tracker is able to display up to 10 issues at a time from all subscribed repositories on a single page. By clicking the `show more`
+button, another 10 issues would appear through the use of AJAX - making the issue tracker responsive and fast.
+
+Motiviation was still high and there were still 2 months left until production day, leading our team to pursue a new feature: `reports`. These reports would have the following features:
+
+* Commit/Issue tallies for all users in a selected repository.
+* Tallies of issue comments of all users in a selected repository.
+* Various graphs to visualize commit/issue data, built using Django D3.
+
+
+
+
+
+
+
