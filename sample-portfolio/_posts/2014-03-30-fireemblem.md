@@ -46,3 +46,19 @@ To tackle such a complicated game, we knew that we needed a clear path. We creat
 
 With the CCNY ACM Student/Faculty Mixer in only 5 weeks, we wanted to get through most of our task list to give a good demonstration of our game to our fellow classmates and faculty. 
 
+#### Development Spree
+
+After spending 4 weeks of developing, we managed to not only get a working demo of the game - we finished 98% of our entire task list (which consisted of over 90 tasks). The last week before the presentation was spent on bug polishing and setting up our demo. At the end these 5 weeks of development, a list of statistics are shown below:
+
+* 622 Commits
+* 42 Pull Requests
+* 7400+ Lines of code
+* Over 800+ hours of combined development
+
+To showcase our commitment to the project, our Github punchcard is shown below:
+
+![Github punchcard]({{ site.url }}/img/fire_emblem/punchcard.png)
+
+Based on the punchcard, there was development on our game almost every moment of the day - which really helped us get through all of our tasks. Our presentation went very well, with over 100 students and faculty in attendence - as well as some research opportunities presented to us for our hard work.
+
+
