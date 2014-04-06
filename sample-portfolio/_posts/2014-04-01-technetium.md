@@ -225,5 +225,13 @@ def send_async_bitbucket_requests(req_urls, auth_tokens):
 
 {% endhighlight %}
 
+#### Experiences 
+
+Once production day came, our team presented Technetium to our class and it was a success. The idea of having reports were great for all classmates who were scrum masters/product owners of their respective groups, and Technetium was used all around. 
+
+Not only did we meet all of our feature requirements, Technetium also has complete documentation and is contains a test coverage rate of 98% through the use of `nosetests` and Python's `unittest` library. 
+
+Working on this project opened my eyes to the power of Django and Web Applications in general, and also helped to improve my Python skills dramatically. Technetium for Bitbucket is only the beginning - there are future plans to explore Github's API and look to integrate Technetium as a centralized platform which can aggregate data from both Bitbucket and Github.
+
 
 
