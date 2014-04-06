@@ -3,6 +3,19 @@ layout: default
 title: In Progress
 ---
 
+<head>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#slider1').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+            });
+        });
+    </script>
+</head>
+
 <div class="wrapper">
     <section>
         <h1>Works in Progress</h1>
@@ -29,6 +42,17 @@ title: In Progress
 
         <h2>Fire Emblem - Chronicles of the Abyss</h2>
         <h4>JavaScript &#x2022; ImpactJS &#x2022; HTML5 </h4>
+
+        <ul id="slider1">
+              <li><img src="/img/fire_emblem/titlescreen.png" title="Title Screen" /></li>
+              <li><img src="/img/fire_emblem/tradescreen.png" title="Trade GUI" /></li>
+              <li><img src="/img/fire_emblem/astar.png" title="A* Path Finding of Enemies" /></li>
+              <li><img src="/img/fire_emblem/equipscreen.png" title="Equipment GUI" /></li>
+              <li><img src="/img/fire_emblem/excalibur.png" title="Excalibur Spell" /></li>
+              <li><img src="/img/fire_emblem/fimbulvetr.png" title="Fimbulvetr Spell" /></li>
+              <li><img src="/img/fire_emblem/assassin.png" title="Assassin Animation" /></li>
+              <li><img src="/img/fire_emblem/silencer.png" title="Assasin skill: Silencer" /></li>
+            </ul>
 
         <p>A new game development project as part of the CCNY ACM's Game Development Club.
             The motivation of this project is to create a JavaScript remake of Fire Emblem -
