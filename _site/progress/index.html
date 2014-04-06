@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>  In Progress |  David Leonard | Engineer</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pygment_trac.css">
+    <link rel="stylesheet" href="/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/fontAwesome/css/font-awesome.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery.bxslider.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+        <img src="/img/banner.jpg" />
+        
+
+        <nav role="navigation">
+            <ul>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/progress/">In Progress</a></li>
+            </ul>
+        </nav>
+
+
+        </header>
+
+        <head>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#slider1').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+            });
+        });
+    </script>
+</head>
+
+<div class="wrapper">
+    <section>
+        <h1>Works in Progress</h1>
+        <p>Welcome! On this page you will find any and all projects that I am currently working on - from research projects to class/side projects.</p>
+
+        <h2>Caesium</h2>
+        <h4>JavaScript &#x2022; Node.js &#x2022; Redis &#x2022; Python &#x2022; Socket.io </h4>
+
+        <p>A real-time notification system built for integration into Graphyte, an ongoing 
+            research project at the G.L.A.S.S Lab at the City College of New York.</p>
+
+        <p> By using Node.js in combination with both its socket.io and redis client, a simple
+            notification streaming system can be built using Redis's pubsub implementation.
+            Whenever a new client is connected to Graphyte, they are automatically subscribed
+            to a new channel through the Node.js Redis client, and can then recieve messages
+            in real-time to get feedback on their homework solutions.</p>
+
+        <h2>Sea Ice Mapping</h2>
+        <h4>Python &#x2022; Numpy &#x2022; Scipy &#x2022; Theano &#x2022; Deep Learning</h4>
+
+        <p>A joint research project with NOAA-CREST and NASA to map sea ice structures on satellite images provided by MODIS. My roles involve getting training data through
+        marking up supplied images, as well as exploring more automated classification methods
+        using various Deep Learning algorithms built on top of Theano. </p>
+
+        <h2>Fire Emblem - Chronicles of the Abyss</h2>
+        <h4>JavaScript &#x2022; ImpactJS &#x2022; HTML5 </h4>
+
+        <ul id="slider1">
+              <li><img src="/img/fire_emblem/titlescreen.png" title="Title Screen" /></li>
+              <li><img src="/img/fire_emblem/tradescreen.png" title="Trade GUI" /></li>
+              <li><img src="/img/fire_emblem/astar.png" title="A* Path Finding of Enemies" /></li>
+              <li><img src="/img/fire_emblem/equipscreen.png" title="Equipment GUI" /></li>
+              <li><img src="/img/fire_emblem/excalibur.png" title="Excalibur Spell" /></li>
+              <li><img src="/img/fire_emblem/fimbulvetr.png" title="Fimbulvetr Spell" /></li>
+              <li><img src="/img/fire_emblem/assassin.png" title="Assassin Animation" /></li>
+              <li><img src="/img/fire_emblem/silencer.png" title="Assassin skill: Silencer" /></li>
+        </ul>
+
+        <p>A new game development project as part of the CCNY ACM's Game Development Club.
+            The motivation of this project is to create a JavaScript remake of Fire Emblem -
+            Blazing Sword, which is playable using only the browser and the mouse, as well 
+            as to push the boundaries and limitations of the ImpactJS Game Engine.</p>
+
+
+
+        <p>Current Features: </p>
+        <ul>
+            <li>Enemy Item Drops</li>
+            <li>Custom Artwork and Music</li>
+            <li>Consumable Items/ Item Usage </li>
+            <li>Playable with just the mouse</li>
+            <li>Enemy Artificial Intelligence</li>
+            <li>Animation and Terrain systems</li>
+            <li>Weapon Triangle / Weapon Durability </li>
+            <li>Inventory / Trade / Equipment system</li>
+            <li>Completely custom Graphical User Interface</li>
+            <li>Character development system / stats system</li>
+            <li>Normal Attack / Critical Attack / Magic system</li>
+            <li>A-star pathfinding algorithms for enemy/player movement</li>
+            <li>Ability to detect adjacent enemy/players, as well as attack/heal</li>
+        </ul>
+
+        <p style="text-align: center;"><i class="fa fa-share"></i><a style="color:red"
+            href="http://drksephy.github.io/2014/03/30/fireemblem.html">Read More</a></p>
+    </section>
+</div>
+
+        <footer>
+
+                <img class="avatar" src="https://en.gravatar.com/userimage/39972947/394bc3bd457c88f378f080eee8c1edc9.jpg" alt="Me" />
+
+                <p>New personal web page of David Leonard. Engineer, Programmer and Enthusiast.</p>
+                <p><a href="http://github.com/DrkSephy">github</a> | <a href="http://bitbucket.org/DrkSephy">bitbucket</a> | <a href="https://www.linkedin.com/profile/view?id=199545939&trk=nav_responsive_tab_profile">linkedin</a></p>
+
+                <p>
+                    <small>©2014 David Leonard </small><br />
+                    <small>Made with <a href="http://jekyllrb.com/">Jekyll</a> &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+                </p>
+        </footer>
+    </div>
+
+    <body>
+    
+    <script src="/js/scale.fix.js"></script>
+  </body>
+
+</body>
+</html>
