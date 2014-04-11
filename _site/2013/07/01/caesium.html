@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>  Caesium |  David Leonard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pygment_trac.css">
+    <link rel="stylesheet" href="/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/fontAwesome/css/font-awesome.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery.bxslider.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+        <nav role="navigation">
+            <ul>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/portfolio/">Projects</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+        </header>
+
+        <div class="wrapper">
+        <section>
+        <h2 class="content">Caesium</h2>
+
+          <p class="post-meta">
+                01 Jul 2013
+          </p>
+
+
+
+        <img src="/img/caesium/caesiumbanner.png" />
+        <p>A real time notification system built using NodeJS and Redis. The motivation for this project is to integrate it into <code>Graphyte</code>, an ongoing research project under my current mentor at The City College of New York. </p>
+
+<h4 id="graphyte---the-scientific-collaboration-tool">Graphyte - The Scientific Collaboration Tool</h4>
+
+<p>Before diving into Caesium, some context about Graphyte is needed. Graphyte is a platform built by G.L.A.S.S Lab at The City College of New York to allow collaborators in any scientific collaborations to share their source code, data and computational artifacts with one another within a unified-looking environment. It currently consists of the following sub-systems:</p>
+
+<ul>
+  <li>Graphyte Core System (GCS)</li>
+  <li>Graphyte-CLI: Command Line Interface using Graphyte</li>
+  <li>Kalium: Simple data store </li>
+  <li>Aurum: GCS Client for creating unit-test based assessments for learning</li>
+  <li>Aurum-cli: Command line interface with the Aurum API</li>
+  <li>Aurum-Web: Web based interface for packaging scorm modules</li>
+  <li>Aurum-js: JavaScript client library for scorm modules using Aurum</li>
+  <li>Repoman: Wrapper for working with different repo-hosts (mercurial, git, scm-manager)</li>
+  <li>Canary: Wrapper for input/output data blobs to use (Kalium, EC2, OpenStack)</li>
+  <li>Caesium: A real time notification system used for debugging and notifying progress of a job being run</li>
+</ul>
+
+<p>At a high level, Graphyte is currently being used for automated learning through the use of an Learning Management System (Aurum) through the Blackboard client. By creating scorm modules, a student can submit their code to the exercise on Blackboard, where their code is sent through a distributed computing network through the use of <code>Condor</code>. After the result is returned up through <code>Condor</code>, <code>GCS</code> and <code>Aurum</code>, respectfully, the student recieves a report based on what tests they passed and failed through the unit tests.</p>
+
+<h4 id="inception-of-caesium---the-reactive-api">Inception of Caesium - The Reactive API</h4>
+
+<p>Where does the name Caesium come from? As seen from all other systems in our lab, Caesium also takes its name from chemical names. Caesium is a very reactive element, and therefore it was the perfect name for a system which sends notifications in real time based on a triggered event. </p>
+
+<p>Due to the complexity of Graphyte, it is tough to debug across several web applications working in unison with each other. Sometimes the student’s code does not get saved into the database, and sometimes internal errors occur which can’t always be tracked. To help solve this problem, Caesium can be used to send notifications to the student while their code is being ran inside of the scorm module on Blackboard. On top of this, a progress bar can be displayed which will allow the user to track the progress of their job and to be able to report exactly where an error occurs in the stacktrace. </p>
+
+<h4 id="api-requirements-and-roadmap">API Requirements and Roadmap</h4>
+
+<p>From my understanding of the task presented to me, I knew that I had to somehow propogate messages to the student. This would require having several connections open at the same time, and the server and client would be constantly checking if there is any new data to be sent. Instead of using a <code>comet</code> long-polling method (which could potentially cause problems when too many connections are being opened), I decided to use <code>Node.js</code> due to its evented I/O. </p>
+
+<p>Using <code>Node.js</code> and <code>socket.io</code> in conjunction with each other, all that is needed is a middleman to send push notifications. After a little bit of research, I stumbled upon <code>pubsubhubub</code>, which is short for a hub containing a set of channels which can send and recieve push notifications.Instead of implementing my own version of <code>pubsub</code>, I used <code>Redis</code> for its rich API which also includes a <code>pubsub</code> implementation. A simple example of Redis’s pubsub is shown below: </p>
+
+<div class="highlight"><pre><code class="python"><span class="lineno"> 1</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 2</span> <span class="sd">    redis-python.py demonstrates how to publish a message</span>
+<span class="lineno"> 3</span> <span class="sd">    from an application such as Graphyte. To publish, simply</span>
+<span class="lineno"> 4</span> <span class="sd">    create a channel name and pass the message. </span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="sd">    publish: (&#39;channel&#39;, &#39;message&#39;)</span>
+<span class="lineno"> 7</span> <span class="sd">    -------------------------------</span>
+<span class="lineno"> 8</span> <span class="sd">        parameters:</span>
+<span class="lineno"> 9</span> <span class="sd">        ----------</span>
+<span class="lineno">10</span> <span class="sd">            Channel: name of channel client is subscribed to(str)</span>
+<span class="lineno">11</span> <span class="sd">            Message: message to send to user(str)</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="sd">        returns:</span>
+<span class="lineno">14</span> <span class="sd">        -------</span>
+<span class="lineno">15</span> <span class="sd">            Int(L): int represents # of clients msg is sent to</span>
+<span class="lineno">16</span> <span class="sd">    &quot;&quot;&quot;</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span>     <span class="kn">import</span> <span class="nn">redis</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span>     <span class="c">#Graphyte library to publish notifications to Redis</span>
+<span class="lineno">21</span>     <span class="c">#Create instance of Redis</span>
+<span class="lineno">22</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="p">()</span>
+<span class="lineno">23</span>     <span class="c">#Publish a message to Redis</span>
+<span class="lineno">24</span>     <span class="n">z</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&#39;David123&#39;</span><span class="p">,</span> <span class="s">&#39;this is a test message @stage1&#39;</span><span class="p">)</span>
+<span class="lineno">25</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&#39;David123&#39;</span><span class="p">,</span> <span class="s">&#39;this is a test message @stage2&#39;</span><span class="p">)</span>
+<span class="lineno">26</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&#39;David123&#39;</span><span class="p">,</span> <span class="s">&#39;this is a test message @stage3&#39;</span><span class="p">)</span>
+<span class="lineno">27</span>     <span class="c">#r.set(&#39;key&#39;, &#39;value&#39;)</span>
+<span class="lineno">28</span>     <span class="c">#x = r(lpush, &#39;key&#39;, &#39;test&#39;)</span>
+</code></pre></div>
+
+<p>By using the <code>redis-python</code> client combined with <code>node.js</code>, <code>socket.io</code> and the <code>redis</code> client for node.js, we can generate a progress bar which will fill up based on the notifications being sent throughout the execution of the student’s job as it propogates through Graphyte. </p>
+
+<p>The advantage of using this setup is that through the use of Node.js, whenever an event is triggered (in this case, the event is triggered whenever there is a notification to push) it will be published to the user based on the channel they automatically subscribe to. Using Node.js greatly reduces the overhead needed to sustain several connections by the client, and therefore these tools were right for the task. </p>
+
+<h4 id="nodejs-server">Node.js Server</h4>
+
+<p>After understanding the requirements, it was time to write the Node.js server. The code <code>server.js</code> is shown below:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="lineno"> 1</span>     <span class="cm">/*</span>
+<span class="lineno"> 2</span> <span class="cm">    Server.js handles the following:</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="cm">    1. Creates the HTTP server.</span>
+<span class="lineno"> 5</span> <span class="cm">    2. Creates the Redis client. </span>
+<span class="lineno"> 6</span> <span class="cm">    3. Uses socket.io to open a connection between client-server.</span>
+<span class="lineno"> 7</span> <span class="cm">    4. Handles PUSH operations to proper clients.</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="cm">    */</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> 
+<span class="lineno">12</span>     <span class="c1">//Instantiates the application</span>
+<span class="lineno">13</span>     <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">).</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">handler</span><span class="p">)</span>
+<span class="lineno">14</span>       <span class="p">,</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
+<span class="lineno">15</span>       <span class="p">,</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
+<span class="lineno">16</span>       <span class="p">,</span> <span class="nx">redis</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;redis&quot;</span><span class="p">)</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> 
+<span class="lineno">19</span>     <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">81</span><span class="p">);</span>
+<span class="lineno">20</span> 
+<span class="lineno">21</span>     <span class="c1">//Our redis client which subscribes to channels for updates</span>
+<span class="lineno">22</span>     <span class="nx">redisClient</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">();</span>
+<span class="lineno">23</span> 
+<span class="lineno">24</span>     <span class="c1">//look for connection errors and log</span>
+<span class="lineno">25</span>     <span class="nx">redisClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">26</span>         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;error event - &quot;</span> <span class="o">+</span> <span class="nx">redisClient</span><span class="p">.</span><span class="nx">host</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nx">redisClient</span><span class="p">.</span><span class="nx">port</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">);</span>
+<span class="lineno">27</span>     <span class="p">});</span>
+<span class="lineno">28</span> 
+<span class="lineno">29</span>     <span class="c1">//http handler, currently just sends index.html on new connection</span>
+<span class="lineno">30</span>     <span class="kd">function</span> <span class="nx">handler</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">31</span>       <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/../www/index.html&#39;</span><span class="p">,</span>
+<span class="lineno">32</span>       <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">33</span>         <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">34</span>           <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="lineno">35</span>           <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Error loading index.html&#39;</span> <span class="o">+</span> <span class="nx">__dirname</span><span class="p">);</span>
+<span class="lineno">36</span>         <span class="p">}</span>
+<span class="lineno">37</span> 
+<span class="lineno">38</span>         <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="lineno">39</span>         <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="lineno">40</span>       <span class="p">});</span>
+<span class="lineno">41</span>     <span class="p">}</span>
+<span class="lineno">42</span> 
+<span class="lineno">43</span>     <span class="c1">//  socket io client, which listens for new websocket connection</span>
+<span class="lineno">44</span>     <span class="c1">//  and then handles various requests</span>
+<span class="lineno">45</span>     <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">46</span>       <span class="c1">//on subscription request joins specified room</span>
+<span class="lineno">47</span>       <span class="c1">//later messages are broadcasted on the rooms</span>
+<span class="lineno">48</span>       <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;subscribe&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">49</span>         <span class="nx">socket</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">channel</span><span class="p">);</span>
+<span class="lineno">50</span>         <span class="c1">// Set the client subscription to be on the socket.on event.</span>
+<span class="lineno">51</span>         <span class="c1">// Data will be sent from the client -&gt; server through this</span>
+<span class="lineno">52</span>         <span class="c1">// connection.</span>
+<span class="lineno">53</span>         <span class="nx">redisClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">channel</span><span class="p">);</span>
+<span class="lineno">54</span>       <span class="p">});</span>
+<span class="lineno">55</span>     <span class="p">});</span>
+<span class="lineno">56</span> 
+<span class="lineno">57</span>     <span class="cm">/**</span>
+<span class="lineno">58</span> <span class="cm">     * subscribe to redis channel when client is ready</span>
+<span class="lineno">59</span> <span class="cm">     */</span>
+<span class="lineno">60</span> 
+<span class="lineno">61</span>     <span class="nx">redisClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">62</span>         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;redis ready&#39;</span><span class="p">);</span>
+<span class="lineno">63</span>     <span class="p">});</span>
+<span class="lineno">64</span> 
+<span class="lineno">65</span>      <span class="c1">// This sends updates to users.</span>
+<span class="lineno">66</span>      <span class="c1">// Waits for messages from the redis channel</span>
+<span class="lineno">67</span>      <span class="c1">// On new message, sends updates on the rooms named </span>
+<span class="lineno">68</span>      <span class="c1">// after channels. </span>
+<span class="lineno">69</span>     <span class="nx">redisClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span> <span class="nx">message</span><span class="p">){</span>
+<span class="lineno">70</span>         <span class="kd">var</span> <span class="nx">resp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="o">:</span> <span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="o">:</span><span class="nx">channel</span><span class="p">}</span>
+<span class="lineno">71</span>         <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="k">in</span><span class="p">(</span><span class="nx">channel</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">);</span>
+<span class="lineno">72</span>     <span class="p">});</span>
+</code></pre></div>
+
+<h4 id="nodejs-client">Node.js Client</h4>
+
+<p>After writing and testing the server, I moved onto writing the client to recieve these messages, <code>index.html</code>:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="lineno"> 1</span>     <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>  
+<span class="lineno"> 2</span>         <span class="kd">var</span> <span class="nx">student_ID</span> <span class="o">=</span> <span class="s2">&quot;David&quot;</span><span class="p">;</span>
+<span class="lineno"> 3</span>         <span class="kd">var</span> <span class="nx">exercise_ID</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span><span class="p">;</span>
+<span class="lineno"> 4</span>     <span class="o">&lt;</span><span class="err">/script&gt; </span>
+<span class="lineno"> 5</span>         
+<span class="lineno"> 6</span>     <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="lineno"> 7</span>     <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span>     <span class="kd">var</span> <span class="nx">channel_name</span> <span class="o">=</span> <span class="nx">student_ID</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">exercise_ID</span><span class="p">);</span>
+<span class="lineno">10</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">channel_name</span><span class="p">);</span>
+<span class="lineno">11</span>     <span class="kd">var</span> <span class="nx">last_stage</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>    
+<span class="lineno">12</span>     <span class="c1">//socket io client</span>
+<span class="lineno">13</span>     <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;http://localhost&#39;</span><span class="p">);</span>
+<span class="lineno">14</span> 
+<span class="lineno">15</span>     <span class="c1">// updates status to the status div</span>
+<span class="lineno">16</span>     <span class="kd">function</span> <span class="nx">setStatus</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">17</span>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#status&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Connection Status : &#39;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
+<span class="lineno">18</span>     <span class="p">}</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span>     <span class="c1">// adds message to messages div</span>
+<span class="lineno">21</span>     <span class="kd">function</span> <span class="nx">addMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">22</span>       <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;&lt;tr&gt;&lt;td&gt;&quot;</span> <span class="o">+</span> <span class="nx">msg</span> <span class="o">+</span> <span class="s2">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">23</span>       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="lineno">24</span>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#messages&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>  
+<span class="lineno">25</span>     <span class="p">}</span>
+<span class="lineno">26</span> 
+<span class="lineno">27</span>     <span class="c1">//on connection, updates connection state and sends subscribe request</span>
+<span class="lineno">28</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+<span class="lineno">29</span>       <span class="nx">setStatus</span><span class="p">(</span><span class="s1">&#39;connected&#39;</span><span class="p">);</span>
+<span class="lineno">30</span>       <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;subscribe&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">channel</span><span class="o">:</span><span class="nx">channel_name</span><span class="p">});</span>
+<span class="lineno">31</span>     <span class="p">});</span>
+<span class="lineno">32</span> 
+<span class="lineno">33</span>     <span class="c1">//when reconnection is attempted, updates status </span>
+<span class="lineno">34</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;reconnecting&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+<span class="lineno">35</span>       <span class="nx">setStatus</span><span class="p">(</span><span class="s1">&#39;reconnecting&#39;</span><span class="p">);</span>
+<span class="lineno">36</span>     <span class="p">});</span>
+<span class="lineno">37</span> 
+<span class="lineno">38</span>     <span class="c1">//on new message adds a new message to display</span>
+<span class="lineno">39</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">40</span>       <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="lineno">41</span>       <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">channel</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">42</span>         <span class="nx">msg</span> <span class="o">+=</span> <span class="s1">&#39;Channel:&#39;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">channel</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span> 
+<span class="lineno">43</span>       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">44</span>         <span class="nx">msg</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+<span class="lineno">45</span>       <span class="p">}</span>
+<span class="lineno">46</span>       <span class="nx">addMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="lineno">47</span> 
+<span class="lineno">48</span>       <span class="c1">// Increase Progress bar on new message</span>
+<span class="lineno">49</span>       <span class="c1">// Need parsing function to decide how much to raise it by</span>
+<span class="lineno">50</span> 
+<span class="lineno">51</span>       <span class="c1">// Last stage before job is sent to graphyte, </span>
+<span class="lineno">52</span>       <span class="c1">// after this we just increase the progress bar by like 1% every ten seconds</span>
+<span class="lineno">53</span> 
+<span class="lineno">54</span>         <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;@stage1&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">55</span>           <span class="nx">value</span> <span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="lineno">56</span>         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;@stage2&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">57</span>           <span class="nx">value</span> <span class="o">=</span><span class="mi">15</span><span class="p">;</span>
+<span class="lineno">58</span>         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;@stage3&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">59</span>           <span class="nx">value</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="lineno">60</span>           <span class="nx">last_stage</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="lineno">61</span>         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">62</span>           <span class="nx">value</span> <span class="o">+=</span><span class="mi">5</span><span class="p">;</span>  
+<span class="lineno">63</span>         <span class="p">}</span>
+<span class="lineno">64</span>       
+<span class="lineno">65</span>       <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#progressbar&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="nx">value</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span><span class="p">);</span>
+<span class="lineno">66</span>     <span class="p">});</span>
+<span class="lineno">67</span>     <span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+
+<p>The goal here is to fire off events based on reconnection, connection and messages being sent. For now, a channel is created using a two dummy variables. The client is automatically subscribed to this channel, and through the use of our test Python script, whenever a message is sent to that channel, the client’s progress bar will increase by a set amount depending on the execution location of their job.</p>
+
+<h4 id="current-progress">Current Progress</h4>
+
+<p>Now that the code has been written, the process of folding in Caesium into the production machine is underway. Caesium has only been integrated into Aurum, but fortunately it is easy to do pubsub across several sub-systems, as long as a channel name is persisted across the platform. More to come in the future.</p>
+
+<h4 id="experience">Experience</h4>
+
+<p>Throughout my time working on this project over the last 7 months, I have learned a wide array of skills with new and unfamiliar technologies. After being exposed to Redis and the power it has when coupled with Node.js and Socket.io, I look forward to developing more applications using these technologies. </p>
+
+<p>Aside from learning new technology, I’ve learned to adapt to a large codebase and figure out where and how I can contribute. The biggest learning curve for me was to understand how to structure my code in a way such that it can be folded into any sub-system seamlessly without the need for hard-coded dependencies, a skill that is often hard to develop in school due to a lack of projects with large codebases.</p>
+
+
+    </section>
+
+</div>
+
+        <footer>
+
+                <img class="avatar" src="https://en.gravatar.com/userimage/39972947/394bc3bd457c88f378f080eee8c1edc9.jpg" alt="Me" />
+                <p>New personal web page of David Leonard. Engineer, Programmer and Enthusiast.</p>
+                <p><a href="http://github.com/DrkSephy">github</a> | <a href="http://bitbucket.org/DrkSephy">bitbucket</a> | <a href="https://www.linkedin.com/profile/view?id=199545939&trk=nav_responsive_tab_profile">linkedin</a></p>
+                <p>
+                    <small>©2014 David Leonard </small><br />
+                    <small>Made with <a href="http://jekyllrb.com/">Jekyll</a> &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+                </p>
+        </footer>
+    </div>
+
+    <body>
+    
+    <script src="/js/scale.fix.js"></script>
+  </body>
+
+</body>
+</html>

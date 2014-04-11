@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>  Jekyll Tutorial |  David Leonard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pygment_trac.css">
+    <link rel="stylesheet" href="/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/fontAwesome/css/font-awesome.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery.bxslider.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+        <nav role="navigation">
+            <ul>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/portfolio/">Projects</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+        </header>
+
+        <div class="wrapper">
+        <section>
+        <h2 class="content">Jekyll Tutorial</h2>
+
+          <p class="post-meta">
+                09 Apr 2014
+          </p>
+
+
+
+        <img src="/img/jekyll/jekyll.png" />
+        <p>Throughout the construction of this page, I thought it would be very helpful to record the creation of this page for future references. This tutorial will also be used to teach students within the CCNY ACM how to build their own personal portfolios. If you would like to build your own webpage like this one, continue reading!</p>
+
+<h4 id="what-is-jekyll">What is Jekyll?</h4>
+
+<p>Jekyll is a simple, static site generator. It uses a template directory which contains raw text files in various formats (either markdown or html), and runs it through <code>Markdown</code> (or <code>textile</code>) and <code>Liquid</code> converters, and outputs a static website ready to be served. Jekyll is also the engine behind Github Pages, and in this tutorial I will be demonstrating how to host your portfolio using <code>github pages</code>.</p>
+
+<h4 id="installing-jekyll">Installing Jekyll</h4>
+
+<p>In order to start, first you’ll need to install jekyll via Ruby Gems. To install Jekyll, simply type into your terminal: <code>gem install jekyll</code>. To test a working configuation of Jekyll, perform the following steps:</p>
+
+<div class="highlight"><pre><code class="bash">    ~ <span class="nv">$ </span>gem install jekyll
+    ~ <span class="nv">$ </span>jekyll new myblog
+    ~ <span class="nv">$ </span><span class="nb">cd </span>myblog
+    ~/myblog <span class="nv">$ </span>jekyll serve
+    <span class="c"># =&gt; Browse page at http://0.0.0.0:4000</span>
+</code></pre></div>
+
+<p>If you were successful in serving up that page, then we’re ready to move onto the next step.</p>
+
+<h4 id="skillstools-required">Skills/Tools required</h4>
+
+<p>In order to go through this tutorial, you’ll need to have the following skills/tools:</p>
+
+<ul>
+  <li>Basic HTML/CSS/JS skills</li>
+  <li>A Github account as well as the ability to clone a repository</li>
+  <li>Understanding of your terminal and how to use it for creating/moving files around</li>
+</ul>
+
+<h4 id="project-structure">Project Structure</h4>
+
+<p>At the end of this tutorial, your project directory structure should look like the following: </p>
+
+<div class="highlight"><pre><code class="bash">    portfolio/
+├── _config.yml
+├── _layouts
+│   ├── default.html
+│   └── portfolio_entry.html
+├── _posts
+│   └── 2014-10-10-firstproject.md
+├── _site
+│   ├── 2014
+│   │   └── 10
+│   │       └── 10
+│   │           └── firstproject.html
+│   ├── about
+│   │   └── index.html
+│   ├── blog
+│   │   └── index.html
+│   ├── contact
+│   │   └── index.html
+│   ├── css
+│   │   ├── images
+│   │   │   ├── bx_loader.gif
+│   │   │   └── controls.png
+│   │   ├── jquery.bxslider.css
+│   │   ├── pygment_trac.css
+│   │   └── style.css
+│   ├── img
+│   │   ├── banners
+│   │   │   └── banner1.png
+│   │   └── folder1
+│   │       ├── image1.png
+│   │       └── image2.png
+│   ├── index.html
+│   ├── js
+│   │   ├── jquery.bxslider.js
+│   │   ├── jquery.bxslider.min.js
+│   │   └── scale.fix.js
+│   └── portfolio
+│       └── index.html
+├── about
+│   └── index.html
+├── blog
+│   └── index.html
+├── contact
+│   └── index.html
+├── css
+│   ├── images
+│   │   ├── bx_loader.gif
+│   │   └── controls.png
+│   ├── jquery.bxslider.css
+│   ├── pygment_trac.css
+│   └── style.css
+├── img
+│   ├── banners
+│   │   └── banner1.png
+│   └── folder1
+│       ├── image1.png
+│       └── image2.png
+├── index.html
+├── js
+│   ├── jquery.bxslider.js
+│   ├── jquery.bxslider.min.js
+│   └── scale.fix.js
+└── portfolio
+    └── index.html
+</code></pre></div>
+
+<p>To clone a repository containing the final product, you can do so <a href="https://github.com/DrkSephy/ACM-Portfolio-Presentation">here</a>.</p>
+
+<h4 id="building-your-own-portfolio">Building your own portfolio</h4>
+
+<p>Now that we have jekyll up and running, we are ready to start our portfolio. Starting out, first navigate to a directory where you would like to store your files. For the sake of this tutorial, I’ll be working within the <code>documents</code> subfolder.</p>
+
+<div class="highlight"><pre><code class="bash">    ~ <span class="nv">$ </span><span class="nb">cd </span>Documents
+    ~ <span class="nv">$ </span>mkdir portfolio
+    ~ <span class="nv">$ </span><span class="nb">cd </span>portfolio 
+</code></pre></div>
+
+<h4 id="creating-configyml">Creating _config.yml</h4>
+
+<p>Jekyll uses a <code>_config.yml</code> file for setting up configurations that will be used across your site. For the sake of this tutorial, we will simply create <code>_config.yml</code> as shown below:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>vim _config.yml 
+</code></pre></div>
+
+<p>Inside of this file we will simply put in:</p>
+
+<div class="highlight"><pre><code class="python">    <span class="n">markdown</span><span class="p">:</span> <span class="n">kramdown</span>
+</code></pre></div>
+
+<p>The reason for this is that the <code>Maruku</code> interpreter for Markdown has been deprecated, so we now use the <code>kramdown</code> interpreter.</p>
+
+<h4 id="choosing-a-jekyll-theme">Choosing a Jekyll Theme</h4>
+
+<p>In this tutorial, I’ll be using the minimalistic theme. To put get it up and running, do the following:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir js
+    ~/portfolio <span class="nv">$ </span>mkdir css
+</code></pre></div>
+
+<p>Now we create a javascript file called <code>scale.fix.js</code>. </p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/js <span class="nv">$ </span>vim scale.fix.js 
+</code></pre></div>
+
+<div class="highlight"><pre><code class="javascript">    
+    <span class="kd">var</span> <span class="nx">metas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/iPhone/i</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">metas</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">metas</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&quot;viewport&quot;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">metas</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;width=device-width, minimum-scale=1.0, maximum-scale=1.0&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;gesturestart&quot;</span><span class="p">,</span> <span class="nx">gestureStart</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">gestureStart</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">metas</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">metas</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&quot;viewport&quot;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">metas</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;width=device-width, minimum-scale=0.25, maximum-scale=1.6&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p>Now we create a css file named <code>style.css</code>:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/css <span class="nv">$ </span>vim style.css
+</code></pre></div>
+
+<p>Inside of <code>style.css</code>, grab the code from <a href="https://raw.githubusercontent.com/DrkSephy/drksephy.github.io/master/css/style.css">here</a>
+and copy it into that file.</p>
+
+<p>We need one more CSS file for our theme, <code>pygment_trac.css</code>. Let’s create it:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/css <span class="nv">$ </span>vim pygment_trac.css
+</code></pre></div>
+
+<p>As for the source code itself, you can grab it <a href="https://raw.githubusercontent.com/DrkSephy/drksephy.github.io/master/css/pygment_trac.css">here</a>.</p>
+
+<p>Now that we have applied a new theme to our site, it’s time to start with some content. </p>
+
+<h4 id="building-our-first-template">Building our first template</h4>
+
+<p>Jekyll uses Templates, which are parsed and can be reused in multiple pages. We first start off with a default template, <code>default.html</code>.</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/ <span class="nv">$ </span>mkdir _layouts
+    ~/portfolio/ ~ <span class="nb">cd </span>_layouts
+    ~/portfolio/_layouts ~ vim default.html
+</code></pre></div>
+
+<p>Within our new <code>default.html</code> file, we write the following code:</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">utf-8</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>  Jekyll Tutorial |  David Leonard<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/css/style.css&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/css/pygment_trac.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/css/jquery.bxslider.css&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/js/jquery.bxslider.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;header&gt;</span>
+        <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> About <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Projects <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Blog <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Contact <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/nav&gt;</span>
+        <span class="nt">&lt;/header&gt;</span>
+
+        
+
+        <span class="nt">&lt;footer&gt;</span>
+                <span class="nt">&lt;p&gt;</span>
+                    <span class="nt">&lt;small&gt;</span>©2014 Name Here <span class="nt">&lt;/small&gt;&lt;br</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;small&gt;</span>Made with <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://jekyllrb.com/&quot;</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span> <span class="ni">&amp;mdash;</span> Theme by <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://github.com/orderedlist&quot;</span><span class="nt">&gt;</span>orderedlist<span class="nt">&lt;/a&gt;&lt;/small&gt;</span>
+                <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/footer&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;body&gt;</span>
+    
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/js/scale.fix.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p>Between lines 1-4, we define a section which will be parsed by the markdown interpreter. All files will begin with this same format, each containing a <code>layout</code> and a <code>title</code>, where <code>layout</code> here references our <code>default.html</code> template we created earlier, and <code>title</code> can be an arbitrary name, which will be reflected at the top of your browser. At this point, we have created our first page which we can navigate to!</p>
+
+<p>As you’ve probably noticed in the <code>head</code> of the above file, we included some <code>css/js</code> files that we haven’t created yet. These are for using the image carousels, which we will create soon. For now, let’s gather the necessary files. </p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/css <span class="nv">$ </span>vim jquery.bxslider.css
+</code></pre></div>
+
+<p>The source code for <code>jquery.bxslider.css</code> is located <a href="https://raw.githubusercontent.com/DrkSephy/drksephy.github.io/master/css/jquery.bxslider.css">here</a>.</p>
+
+<p>Now for the JavaScript files:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/js <span class="nv">$ </span>vim jquery.bxslider.min.js
+</code></pre></div>
+
+<p>The source code for <code>jquery.bxslider.min.js</code> is located <a href="https://raw.githubusercontent.com/DrkSephy/drksephy.github.io/master/js/jquery.bxslider.min.js">here</a>.</p>
+
+<p>With that, we have all the <code>css/js</code> files needed for the future. </p>
+
+<h4 id="creating-our-home-page">Creating our home page</h4>
+
+<p>To host our webpage on <code>github pages</code>, we’ll need to create an <code>index.html</code> file within the root directory. </p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>vim index.html
+</code></pre></div>
+
+<p>Within our new <code>index.html</code> file, we place the following (duplicated code from the about page, except there is no title):</p>
+
+<div class="highlight"><pre><code class="html">---
+layout: default
+---
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+        <span class="nt">&lt;h1&gt;</span> About Me <span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;hr&gt;</span>
+        <span class="nt">&lt;p&gt;</span> Your stuff here. <span class="nt">&lt;/p&gt;</span>
+
+        <span class="nt">&lt;p&gt;</span> More stuff here. <span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>If you go into your root directory and perform the following steps:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>jekyll serve --watch
+    ~/portfolio <span class="nv">$ </span><span class="c">#=&gt; Go to page to see</span>
+</code></pre></div>
+
+<p>You can now see your layout and new webpage! Currently, the <code>about</code>, <code>contact</code>, <code>projects</code> and <code>blog</code> links to the left don’t do anything. Let’s get started with adding content!</p>
+
+<h4 id="creating-our-first-page">Creating our first page</h4>
+
+<p>After creating our first template, we can now build our first page. Each page of our webpage will be inside its own folder, each with its own <code>index.html</code> file within it. Let’s start with an <code>about</code> page:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir about
+    ~/portfolio <span class="nv">$ </span><span class="nb">cd </span>about
+    ~/portfolio/about <span class="nv">$ </span>vim index.html
+</code></pre></div>
+
+<p>Within our <code>index.html</code> page, we place the following code inside of it:</p>
+
+<div class="highlight"><pre><code class="html"><span class="lineno"> 1</span> ---
+<span class="lineno"> 2</span> layout: default
+<span class="lineno"> 3</span> title: About
+<span class="lineno"> 4</span> ---
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 7</span>     <span class="nt">&lt;section&gt;</span>
+<span class="lineno"> 8</span>         <span class="nt">&lt;h1&gt;</span> About Me <span class="nt">&lt;/h1&gt;</span>
+<span class="lineno"> 9</span>         <span class="nt">&lt;hr&gt;</span>
+<span class="lineno">10</span>         <span class="nt">&lt;p&gt;</span> Your stuff here. <span class="nt">&lt;/p&gt;</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span>         <span class="nt">&lt;p&gt;</span> More stuff here. <span class="nt">&lt;/p&gt;</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span>     <span class="nt">&lt;/section&gt;</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>To navigate to your <code>about</code> page, make the following change to <code>_layouts/default.html</code>:</p>
+
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about/&quot;</span><span class="nt">&gt;</span> About <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Projects <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Blog <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Contact <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+</code></pre></div>
+
+<p>When you navigate to your <code>about</code> page, you’ll see the following content shown below. We now move onto creating a <code>projects</code> page.</p>
+
+<h4 id="creating-a-portfolio-page">Creating a portfolio page</h4>
+
+<p>As mentioned earlier within this tutorial, each page of our webpage will live within its own folder along with a corresponding <code>index.html</code> file. To begin:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir portfolio
+    ~/portfolio <span class="nv">$ </span><span class="nb">cd </span>portfolio
+    ~/portfolio <span class="nv">$ </span>vim index.html
+</code></pre></div>
+
+<p>Within <code>portfolio/portfolio/index.html</code>, we place the following code:</p>
+
+<div class="highlight"><pre><code class="html">---
+layout: default
+title: Portfolio
+---
+
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+    
+            <span class="nt">&lt;section&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Project Portfolio<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>Project 1<span class="nt">&lt;/a&gt;&lt;/h2&gt;</span>
+
+                <span class="nt">&lt;p&gt;</span>Project 1 Description<span class="nt">&lt;/p&gt;</span>
+
+            <span class="nt">&lt;/section&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+<p>We must also link our new <code>projects</code> page. To do this, make the following change inside of `_layouts/default.html’:</p>
+
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about/&quot;</span><span class="nt">&gt;</span> About <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/portfolio/&quot;</span><span class="nt">&gt;</span> Projects <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Blog <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Contact <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+</code></pre></div>
+
+<p>With this, we have listed our first project! Let’s make it a little more fancy by adding an image carousel on top of each project. To do this, we will be using a jQuery plugin named <code>bxSlider</code>. By requiring the necessary <code>css</code> and <code>js</code> files within our <code>default.html</code> template, all we need to add is the following to our <code>portfolio/portfolio/index.html</code>:</p>
+
+<div class="highlight"><pre><code class="html">    
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider1&#39;</span><span class="p">).</span><span class="nx">bxSlider</span><span class="p">({</span>
+                    <span class="nx">auto</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">pager</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">slideWidth</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span>
+                    <span class="nx">captions</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+</code></pre></div>
+
+<p>And within the <code>body</code> of our page, we place the following code:</p>
+
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;slider1&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/img/folder-name/image-name.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Technetium Subscription Manager&quot;</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/img/technetium/tracker.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Centralized Issue Tracker&quot;</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>
+
+<p>This is all that is needed to get an image carousel working! All that is left is to add the images into the designated folder path. </p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir img
+    ~/portfolio <span class="nv">$ </span><span class="nb">cd </span>img
+    ~/portfolio/img <span class="nv">$ </span>mkdir technetium
+    ~/portfolio/img <span class="nv">$ </span>mkdir technetium
+    ~/portfolio/img/technetium <span class="nv">$ </span><span class="c">#=&gt; Place images with the same name for the carousel in here</span>
+</code></pre></div>
+
+<p>And now your first carousel should show the images you placed within the <code>portfolio/img/technetium</code> folder!</p>
+
+<p>To create new carousels, inside of the <code>head</code> section in your <code>portfolio/portfolio/index.html</code> file, you can create a new carousel like this:</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider1&#39;</span><span class="p">).</span><span class="nx">bxSlider</span><span class="p">({</span>
+                <span class="nx">auto</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">pager</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">slideWidth</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span>
+                <span class="nx">captions</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">});</span>
+
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider2&#39;</span><span class="p">).</span><span class="nx">bxSlider</span><span class="p">({</span>
+                <span class="nx">auto</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">pager</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">slideWidth</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span>
+                <span class="nx">captions</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">});</span>
+
+            <span class="c">&lt;!--</span> <span class="nx">Add</span> <span class="nx">more</span> <span class="nx">carousels</span> <span class="nx">as</span> <span class="nx">needed</span> <span class="o">--&gt;</span>
+    <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+<p>Notice how each new carousel begins with <code>$('#slider(number)')</code>. To create new carousels, simply switch the <code>number</code> to a new one. These <code>numbers</code> refer to the <code>div id</code>, which allows us to manipulate the content within it. </p>
+
+<p>Likewise, after initializing a new carousel, we need to actually place the content in it as such:</p>
+
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;slider2&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;li&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/img/koopa-krisis/titlescreen.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Title Screen&quot;</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+              <span class="nt">&lt;li&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/img/koopa-krisis/overworld.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Overworld&quot;</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>
+
+<p>Where we also create a subfolder inside of <code>img</code> which will hold some new images for our new carousel. </p>
+
+<p>Putting it all together, here is our final <code>portfolio/portfolio/index.html</code>:</p>
+
+<div class="highlight"><pre><code class="html">---
+layout: default
+title: Portfolio
+---
+<span class="nt">&lt;head&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider1&#39;</span><span class="p">).</span><span class="nx">bxSlider</span><span class="p">({</span>
+                <span class="nx">auto</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">pager</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">slideWidth</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span>
+                <span class="nx">captions</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+    
+            <span class="nt">&lt;section&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Project Portfolio<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>Project 1<span class="nt">&lt;/a&gt;&lt;/h2&gt;</span>
+
+                <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;slider1&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;li&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/img/folder-name/image-name.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Technetium Subscription Manager&quot;</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+                  <span class="nt">&lt;li&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/img/technetium/tracker.png&quot;</span> <span class="na">title=</span><span class="s">&quot;Centralized Issue Tracker&quot;</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;/ul&gt;</span>
+
+                <span class="nt">&lt;p&gt;</span>Add paragraphs for project description here.<span class="nt">&lt;/p&gt;</span>
+
+            <span class="nt">&lt;/section&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+<p>That concludes our portfolio page! It is easy to extend this page and add as many projects to it as you like, along with image carousels. The next page we will tackle is our <code>blog</code>.</p>
+
+<h4 id="creating-our-blog-page">Creating our blog page</h4>
+
+<p>We now move onto what Jekyll was actually designed for: a blog. Even if you don’t like to write about technical things, you can still use this page to link to more detailed descriptions of your projects. These descriptions can vary from features, to challenges faced and experiences learned, and you can even include code snippets! These posts are great ways to show anyone who visits your page (from recruiters to friends) that you know what you are talking about, and can think critically about your project organization. </p>
+
+<p>Let’s begin.</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir blog
+    ~/portfolio <span class="nv">$ </span><span class="nb">cd </span>blog
+    ~/portfolio <span class="nv">$ </span>vim index.html
+</code></pre></div>
+
+<p>Within <code>blog/index.html</code>, we place the following code:</p>
+
+<p><img src="/img/blog.png" alt="blog/index.html" /></p>
+
+<p>The above code loops over all files within the <code>posts</code> subfolder within the <code>_site</code> folder. The <code>_site</code> folder is automatically generated when running <code>jekyll serve --watch</code>, and we never interact with it. Also, each post will have a date which is parsed and displayed, and if an <code>image</code> attribute is defined, then it will display the image as a banner. Lastly, the last lines in the above code will take the first paragraph of your post and display it, along with a <code>read more</code> link that will take the user to the full post. Very powerful stuff. </p>
+
+<p>To make the <code>blog</code> link available, make the following change to <code>_layouts/default.html</code>:</p>
+
+<div class="highlight"><pre><code class="html">     <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about/&quot;</span><span class="nt">&gt;</span> About <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/portfolio/&quot;</span><span class="nt">&gt;</span> Projects <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/&quot;</span><span class="nt">&gt;</span> Blog <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot; &quot;</span><span class="nt">&gt;</span> Contact <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+</code></pre></div>
+
+<p>Currently, there are no posts. Before we create a post, we’ll need to create a new <code>template</code> within our <code>_layouts</code> folder to render our posts. Let’s create a new template <code>portfolio_entry.html</code> within the <code>_layouts</code> folder:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio/_layouts <span class="nv">$ </span>vim portfolio_entry.html
+</code></pre></div>
+
+<p><img src="/img/portfolio.png" alt="blog/index.html" /></p>
+
+<p>This template will render the contents of all our posts. It will grab the title of the post, as well as the date, image and content and render it on the page. </p>
+
+<h4 id="creating-your-first-post">Creating your first post</h4>
+
+<p>Jekyll uses <code>markdown</code> when creating posts, which is parsed and displayed. All of our <code>blog posts</code> will live within a <code>_posts</code> folder. Let’s create that now:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir _posts
+    ~/portfolio <span class="nv">$ </span><span class="nb">cd </span>_posts
+    ~/portfolio/_posts <span class="nv">$ </span>vim 2014-10-10-firstproject.md
+</code></pre></div>
+
+<p>Within <code>_posts/2014-10-10-firstproject.md</code>, we place the following:</p>
+
+<div class="highlight"><pre><code class="python"><span class="o">---</span>
+<span class="n">layout</span><span class="p">:</span> <span class="n">portfolio_entry</span>
+<span class="n">title</span><span class="p">:</span> <span class="n">First</span> <span class="n">Project</span>
+<span class="n">image</span><span class="p">:</span> <span class="o">/</span><span class="n">img</span><span class="o">/</span><span class="n">folder</span><span class="o">-</span><span class="n">name</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">name</span><span class="o">.</span><span class="n">png</span>
+<span class="o">---</span>
+
+<span class="n">Post</span> <span class="n">excerpt</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.</span> <span class="n">The</span> <span class="n">first</span> <span class="n">paragraph</span> <span class="n">will</span> <span class="n">be</span> <span class="n">shown</span> <span class="n">only</span><span class="p">,</span> <span class="n">along</span> <span class="k">with</span> <span class="n">a</span> <span class="n">read</span> <span class="n">more</span> <span class="n">button</span> <span class="n">which</span> <span class="n">links</span> <span class="n">to</span> <span class="n">the</span> <span class="n">full</span> <span class="n">post</span><span class="o">.</span> <span class="n">Perfect</span> <span class="k">for</span> <span class="n">placing</span> <span class="n">project</span> <span class="n">descriptions</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">actually</span> <span class="n">blog</span> <span class="n">about</span> <span class="n">something</span><span class="err">!</span>
+
+<span class="c">#### Header 1</span>
+
+<span class="n">Content</span> <span class="n">Here</span><span class="o">.</span>
+
+<span class="n">More</span> <span class="n">Content</span><span class="o">.</span>
+</code></pre></div>
+
+<p>With this, we now have our <code>blog</code> page set! To create more posts, simply create more <code>markdown</code> files with the format: <code>YYYY-MM-DD-name.md</code> within the <code>_posts</code> folder. With our <code>blog/index.html</code> file, it will automatically populate our blog page with all blog posts due to the <code>for loop</code> which iterates over every post we have!</p>
+
+<p>We now move onto our last page, the <code>contact</code> page. </p>
+
+<h4 id="creating-a-contact-page">Creating a contact page</h4>
+
+<p>As we already know from all the previous steps, we need to create a new folder called <code>contact</code> and within, we create an <code>index.html</code> file. To begin:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/portfolio <span class="nv">$ </span>mkdir contact
+    ~/portfolio <span class="nv">$ </span><span class="nb">cd </span>contact
+    ~/portfolio <span class="nv">$ </span>vim index.html
+</code></pre></div>
+
+<p>Within <code>contact/index.html</code>, we place the following code:</p>
+
+<div class="highlight"><pre><code class="html">---
+layout: default
+title: Contact
+---
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;section&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Contact Me<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span> Your content here. <span class="nt">&lt;/p&gt;</span>
+
+            <span class="nt">&lt;p&gt;</span> Even more content. <span class="nt">&lt;/p&gt;</span> 
+        <span class="nt">&lt;/section&gt;</span>
+
+    <span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>And to navigate to the <code>contact</code> page, we make the following change to <code>_layouts/default.html</code>:</p>
+
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about/&quot;</span><span class="nt">&gt;</span> About <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/portfolio/&quot;</span><span class="nt">&gt;</span> Projects <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/&quot;</span><span class="nt">&gt;</span> Blog <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/contact/&quot;</span><span class="nt">&gt;</span> Contact <span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+</code></pre></div>
+
+<p>And that concludes all of the pages! We have successfully created a full personal webpage. All that is left is to add your own contact, links and whatever else you like! We now move onto deploying our web page on <code>github pages</code>.</p>
+
+<h4 id="deploying-your-webpage">Deploying your webpage</h4>
+
+<p>After coming this far, we are ready to deploy our new portfolio. To do so, you’ll first have to create an account on <a href="https://github.com/">Github</a>, it is free to join. We then want to create a new repository by clicking the top right plus sign, and click <code>create new repository</code>. You’ll then be taken to this page:</p>
+
+<p><img src="/img/new_repo.png" alt="Create new github repository" /></p>
+
+<p>Within the <code>repository name</code> field, provide the name using the format: <code>accountname.github.io</code>. This will allow Github to know that this page should be served. After creating this repository, you’ll need to clone it. Navigate to your repository, and clone it by copying the link shown in the red box below: </p>
+
+<p><img src="/img/clone.png" alt="Clone repository" /></p>
+
+<p>Copy the link, and inside of your terminal:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/Documents <span class="nv">$ </span>git clone url
+</code></pre></div>
+
+<p>Where <code>url</code> is the one copied to your clipboard.</p>
+
+<p>After cloning your repository, you’ll need to copy all of your files from your <code>portfolio</code> folder and put it into your new cloned repository. Simply copy every file <strong>inside</strong> of <code>portfolio/</code> and paste it into <code>your_new_repo_folder</code>. To do this, you can do the following in your terminal:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/Documents/ <span class="nv">$ </span>cp -r portfolio/ cloned_repo_folder/
+</code></pre></div>
+
+<p>The above bash command will copy all files within <code>portfolio/</code> into your <code>cloned_repo_folder/</code>. Now, we simply perform the following steps:</p>
+
+<div class="highlight"><pre><code class="bash">    ~/Documents/cloned_repo_folder/ <span class="nv">$ </span>git add .
+    ~/Documents/cloned_repo_folder/ <span class="nv">$ </span>git commit -m <span class="s2">&quot;Adding my new portfolio files&quot;</span>
+    ~/Documents/cloned_repo_folder/ <span class="nv">$ </span>git push origin master
+</code></pre></div>
+
+<p>This will push up all of your files for your new repository. It takes a few minutes to take effect, but you can visit your new web page at <code>accountname.github.io</code>! I hope this tutorial was helpful for anyone who attempts to use it. Enjoy your new personal web page!</p>
+
+
+    </section>
+
+</div>
+
+        <footer>
+
+                <img class="avatar" src="https://en.gravatar.com/userimage/39972947/394bc3bd457c88f378f080eee8c1edc9.jpg" alt="Me" />
+                <p>New personal web page of David Leonard. Engineer, Programmer and Enthusiast.</p>
+                <p><a href="http://github.com/DrkSephy">github</a> | <a href="http://bitbucket.org/DrkSephy">bitbucket</a> | <a href="https://www.linkedin.com/profile/view?id=199545939&trk=nav_responsive_tab_profile">linkedin</a></p>
+                <p>
+                    <small>©2014 David Leonard </small><br />
+                    <small>Made with <a href="http://jekyllrb.com/">Jekyll</a> &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+                </p>
+        </footer>
+    </div>
+
+    <body>
+    
+    <script src="/js/scale.fix.js"></script>
+  </body>
+
+</body>
+</html>
