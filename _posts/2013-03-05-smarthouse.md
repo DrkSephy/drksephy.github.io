@@ -22,3 +22,7 @@ Having "Smart Homes" is a popular thing in this day and age, from companies such
 * Easy to configure and easy to extend
 
 To implement these features, a central "box" is usually installed, which has physical and software hooks to an appliance in your home. These appliances are then controlled using an included Android/iOS Application. For the most part, these technologies are very popular and a lot more companies are moving towards smarter homes in terms of energy effieciency and home security.
+
+#### Hardware
+
+In order to control devices, we would need to create our own platform. To help expediate this, we used the Arduino Mega as a base. By hooking up a set of fuses, electrical relays and a wi-fi shield, we can switch the voltages of any device plugged into an outlet. 
