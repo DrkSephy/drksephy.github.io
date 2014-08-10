@@ -2,6 +2,7 @@
 layout: post
 title: Technetium
 image:
+  feature: abstract-5.jpg
   background: triangular.png
 ---
 
