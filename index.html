@@ -25,7 +25,7 @@ image:
   </header>
 
   <div class="entry-content">
-    <p class="post-excerpt">{{ post.excerpt | strip_html }} [<a style="color:red" href="{{ post.url }}">read more</a>]</p>
+    <p class="post-excerpt">{{ post.excerpt | strip_html }} [<a style="color:red" href="{{ site.url }} {{ post.url }}">read more</a>]</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 {% endfor %}
