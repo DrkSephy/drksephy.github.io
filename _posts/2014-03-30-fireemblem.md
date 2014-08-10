@@ -2,7 +2,7 @@
 layout: post
 title: Fire Emblem
 image:
-  feature: abstract-5.jpg
+  feature: fire_emblem_cover.jpg
   background: triangular.png
 ---
 
