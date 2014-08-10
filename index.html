@@ -1,0 +1,32 @@
+---
+layout: post-index
+title: Latest Posts
+tags: [Jekyll, theme, themes, responsive, blog, modern]
+image:
+  feature: abstract-1.jpg
+---
+
+{% for post in site.posts %}
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span>
+
+      <span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span>
+
+
+    </div><!-- /.entry-meta -->
+
+    {% if post.link %}
+      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}"><i class="fa fa-angle-double-right"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
+    {% else %}
+      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
+    {% endif %}
+  </header>
+
+  <div class="entry-content">
+    <p class="post-excerpt">{{ post.excerpt | strip_html }} [<a style="color:red" href="{{ post.url }}">read more</a>]</p>
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+{% endfor %}
+

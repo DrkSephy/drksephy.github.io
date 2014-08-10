@@ -1,0 +1,212 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include head.html %}
+<link rel="stylesheet" href="/css/jquery.bxslider.css" />
+    
+
+
+</head>
+
+<body id="post-index" {% if page.image.feature %}class="feature"{% endif %}>
+
+{% include browser-upgrade.html %}
+{% include navigation.html %}
+
+<div class="entry-header">
+  {% if page.image.feature %}
+    <div class="entry-image">
+      <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
+    </div><!-- /.entry-image -->
+  {% endif %}
+
+</div><!-- /.entry-header -->
+
+<div id="main" role="main">
+
+<article class="hentry">
+  <h2><a href="http://technetium.herokuapp.com/">Technetium</a></h2>
+            <h4>JavaScript &#x2022; Python &#x2022; Django &#x2022; D3 &#x2022; Bitbucket API </h4>
+            
+            <ul id="slider2">
+              <li><img src="/img/technetium/manager.png" title="Technetium Subscription Manager" /></li>
+              <li><img src="/img/technetium/tracker.png" title="Centralized Issue Tracker" /></li>
+              <li><img src="/img/technetium/commits.png" title="Commit/Issue Report" /></li>
+              <li><img src="/img/technetium/graph.png" title="Commit Line Graph" /></li>
+              <li><img src="/img/technetium/piegraph.png" title="Commit Pie Chart" /></li>
+            </ul>
+
+            <p>
+                A Bitbucket data aggregation tool built using <a href="https://www.djangoproject.com/" style="color:blue" > Django </a> and <a href="https://confluence.atlassian.com/display/BITBUCKET/Use+the+Bitbucket+REST+APIs;jsessionid=3BD604905BF7576D843650B886AE843F.node1" style="color:blue">Bitbucket's RESTful API</a>.Features a centralized issue tracker, repository subscription manager, and reports/graphs which enumerate the commit/issue activity
+                of each user in a subscribed repository.</p>
+
+            <p>
+                Technetium's frontend is build using <a href="http://getbootstrap.com/2.3.2/"> Twitter Bootstrap</a>. The centralized issue tracker 
+                aggregates issue data from subscribed repositories, and has been sped up through the use of <a href="https://github.com/kennethreitz/grequests" style="color:blue"> Python grequests </a>. Showing more issues and filtering is done using  <a href="http://api.jquery.com/jquery.ajax/" style="color:blue"> AJAX </a> for responsive design.
+            </p>
+
+</article>
+
+<article class="hentry">
+  <h2>Senior Thesis: Smarthouse For Everyone</h2>
+            <h4>JavaScript &#x2022; NodeJS &#x2022; Arduino &#x2022; iOS &#x2022; C &#x2022; Django &#x2022; Python </h4>
+            <ul id="slider4">
+              <li><img src="/img/smart-house/finished.png" title="Smarthouse Hub Prototype" /></li>
+              <li><img src="/img/smart-house/architecture.png" title="Simplified Architecture" /></li>
+              <li><img src="/img/smart-house/gesture.png" title="Gesture Recognizer"/></li>
+              <li><img src="/img/smart-house/listview.png" title="Device List View" /></li>
+              <li><img src="/img/smart-house/tileview.png" title="Device Tile View" /></li>
+            </ul>
+
+            <p> 
+                A plug-an-play device for remote control of anything that is plugged into it. The motiviation
+                behind this project is to allow home automation for the visually impaired and physically challenged.
+
+            </p>
+
+            <p> 
+              Hardware is built using <a href="http://www.arduino.cc/" style="color:blue">Arduino </a> along with a <a href="http://arduino.cc/en/Main/ArduinoWiFiShield" style="color:blue" > Arduino Wi-fi Shield </a> for receiving web requests. Backend server is built using <a href="http://nodejs.org/" style="color:blue"> Node.js</a> and <a href="http://expressjs.com/" style="color:blue">Express.js</a>. Rooms can be configured using the iOS mobile application, and are stored through the server using <a href="http://mongoosejs.com/" style="color:blue" >Mongoose</a>. Requests from the iOS application to the hardware is handled using the server as a backend using the node.js 
+              <a href="https://github.com/mikeal/request" style="color:blue">requests</a> library. A web interface is also built 
+              using <a href="https://www.djangoproject.com/" style="color:blue"> Django </a>.
+
+            </p>
+</article>
+
+
+<article class="hentry">
+
+  <h2><a href="http://drksephy.bitbucket.org/">Super Mario World - Koopa Krisis</a></h2>
+  <h4>ImpactJS &#x2022; JavaScript &#x2022; HTML5 </h4>
+  
+  <ul id="slider1">
+              <li><img src="/img/koopa-krisis/grass.png" title="Grassy Level" /></li>
+              <li><img src="/img/koopa-krisis/ruins.png" title="Ruins Level" /></li>
+              <li><img src="/img/koopa-krisis/vine.png" title="Underground Level" /></li>
+              <li><img src="/img/koopa-krisis/ninji.png" title="Enemy: Ninji" /></li>
+              <li><img src="/img/koopa-krisis/boss.png" title="Final Boss" /></li>
+              <li><img src="/img/koopa-krisis/finalattack.png" title="Boss: Final Attack" /></li>
+  </ul>
+
+  <p>A Super Mario World Clone built using JavaScript on top of the <a href="http://impactjs.com/" style="color:blue"> ImpactJS Game Engine </a>, purely for educational purposes.</p>
+
+            <p>Features:</p>
+
+            <ul>
+              <li>Powerup System</li>
+              <li>Collectable Items</li>
+              <li>Custom Overworld</li>
+              <li>Over 10 custom levels</li>
+              <li>Over 28 custom enemies with different Artificial Intelligences</li>
+              <li>Custom boss with increasingly difficult Artificial Intelligence</li>
+            </ul>
+</article>
+
+<article class="hentry">
+   <h2>Fire Emblem - Chronicles of the Abyss</h2>
+   <h4>JavaScript &#x2022; ImpactJS &#x2022; HTML5 </h4>
+
+  <ul id="slider5">
+              <li><img src="/img/fire_emblem/titlescreen.png" title="Title Screen" /></li>
+              <li><img src="/img/fire_emblem/tradescreen.png" title="Trade GUI" /></li>
+              <li><img src="/img/fire_emblem/astar.png" title="A* Path Finding of Enemies" /></li>
+              <li><img src="/img/fire_emblem/equipscreen.png" title="Equipment GUI" /></li>
+              <li><img src="/img/fire_emblem/excalibur.png" title="Excalibur Spell" /></li>
+              <li><img src="/img/fire_emblem/fimbulvetr.png" title="Fimbulvetr Spell" /></li>
+              <li><img src="/img/fire_emblem/assassin.png" title="Assassin Animation" /></li>
+              <li><img src="/img/fire_emblem/silencer.png" title="Assassin skill: Silencer" /></li>
+  </ul>
+
+  <p>A new game development project as part of the CCNY ACM's Game Development Club.
+            The motivation of this project is to create a JavaScript remake of Fire Emblem -
+            Blazing Sword, which is playable using only the browser and the mouse, as well 
+            as to push the boundaries and limitations of the ImpactJS Game Engine.</p>
+
+
+
+        <p>Current Features: </p>
+        <ul>
+            <li>Enemy Item Drops</li>
+            <li>Custom Artwork and Music</li>
+            <li>Consumable Items/ Item Usage </li>
+            <li>Playable with just the mouse</li>
+            <li>Enemy Artificial Intelligence</li>
+            <li>Animation and Terrain systems</li>
+            <li>Weapon Triangle / Weapon Durability </li>
+            <li>Inventory / Trade / Equipment system</li>
+            <li>Completely custom Graphical User Interface</li>
+            <li>Character development system / stats system</li>
+            <li>Normal Attack / Critical Attack / Magic system</li>
+            <li>A-star pathfinding algorithms for enemy/player movement</li>
+            <li>Ability to detect adjacent enemy/players, as well as attack/heal</li>
+        </ul>
+
+</article>
+
+<article class="hentry">
+  <h2>El-Gamal Attack</h2>
+            <h4>Cryptography &#x2022; Python </h4>
+            <ul id="slider3">
+              <li><img src="/img/el-gamal/construction.png" title="Intial Construction" /></li>
+              <li><img src="/img/el-gamal/distinguish.png" title="Using Chinese Remainder Theorem to Expose Mapping" /></li>
+              <li><img src="/img/el-gamal/crt.png" title="Using Chinese Remainder Theorem to find leaked information about messages" /></li>
+              <li><img src="/img/el-gamal/m.png" title="Adversary's equations to compute message" /></li>
+            </ul>
+
+            <p>A Python project with explores the semantic secureness of pycrypto's implementation of El Gamal.
+            Using the Chinese Remainder Theorem, we can determine that some of the information of a transmitted message
+              M is leaked. This information is efficiently computable by an adversary, showing that pycrypo's El Gamal
+              implementation is not semantically secure. </p>
+</article>
+
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+{% include scripts.html %}  
+<script src="/js/jquery.bxslider.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('#slider1').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+          });
+          $('#slider2').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+            });
+          $('#slider3').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+            });
+          $('#slider4').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+            });
+          $('#slider5').bxSlider({
+                auto: true,
+                pager: true,
+                slideWidth: 800,
+                captions: true
+          });
+        });
+    </script>        
+
+</body>
+</html>
