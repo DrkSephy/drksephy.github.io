@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fire Emblem: Chronicles of the Abyss
+title: Fire Emblem
 image:
   feature: fire_emblem_cover.jpg
   background: triangular.png
