@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Technetium
+title: Technetium - The Bitbucket Aggregation Tool
 image:
   feature: technetium_cover.jpg
   background: triangular.png
