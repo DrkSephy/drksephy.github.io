@@ -3,7 +3,7 @@ layout: post
 title: Technetium&#58; Bitbucket Aggregation Tool
 image:
   feature: technetium_cover.jpg
-  background: triangular.png
+  background: tweed.png
 ---
 
 Technetium is a Bitbucket Data aggregation tool built using Bitbucket's RESTful API. Features a centalized issue tracker, repository subscription manager, and reports/graphs which enumerates the commit/issue activity of each user in a subscribed repository.
