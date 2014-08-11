@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Senior Thesis&#58;Smarthouse for Everyone
+title: Senior Thesis&#58; Smarthouse for Everyone
 image:
   feature: abstract-5.jpg
   background: triangular.png
