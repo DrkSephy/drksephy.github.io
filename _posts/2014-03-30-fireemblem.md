@@ -57,16 +57,19 @@ To showcase our commitment to the project, our Github punchcard is shown below:
 
 Based on the punchcard, there was development on our game almost every moment of the day - which really helped us get through all of our tasks. We presented our game to over 100 students and faculty members at the annual CCNY ACM Student/Faculty mixer, where we received great feedback and acknowledgement. 
 
-#### Future Work
+#### Present Status
 
-Even though the game is entirely playable and bug-free as of our demo, there is still much work to be done. The features needed are listed below:
+As of July 31st, 2014, the following new features have been added: 
 
-* More advanced A* pathfinding algorithm - one which takes in arbitrary weights
 * Saving features using HTML5 localstorage
 * More Animations and playable maps
 * Map objectives and scripts
-* Harder Enemy Artificial Intelligence
-* Randomized Enemy Stats for more challenge
+
+While there are more features that could be added, we have decided to halt this project in favor of learning <a style="color:red" href="http://mean.io/#!/"> new technology</a>. When this project is picked up again, the following features are planned:
+
+* More levels / story progression
+* Promotion of player units into stronger classes
+* Advanced A-star pathfinding algorithm using arbitrary weights
 
 #### Experiences
 
