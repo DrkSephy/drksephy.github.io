@@ -81,7 +81,10 @@ Once production day came, our team presented Technetium to our class and it was 
 Not only did we meet all of our feature requirements, Technetium also has complete documentation and is contains a test coverage rate of 98% through the use of `nosetests` and Python's `unittest` library. 
 
 As my first web application and first real experience with Python, this project opened my eyes to the power of Django and building web applications in general. Technetium for Bitbucket is only the beginning - there are future plans to explore Github's API and look to integrate Technetium as a centralized platform which can aggregate data from both Bitbucket and Github.
- 
+
+#### Contributors
+
+Special thanks to <a style="color:red" href="https://github.com/codenameyau"> Jorge Yau </a> for his guidance and contributions towards making this a great project. 
 
 
 
