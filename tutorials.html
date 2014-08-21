@@ -17,7 +17,7 @@ image:
           <span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span>
 
 
-        </div><!-- /.entry-meta -->
+        </div>
 
         {% if post.link %}
           <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}"><i class="fa fa-angle-double-right"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
@@ -28,8 +28,8 @@ image:
 
       <div class="entry-content">
         <p class="post-excerpt">{{ post.excerpt | strip_html }} [<a style="color:red" href="{{ site.url }}{{ post.url }}">read more</a>]</p>
-      </div><!-- /.entry-content -->
-    </article><!-- /.hentry -->
+      </div>
+    </article>
   {% endif %}
 {% endfor %}
 
