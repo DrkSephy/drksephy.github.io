@@ -15,6 +15,31 @@ Through my experiences with ImpactJS, this new project is out of the scope of th
 
 Before the project officially began as a group, <a style="color:red" href="https://github.com/chessmasterhong">one of my team members</a> started to work on the core battle system of the game - to see if it was feasible to build this game. After a month of hard work, it turned out that it was entirely possible to build this game, and that it would take an incredible amount of work. Nonetheless, we began on the second week of February after we assembled a team of 5. 
 
+#### Features and Contributions
+
+At the beginning of this project, we knew that it would be a massive game to design. As such, a <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/task_tree.txt"> task dependency tree </a> and <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/roadmap.txt"> roadmap </a> were created to keep track of development and pre-requisites. 
+
+My contributions to this project are listed below: 
+
+<ul>
+    <li> Shop system </li> 
+    <li> Level design </li>
+    <li> Equip system </li>
+    <li> Dialog system </li>
+    <li> Asset gathering </li>
+    <li> Development of units </li> 
+    <li> Item-specific effects </li>
+    <li> Extensive item system </li>
+    <li> Complete item catalog </li>
+    <li> Weapon triangle system </li>
+    <li> Extensive stats system </li>
+    <li> Extensive weapon system </li>
+    <li> Stats computation system </li>
+    <li> Player statistics screen </li>
+    <li> Graphical User Interfaces </li>
+    <li> Developing custom, extensibile menu system </li>
+    
+</ul>
 
 
 #### Development Spree
