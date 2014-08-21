@@ -6,11 +6,11 @@ image:
   background: tweed.png
 ---
 
-Technetium is a Bitbucket Data aggregation tool built using Bitbucket's RESTful API. Features a centalized issue tracker, repository subscription manager, and reports/graphs which enumerates the commit/issue activity of each user in a subscribed repository.
+<a style="color:red" href="technetium.herokuapp.com">Technetium</a> is a Bitbucket Data aggregation tool built using Bitbucket's RESTful API. Features a centalized issue tracker, repository subscription manager, and reports/graphs which enumerates the commit/issue activity of each user in a subscribed repository. 
 
 #### Conception
 
-As required from my Web Design class which I took in Fall 2013, a web application had to be built using either Django, Flask or Pyramid. After spending a few weeks in the Summer brainstorming various API's to use in our project, my team of two came across the Bitbucket API - it provided a rich set of endpoints and methods for accessing various data in a repository.  
+As required from my Web Design class which I took in Fall 2013, a web application had to be built using frameworks such as Django, Flask or Pyramid. After spending a few weeks in the Summer brainstorming various API's to use in our project, my team of two came across the Bitbucket API - it provided a rich set of endpoints and methods for accessing various data in a repository.  
 
 Another inspiration for the project was a centralized issue tracker - something that we desperately needed within the research lab I have worked in since Summer 2013. With a 
 large amount of web applications being built and numerous issues piling up in each one, it was necessary to create a way for a project manager to easily keep up to date with the progress of each project and to track work being done. As for the name `Technetium`, it was chosen due to the popularity of naming all of our web applications within the lab based on chemical elements.
@@ -48,7 +48,7 @@ Motiviation was still high and there were still 2 months left until production d
 
 One of the main challenges faced on this project was the bottleneck of pulling all of the comment data from a repository. Due to the restriction of the comments endpoint on Bitbucket's API, comments have to be retrieved one at a time for a given issue - something which became time-consuming for repositories with a large amount of issues. 
 
-After a few days of searching, we realised that if there is a way to send all of these requests asynchronously, it would drastically speed up the performance of generating the comment tallies on our reports. Then it hit us: Python has a great library for making asynchronous calls: `grequests`. After some experimentation, we were able to solve this bottleneck with the following solution:
+After a few days of searching, we realised that if there is a way to send all of these requests asynchronously, it would drastically speed up the performance of generating the comment tallies on our reports. Then it hit us: Python has a great library for making asynchronous requests: `grequests`. After some experimentation, we were able to solve this bottleneck with the following solution:
 
 {% highlight python %}
 
@@ -80,7 +80,8 @@ Once production day came, our team presented Technetium to our class and it was 
 
 Not only did we meet all of our feature requirements, Technetium also has complete documentation and is contains a test coverage rate of 98% through the use of `nosetests` and Python's `unittest` library. 
 
-Working on this project opened my eyes to the power of Django and Web Applications in general, and also helped to improve my Python skills dramatically. Technetium for Bitbucket is only the beginning - there are future plans to explore Github's API and look to integrate Technetium as a centralized platform which can aggregate data from both Bitbucket and Github.
+As my first web application and first real experience with Python, this project opened my eyes to the power of Django and building web applications in general. Technetium for Bitbucket is only the beginning - there are future plans to explore Github's API and look to integrate Technetium as a centralized platform which can aggregate data from both Bitbucket and Github.
+ 
 
 
 
