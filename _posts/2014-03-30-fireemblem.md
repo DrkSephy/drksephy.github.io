@@ -19,7 +19,7 @@ Before the project officially began as a group, <a style="color:red" href="https
 
 At the beginning of this project, we knew that it would be a massive game to design. As such, a <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/task_tree.txt"> task dependency tree </a> and <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/roadmap.txt"> roadmap </a> were created to keep track of development and pre-requisites. 
 
-My contributions to this project are listed below: 
+My <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/pulls?q=is%3Apr+author%3ADrkSephy+is%3Aclosed">contributions</a> to this project are listed below: 
 
 <ul>
     <li> Shop system </li> 
