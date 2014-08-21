@@ -55,7 +55,7 @@ To showcase our commitment to the project, our Github punchcard is shown below:
 
 ![Github punchcard]({{ site.url }}/img/fire_emblem/punchcard.png)
 
-Based on the punchcard, there was development on our game almost every moment of the day - which really helped us get through all of our tasks. Our presentation went very well, with over 100 students and faculty in attendence - as well as some research opportunities presented to us for our hard work.
+Based on the punchcard, there was development on our game almost every moment of the day - which really helped us get through all of our tasks. We presented our game to over 100 students and faculty members at the annual CCNY ACM Student/Faculty mixer, where we received great feedback and acknowledgement. 
 
 #### Future Work
 
@@ -70,6 +70,15 @@ Even though the game is entirely playable and bug-free as of our demo, there is 
 
 #### Experiences
 
-Throughout this project, I have learned a multitude of new things. For the most part, my familiarity with JavaScript increased exceptionally, and I've been able to push myself to work even harder than before. The biggest skill I've learned is to manage a team by breaking down tasks down to their most basic functionality, which allows for better task coordination and management. On top of that, I've grown to get more used to refactoring code to keep the codebase organized and modular, especially when integrating new, bigger features.
-As this project goes on, this blog post will be updated. Stay tuned for more!
+Throughout this project, I have learned a multitude of new things. For the most part, my familiarity with JavaScript increased exceptionally, and I've been able to push myself to work even harder than before. The biggest skill I've learned is to manage a team by breaking down tasks down to their most basic functionality, which allows for better task coordination and management.On top of that, I've grown to get more used to refactoring my code to keep the codebase organized and modular, especially when integrating new, bigger features.
+
+#### Contributors
+
+As with <a style="color:red" href="http://drksephy.github.io//mario/">Super Mario World: Koopa Krisis</a>, this project would not have been a huge success without my teammates. Special thanks to <a style="color:red" href="https://github.com/chessmasterhong">Kevin Chan</a> for developing the core battle system and making this project a reality. A link to his profile as well as our other contributors can be found below: 
+
+<ul>
+    <li>  <a style="color:red" href="https://github.com/chessmasterhong">Kevin Chan</a> </li>
+    <li>  <a style="color:red" href="https://github.com/mk200789"> Kim Mok </a> </li>
+    <li>  <a style="color:red" href="https://github.com/czhang"> Chris Zhang </a> </li>
+</ul>
 
