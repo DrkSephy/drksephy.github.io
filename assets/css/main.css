@@ -411,18 +411,6 @@ pre::-webkit-scrollbar-thumb:horizontal {
           border-radius: 4px;
 }
 
-.highlight {
-  margin-bottom: 1.5em;
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 2.1667;
-  color: #d0d0d0;
-  background-color: #272822;
-  border: 1px solid #dbdbdb;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-}
 
 .highlight pre, pre, .highlight .hll { background-color: #f8f8f8; border: 1px solid #ccc; padding: 6px 10px; border-radius: 3px; }
 .highlight .c { color: #999988; font-style: italic; }
