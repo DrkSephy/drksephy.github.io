@@ -83,6 +83,6 @@ As with <a style="color:red" href="http://drksephy.github.io//mario/">Super Mari
     <li>  <a style="color:red" href="https://github.com/chessmasterhong">Kevin Chan</a> </li>
     <li>  <a style="color:red" href="https://github.com/mk200789"> Kim Mok </a> </li>
     <li>  <a style="color:red" href="https://github.com/czhang"> Chris Zhang </a> </li>
-    <li> Enan Rahman </li>
+    <li>  <a style="color:red" href="http://anonears.deviantart.com/"> Enan Rahman </li>
 </ul>
 
