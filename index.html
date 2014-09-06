@@ -1,33 +1,33 @@
 ---
 layout: post-index
-title: Latest Posts
 tags: [Jekyll, theme, themes, responsive, blog, modern]
 image:
   feature: abstract-1.jpg
   background: tweed.png
 ---
 
-{% for post in site.posts %}
 <article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span>
+  <h1 style="text-align:center"> David Leonard </h1>
 
-      <span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span>
+  <p>
+    I am a Master's student at the City College of New York studying Computer Science, where I am also a researcher at G.L.A.S.S Lab under Professor Grossberg's lead. Currently I am taking two classes: Formal Language Theory, and Compiler Construction where I will be developing a Pascal Compiler using Python/JavaScript. 
+  </p>
+
+  
+  <p>
+    Throughout my undergraduate years, I dabbled in many different areas of Computer Science: Cryptography, Web Technologies, Game Development, Machine Learning and Artificial Intellignece. I've programmed using over a dozen programming languages including Lua, Scala, Haskell, Pascal, Python, C++/C, Java, Rust and my favorite: JavaScript. 
+  </p>
+
+  <p>
+    Recently, I've been doing quite a bit of programming using Rust - a relatively new language built by Mozilla in 2011. I've even contributed to open source projects revolving around Rust, such as rust-by-example, a collection of examples highlighting usage of Rust and all that it provides. The Rust compiler is currently bleeding edge and examples are commonly getting deprecated, but it has kept me on my toes and keeping up with changes to the language and the compiler itself. 
+  </p>
+
+  <p>
+    My passion lies within Web Technologies - from consuming APIs and building my own, to building full-stack web applications using Node.js, Angular.js, MongoDB and Express.js.  
+  </p>
 
 
-    </div><!-- /.entry-meta -->
 
-    {% if post.link %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}"><i class="fa fa-angle-double-right"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
-    {% else %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
-    {% endif %}
-  </header>
+</article>
 
-  <div class="entry-content">
-    <p class="post-excerpt">{{ post.excerpt | strip_html }} [<a style="color:red" href="{{ site.url }}{{ post.url }}">read more</a>]</p>
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-{% endfor %}
 
