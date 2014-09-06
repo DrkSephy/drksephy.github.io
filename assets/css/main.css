@@ -923,7 +923,7 @@ svg:not(:root) {
   font-size: 14px;
   font-size: 0.875rem;
   color: #ffffff;
-  background-color: #222222;
+  background-color: #9F9DAB;
   border-color: #222222;
   border-style: solid !important;
   border-width: 2px !important;
@@ -937,18 +937,18 @@ svg:not(:root) {
 }
 
 .btn:hover {
-  color: #222222;
-  background-color: #ffffff;
+  color: #9F9DAB;
+  background-color: #000000;
 }
 
 .btn-success {
-  color: #ffffff;
+  color: #9F9DAB;
   background-color: #5cb85c;
   border-color: #5cb85c;
 }
 
 .btn-success:visited {
-  color: #ffffff;
+  color: #9F9DAB;
 }
 
 .btn-success:hover {
@@ -957,37 +957,37 @@ svg:not(:root) {
 }
 
 .btn-warning {
-  color: #ffffff;
+  color: #9F9DAB;
   background-color: #dd8338;
   border-color: #dd8338;
 }
 
 .btn-warning:visited {
-  color: #ffffff;
+  color: #9F9DAB;
 }
 
 .btn-warning:hover {
-  color: #dd8338;
+  color: #9F9DAB;
   background-color: #ffffff;
 }
 
 .btn-danger {
-  color: #ffffff;
+  color: #9F9DAB;
   background-color: #c64537;
   border-color: #c64537;
 }
 
 .btn-danger:visited {
-  color: #ffffff;
+  color: #9F9DAB;
 }
 
 .btn-danger:hover {
-  color: #c64537;
+  color: #9F9DAB;
   background-color: #ffffff;
 }
 
 .btn-info {
-  color: #ffffff;
+  color: #9F9DAB;
   background-color: #308cbc;
   border-color: #308cbc;
 }
@@ -997,7 +997,7 @@ svg:not(:root) {
 }
 
 .btn-info:hover {
-  color: #308cbc;
+  color: #9F9DAB;
   background-color: #ffffff;
 }
 
