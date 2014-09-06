@@ -1,0 +1,91 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: Quattrocento,"文泉驛微米黑","微軟正黑體","Droid Sans Fallback",serif;
+}
+.navbar-nav > li > a, .navbar-brand {
+    color: rgb(55, 55, 55);
+    font-family: Quattrocento,"文泉驛微米黑","微軟正黑體","Droid Sans Fallback",serif;
+}
+a.navbar-brand:hover {
+    color: black;
+}
+.navbar {
+    background-image: linear-gradient(to bottom, rgba(215, 215, 215, 0.95) 0%, rgba(210, 210, 210, 1) 100%);
+    background-repeat: repeat-x;
+    border-color: rgb(179, 179, 179);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+}
+.navbar-toggle {
+    background-color: rgba(70, 70, 70, 0.3);
+}
+.navbar-toggle .icon-bar {
+    background-color: rgb(130, 130, 130);
+}
+body {
+    background-color: rgb(250, 250, 250);
+    padding-bottom: 40px;
+    padding-top: 60px;
+}
+.profile {
+    margin: 60px auto 30px;
+}
+.profile-info {
+    clear: both;
+    position: relative;
+}
+.img-profile {
+    margin: 0 auto;
+    max-width: 200px;
+    text-align: center;
+}
+.img-profile > img {
+    border-radius: 20px;
+}
+.misc-info {
+    float: left;
+}
+.social-links {
+    float: right;
+}
+.social-links > a {
+    color: inherit;
+    text-decoration: none;
+}
+.chess {
+    background-color: #ffffff;
+}
+.section {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.inline {
+    display: inline;
+    float: left;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.edu-desc {
+    padding-left: 50px;
+}
+.anchor-parent {
+    position: relative;
+}
+.anchor {
+    position: absolute;
+    top: -60px;
+}
+.row {
+    padding-bottom: 20px;
+}
+.responsive {
+    width: 100%;
+}
+.talk-block {
+    height: 300px;
+    width: 100%;
+}
