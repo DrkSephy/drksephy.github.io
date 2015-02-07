@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="wrapper">
+        <section>
+        <h2 class="content">{{page.title}}</h2>
+
+          <p class="post-meta">
+                {{ page.date | date_to_string }}
+          </p>
+
+        <img src="{{ page.image }}" />
+        {{ content }}
+    </section>
+
+</div>
