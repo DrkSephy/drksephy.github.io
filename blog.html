@@ -1,0 +1,16 @@
+---
+layout: post
+title: David Leonard
+permalink: /blog/
+gradient: 6
+image: darkscape.jpg
+---
+<ol class="posts">
+  {% for post in site.posts %}
+  <li>
+    <a class="title" href="{{ post.url }}">{{post.title}}</a>
+    <div class="excerpt">{{post.excerpt}}</div>
+    <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
+  </li>
+  {% endfor %}
+</ol>
