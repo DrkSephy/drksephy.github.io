@@ -14,6 +14,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
          <!-- Custom Theme files -->
         <link href="css/style.css" rel='stylesheet' type='text/css' />
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="css/business-casual.css" rel="stylesheet">
+         <!-- Custom Theme files -->
           <!---- start-smoth-scrolling---->
         <script type="text/javascript" src="js/move-top.js"></script>
         <script type="text/javascript" src="js/easing.js"></script>
@@ -68,7 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li><a href="#showcase" class="scroll">Showcase</a></li>
                                 <li><a href="#port" class="scroll">Portfolio</a></li>
                                 <li><a href="#team" class="scroll">Tutorials</a></li>
-                                <li><a href="/blog/" >Blog</a></li>
+                                <li><a href="#contact" class="scroll">Blog</a></li>
                             </ul>
                             <a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
                         </nav>
@@ -83,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h1><span> </span><label>David Leonard</label> <span> </span></h1>
                     <p style="font-variant: small-caps;">Full-stack JavaScript Developer</p>
                 
-                    
+                    <a class="down-arrow down-arrow-to scroll" href="#about"><span> </span></a>
                     <!-- Mouse 
                         <label class="mouse-divice"> </label>
                     -->
@@ -338,22 +340,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
 
-                <script type="text/javascript">
-                                    $(document).ready(function() {
-                                        /*
-                                        var defaults = {
-                                            containerID: 'toTop', // fading element id
-                                            containerHoverID: 'toTopHover', // fading element hover id
-                                            scrollSpeed: 1200,
-                                            easingType: 'linear' 
-                                        };
-                                        */
-                                        
-                                        $().UItoTop({ easingType: 'easeOutCubic' });
-                                        
-                                    });
-                                </script>
-                <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $().UItoTop({ easingType: 'easeOutCubic' });
+                });
+            </script>
+            <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
             </div>
     </body>
 </html>
