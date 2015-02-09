@@ -55,9 +55,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
   	font-family: 'open_sansregular';
     font-size: 100%;
-  	 background: #FFf;
-  	 text-rendering: optimizelegibility;
-  	 -webkit-font-smoothing: antialiased;
+  	background: #FFf;
+  	text-rendering: optimizelegibility;
+  	-webkit-font-smoothing: antialiased;
+  	overflow:auto;
+	overflow-x:hidden;
 }
 body a{
 	transition:0.5s all;
