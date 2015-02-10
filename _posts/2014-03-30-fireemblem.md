@@ -3,6 +3,7 @@ layout: post
 title: Fire Emblem&#58; Chronicles of the Abyss
 subtitle: "Fire Emblem - Blazing Sword remake"
 date: 2014-03-30
+tags: [Post]
 author: "David Leonard"
 header-img: "img/darkscape.jpg"
 ---

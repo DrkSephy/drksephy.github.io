@@ -3,6 +3,7 @@ layout: post
 title: Technetium
 subtitle: "A Bitbucket Data aggregation tool built using Bitbucket's RESTful API. Features a centalized issue tracker, repository subscription manager, and reports/graphs which enumerates the commit/issue activity of each user in a subscribed repository. "
 date: 2014-04-01
+tags: [Post]
 author: "David Leonard"
 header-img: "img/darkscape.jpg"
 ---
