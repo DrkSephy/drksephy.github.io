@@ -1,0 +1,17 @@
+# Site settings
+title: David Leonard
+header-img: img/darkscape.jpg
+email: DrkSephy1025@gmail.com
+description: "Full-stack JavaScript Developer"
+baseurl: "http://drksephy.github.io/"
+url: "http://drksephy.github.io.com"
+twitter_username: SBootstrap
+github_username:  davidtmiller
+facebook_username:  IronSummitMedia
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+paginate: 15
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
