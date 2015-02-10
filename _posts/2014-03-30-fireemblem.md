@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fire Emblem&#58; Chronicles of the Abyss
-subtitle: "Fire Emblem - Blazing Sword remake"
+subtitle: "Fire Emblem - Blazing Sword remake."
 date: 2014-03-30
 tags: [Post]
 author: "David Leonard"
@@ -9,19 +9,19 @@ header-img: "img/darkscape.jpg"
 ---
 
 
-<a style="color:red" href="http://drksephy.github.io//fireemblem/">Fire Emblem - Chronicles of the Abyss</a> is a JavaScript remake of Fire Emblem - Blazing Sword built on top of the <a style="color:red" href="http://impactjs.com/">ImpactJS Game Engine</a>, purely for educational purposes. The motivation for this project is to explore the capabilities of ImpactJS and push the boundaries of the engine, as well as to create a long-time favorite game. 
+<a style="color:#FC645F" href="https://github.com/chessmasterhong/WaterEmblem">Fire Emblem - Chronicles of the Abyss</a> is a JavaScript remake of Fire Emblem - Blazing Sword built on top of the <a style="color:#FC645F" href="http://impactjs.com/">ImpactJS Game Engine</a>, purely for educational purposes. The motivation for this project is to explore the capabilities of ImpactJS and push the boundaries of the engine, as well as to create a long-time favorite game. 
 
 #### The Beginning
 
 Through my experiences with ImpactJS, this new project is out of the scope of the engine. ImpactJS was primarily built for side-scrolling platforming games, while Fire Emblem is a top-down turn based strategy role playing game in which the player controls an army of units (as opposed to a single player) against an enemy army with exceptional Artificial Intelligence. 
 
-Before the project officially began as a group, <a style="color:red" href="https://github.com/chessmasterhong">one of my team members</a> started to work on the core battle system of the game - to see if it was feasible to build this game. After a month of hard work, it turned out that it was entirely possible to build this game, and that it would take an incredible amount of work. Nonetheless, we began on the second week of February after we assembled a team of 5. 
+Before the project officially began as a group, <a style="color:#FC645F" href="https://github.com/chessmasterhong">one of my team members</a> started to work on the core battle system of the game - to see if it was feasible to build this game. After a month of hard work, it turned out that it was entirely possible to build this game, and that it would take an inc#FC645Fible amount of work. Nonetheless, we began on the second week of February after we assembled a team of 5. 
 
 #### Features and Contributions
 
-At the beginning of this project, we knew that it would be a massive game to design. As such, a <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/task_tree.txt"> task dependency tree </a> and <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/roadmap.txt"> roadmap </a> were created to keep track of development and pre-requisites. 
+At the beginning of this project, we knew that it would be a massive game to design. As such, a <a style="color:#FC645F" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/task_tree.txt"> task dependency tree </a> and <a style="color:#FC645F" href="https://github.com/chessmasterhong/WaterEmblem/blob/master/notes/roadmap.txt">roadmap</a> were created to keep track of development and pre-requisites. 
 
-My <a style="color:red" href="https://github.com/chessmasterhong/WaterEmblem/pulls?q=is%3Apr+author%3ADrkSephy+is%3Aclosed">contributions</a> to this project are listed below: 
+My <a style="color:#FC645F" href="https://github.com/chessmasterhong/WaterEmblem/pulls?q=is%3Apr+author%3ADrkSephy+is%3Aclosed">contributions</a> to this project are listed below: 
 
 <ul>
     <li> Shop system </li> 
@@ -67,7 +67,7 @@ As of July 31st, 2014, the following new features have been added:
 * More Animations and playable maps
 * Map objectives and scripts
 
-While there are more features that could be added, we have decided to halt this project in favor of learning <a style="color:red" href="http://mean.io/#!/"> new technology</a>. When this project is picked up again, the following features are planned:
+While there are more features that could be added, we have decided to halt this project in favor of learning <a style="color:#FC645F" href="http://mean.io/#!/"> new technology</a>. When this project is picked up again, the following features are planned:
 
 * More levels / story progression
 * Promotion of player units into stronger classes
@@ -79,12 +79,12 @@ Throughout this project, I have learned a multitude of new things. For the most 
 
 #### Contributors
 
-As with <a style="color:red" href="http://drksephy.github.io//mario/">Super Mario World: Koopa Krisis</a>, this project would not have been a huge success without my teammates. Special thanks to <a style="color:red" href="https://github.com/chessmasterhong">Kevin Chan</a> for developing the core battle system and making this project a reality. A link to his profile as well as our other contributors can be found below: 
+As with <a style="color:#FC645F" href="http://drksephy.github.io//mario/">Super Mario World: Koopa Krisis</a>, this project would not have been a huge success without my teammates. Special thanks to <a style="color:#FC645F" href="https://github.com/chessmasterhong">Kevin Chan</a> for developing the core battle system and making this project a reality. A link to his profile as well as our other contributors can be found below: 
 
 <ul>
-    <li>  <a style="color:red" href="https://github.com/chessmasterhong">Kevin Chan</a> </li>
-    <li>  <a style="color:red" href="https://github.com/mk200789"> Kim Mok </a> </li>
-    <li>  <a style="color:red" href="https://github.com/czhang"> Chris Zhang </a> </li>
-    <li>  <a style="color:red" href="http://anonears.deviantart.com/"> Enan Rahman </li>
+    <li>  <a style="color:#FC645F" href="https://github.com/chessmasterhong">Kevin Chan</a> </li>
+    <li>  <a style="color:#FC645F" href="https://github.com/mk200789"> Kim Mok </a> </li>
+    <li>  <a style="color:#FC645F" href="https://github.com/czhang"> Chris Zhang </a> </li>
+    <li>  <a style="color:#FC645F" href="http://anonears.deviantart.com/"> Enan Rahman </li>
 </ul>
 
