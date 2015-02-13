@@ -15,7 +15,7 @@ header-img: "img/darkscape.jpg"
 
 Through my experiences with ImpactJS, this new project is out of the scope of the engine. ImpactJS was primarily built for side-scrolling platforming games, while Fire Emblem is a top-down turn based strategy role playing game in which the player controls an army of units (as opposed to a single player) against an enemy army with exceptional Artificial Intelligence. 
 
-Before the project officially began as a group, <a style="color:#FC645F" href="https://github.com/chessmasterhong">one of my team members</a> started to work on the core battle system of the game - to see if it was feasible to build this game. After a month of hard work, it turned out that it was entirely possible to build this game, and that it would take an inc#FC645Fible amount of work. Nonetheless, we began on the second week of February after we assembled a team of 5. 
+Before the project officially began as a group, <a style="color:#FC645F" href="https://github.com/chessmasterhong">one of my team members</a> started to work on the core battle system of the game - to see if it was feasible to build this game. After a month of hard work, it turned out that it was entirely possible to build this game, and that it would take an incredible amount of work. Nonetheless, we began on the second week of February after we assembled a team of 5. 
 
 #### Features and Contributions
 
