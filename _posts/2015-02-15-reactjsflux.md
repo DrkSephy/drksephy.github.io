@@ -8,6 +8,42 @@ author: "David Leonard"
 header-img: "images/reactjs.png"
 ---
 
+With ReactJS becoming one of the hottest JavaScript libraries in late 2014, I decided to investigate the hype. What better way to do so then by building an actual application using ReactJS and the Flux architecture, while documenting my process for others to learn?
+
+#### Project Directory 
+
+To demonstrate and explore ReactJS + Flux, we will build a simple shopping cart application. Below is an overview of what our project structure will look like:
+
+{% highlight bash %}
+dist/
+├── index.html
+└── js
+    └── main.js
+src/
+├── index.html
+└── js
+    ├── actions
+    │   └── app-actions.js
+    ├── components
+    │   ├── app-addtocart.js
+    │   ├── app-cart.js
+    │   ├── app-catalog.js
+    │   ├── app-decrease.js
+    │   ├── app-increase.js
+    │   ├── app-removefromcart.js
+    │   └── app.js
+    ├── constants
+    │   └── app-constants.js
+    ├── dispatchers
+    │   ├── app-dispatcher.js
+    │   └── dispatcher.js
+    ├── main.js
+    └── stores
+        └── app-store.js
+{% endhighlight %}
+
+For those interested in simply viewing the finalized project, you may find the source code <a style="color:#FC645F" href="https://github.com/DrkSephy/flux-reactJS/tree/master/flux">here</a>.
+
 #### Environment setup
 
 For this project, we will be using npm to install various packages, as well as `gulp` for 
@@ -594,7 +630,7 @@ dispatcherIndex: AppDispatcher.register(function(payload){
   })
 {% endhighlight %}
 
-<blockquote><b>Note: </b>It is important to notice that we return true at the end of our code. Keep in mind that the dispatcher queues up a chain of promises, and we need to return true in order for these promises to be resolved.</blockquote>
+<blockquote><b>Note: </b>It is important to notice that we return true at the end of our code. Keep in mind that the Dispatcher queues up a chain of promises, and we need to return true in order for these promises to be resolved.</blockquote>
 <blockquote><b>Pro-tip: </b>We provide the Dispatcher with an index in the event that we have multiple stores, we would like to keep track of which Store is trying to register an action with the Dispatcher.</blockquote>
 
 Putting it all together, our `app-store.js` is looking like this:
