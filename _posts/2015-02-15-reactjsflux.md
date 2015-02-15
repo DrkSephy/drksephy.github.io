@@ -82,7 +82,7 @@ this project:
 Once you have `package.json` in your root directory, simply run:
 
 {% highlight bash %}
-~/flux $ npm install
+~/flux λ npm install
 {% endhighlight %}
 
 
@@ -171,10 +171,27 @@ gulp.task('watch', function(){
 
 Great! Now we have our environment completely set up. Let's jump into the application.
 
+Lastly, we create the directories needed within our project.
+
+{% highlight bash %}
+
+~/flux λ mkdir src
+~/flux λ cd src
+~/flux/src λ mkdir js
+~/flux/src/js λ mkdir actions components constants dispatchers stores
+
+{% endhighlight %}
+<br>
+
 #### Index.html
+
 
 Our first step in building our application will be building our `index.html` file, which will be 
 our application entry point.
+
+{% highlight bash %}
+~/flux/src λ vim index.html
+{% endhighlight %}
 
 {% highlight html %}
 <!DOCTYPE html>
@@ -194,9 +211,33 @@ our application entry point.
 
 Here we have included Bootstrap for tables, a `div` with `id=main`, which will be where we mount our React components to from `main.js`. Now that this part is finished, we move onto building our central `app.js` file.
 
-#### app.js
+#### Main.js and App.js
 
-The purpose of this file is to tie in all of our components that will be needed. For our shopping cart application we will be building two major components: an item catalog as well as an item cart, which will both be defined towards the end of our application. 
+
+The purpose of these files is to tie in all of our components that will be needed. For our shopping cart application we will be building two major components: an item catalog as well as an item cart, which will both be defined towards the end of our application. 
+
+{% highlight bash %}
+~/flux/src/js λ vim main.js
+{% endhighlight %}
+
+{% highlight javascript %}
+
+/************************
+*--------main.js--------*
+************************/
+
+/** @jsx React.DOM */
+var APP = require('./components/app');
+var React = require('react');
+
+React.renderComponent(
+  <APP />,
+  document.getElementById('main'));
+{% endhighlight %}
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app.js
+{% endhighlight %}
 
 {% highlight javascript %}
 
@@ -223,9 +264,11 @@ var APP =
 			)
 		}
 	});
+
 module.exports = APP;
 
 {% endhighlight %}
+<br>
 
 #### Introducing Flux
 
@@ -242,6 +285,10 @@ The role of the dispatcher within the Flux model is to prevent race conditions, 
 by queueing up all events in our application as promises, and will execute them in the order
 in which they are received. The first piece of code is actually the boilerplate `dispatcher.js` 
 file provided by the Facebook team:
+
+{% highlight bash %}
+~/flux/src/js/dispatchers λ vim dispatcher.js
+{% endhighlight %}
 
 {% highlight javascript %}
 
@@ -320,6 +367,11 @@ Dispatcher.prototype with additional functionality throughout this project.</blo
 
 With this boilerplate out of the way, we build our own `app-dispatcher`, which will be responsible for queueing up the incoming actions that our application can take.
 
+
+{% highlight bash %}
+~/flux/src/js/dispatchers λ vim app-dispatcher.js
+{% endhighlight %}
+
 {% highlight javascript %}
 
 /************************
@@ -347,6 +399,10 @@ Within `handleViewAction`, we build an object containing the action to take thro
 
 With our dispatchers now out of the way, we move onto defining these actions which can occur in our application. Before we can do so, let us define some action constants within `constants/app-constants.js`:
 
+{% highlight bash %}
+~/flux/src/js/constants λ vim app-constants.js
+{% endhighlight %}
+
 {% highlight javascript %}
 
 /************************
@@ -368,6 +424,10 @@ module.exports = {
 An `Action` within the Flux architecture is nothing more than an event which will get propogated through the `Dispatcher`, which will tell the `Store` how to react. We will define what a `Store`
 is a little later, but for now let us define all possible actions that can occur in a shopping application:
 
+
+{% highlight bash %}
+~/flux/src/js/actions λ vim app-actions.js
+{% endhighlight %}
 {% highlight JavaScript %}
 
 /************************
@@ -490,6 +550,10 @@ With our actions defined, we move onto the next main component of our applicatio
 in AngularJS.</blockquote>
 
 We begin with our `app-store.js`:
+
+{% highlight bash %}
+~/flux/src/js/stores λ vim app-store.js
+{% endhighlight %}
 
 {% highlight javascript %}
 
@@ -790,6 +854,11 @@ React Components are essentially our views which grab state from the `Store` and
 
 With that said, let us build our first React Component: `app-addtocart.js`:
 
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app-addtocart.js
+{% endhighlight %}
+
 {% highlight javascript %}
 
 /************************
@@ -817,6 +886,11 @@ module.exports = AddToCart;
 
 Here we use `React.createClass` to create a new `Component` with two methods: `handleClick` which will call the `addItem` action via `AppActions` and pass the `item` in to be added to our cart using `this.props.item`. We also define a `render` method which will render a button to add a selected item into our cart. Similarly, we define `app-removefromcart.js`, `app-increase.js` and `app-decrease.js`:
 
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app-removefromcart.js
+{% endhighlight %}
+
 {% highlight javascript %}
 
 /************************
@@ -842,6 +916,11 @@ module.exports = RemoveFromCart;
 
 {% endhighlight %}
 
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app-increase.js
+{% endhighlight %}
+
 {% highlight javascript %}
 
 /************************
@@ -865,6 +944,11 @@ var Increase =
 
 module.exports = Increase;
 
+{% endhighlight %}
+
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app-decrease.js
 {% endhighlight %}
 
 {% highlight javascript %}
@@ -895,6 +979,10 @@ module.exports = Decrease;
 <blockquote><b>Note: </b> It is important to notice that these components do not inherit from a parent, they simply inherit from appActions. This is due to how data flows through the Flux architecture.</blockquote>
 
 With these Components implemented, we now move onto the two big Components: `app-catalog.js` and `app-cart.js`, which control and display the items we can purchase and the items we currently want to buy, respectively. We start with `app-catalog.js`:
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app-catalog.js
+{% endhighlight %}
 
 {% highlight javascript %}
 
@@ -987,6 +1075,10 @@ module.exports = Catalog;
 {% endhighlight %}
 
 Lastly, we define our `app-cart.js`, which handles displaying our cart as well as the items within it.
+
+{% highlight bash %}
+~/flux/src/js/components λ vim app-cart.js
+{% endhighlight %}
 
 {% highlight javascript %}
 
