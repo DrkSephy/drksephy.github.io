@@ -15,31 +15,36 @@ With ReactJS becoming one of the hottest JavaScript libraries in late 2014, I de
 To demonstrate and explore ReactJS + Flux, we will build a simple shopping cart application. Below is an overview of what our project structure will look like:
 
 {% highlight bash %}
-dist/
-├── index.html
-└── js
-    └── main.js
-src/
-├── index.html
-└── js
-    ├── actions
-    │   └── app-actions.js
-    ├── components
-    │   ├── app-addtocart.js
-    │   ├── app-cart.js
-    │   ├── app-catalog.js
-    │   ├── app-decrease.js
-    │   ├── app-increase.js
-    │   ├── app-removefromcart.js
-    │   └── app.js
-    ├── constants
-    │   └── app-constants.js
-    ├── dispatchers
-    │   ├── app-dispatcher.js
-    │   └── dispatcher.js
-    ├── main.js
-    └── stores
-        └── app-store.js
+
+flux
+├── dist
+│   ├── index.html
+│   └── js
+│       └── main.js
+├── gulpfile.js
+├── package.json
+└── src
+    ├── index.html
+    └── js
+        ├── actions
+        │   └── app-actions.js
+        ├── components
+        │   ├── app-addtocart.js
+        │   ├── app-cart.js
+        │   ├── app-catalog.js
+        │   ├── app-decrease.js
+        │   ├── app-increase.js
+        │   ├── app-removefromcart.js
+        │   └── app.js
+        ├── constants
+        │   └── app-constants.js
+        ├── dispatchers
+        │   ├── app-dispatcher.js
+        │   └── dispatcher.js
+        ├── main.js
+        └── stores
+            └── app-store.js
+
 {% endhighlight %}
 
 For those interested in simply viewing the finalized project, you may find the source code <a style="color:#FC645F" href="https://github.com/DrkSephy/flux-reactJS/tree/master/flux">here</a>.
