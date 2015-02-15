@@ -222,7 +222,14 @@ module.exports = APP;
 
 {% endhighlight %}
 
-As per the Flux architecture model, we will begin by building our dispatcher. 
+#### Introducing Flux
+
+Flux is not to be confused with a framework, it is closer to a design pattern in which we have a
+unidirectional data flow throughout our application. This simplifies our logic and allows us to build web applications which will scale over time no matter how complicated and numerous our views and models (from MVC standpoints) may grow. 
+
+![flux architecture](/images/flux-react.png)
+
+Over the course of this tutorial, we will cover each of the key components that make up Flux as we develop our application.
 
 #### Dispatchers
 
@@ -294,6 +301,14 @@ Dispatcher.prototype = merge(Dispatcher.prototype, {
 module.exports = Dispatcher;
 
 {% endhighlight %}
+
+We will need to install `es6-promises` to use within `dispatcher.js`. Let's go ahead and do that:
+
+{% highlight bash %}
+npm install es6-promises
+{% endhighlight %}
+
+<blockquote><b>Note:</b> For OS X users, you will have to run <b>sudo npm install es6-promises</b>.</blockquote>
 
 <blockquote><b>Note: </b> Keep track of the merge library, which we will use to extend the method
 Dispatcher.prototype with additional functionality throughout this project.</blockquote>
