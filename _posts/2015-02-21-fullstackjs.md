@@ -426,3 +426,286 @@ module.exports = function(router, request, async, config) {
 
 
 {% endhighlight %}
+
+With that done, we move onto our AngularJS client. 
+
+### Public/index.html
+
+Before we begin our AngularJS application, we first put together an `index.html` containing all the JavaScript files we will need. 
+
+{% highlight html %}
+
+<!DOCTYPE html>
+<html lang="en-us" data-ng-app="gitApp" data-ng-controller="gitController">
+    <head>
+        <meta charset="utf-8">
+
+        <title data-ng-bind="pageTitle + ' | Git-Technetium'">Git-Technetium</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/admin.css" rel="stylesheet">
+
+        <!-- jQuery -->
+        <script src="vendor/jquery/dist/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- LIBRARIES -->
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="vendor/async/lib/async.js"></script>
+
+        <script src="scripts/app.js"></script>
+
+
+        <!-- CONTROLLERS -->
+        <script src="scripts/controllers/gitController.js"></script>
+        <script src="scripts/controllers/issuesController.js"></script>
+
+        <!-- FACTORIES -->
+        <script src="scripts/factories/issuesFactory.js"></script>
+
+    </head>
+
+    <body>
+        <div data-ui-view></div>
+        <!-- Navbar will always be present -->
+        <div ng-include="'addons/navbar.html'"></div>
+    </body>
+</html>
+
+
+{% endhighlight %}
+
+The comments should be self-sufficient in explaining what each section is doing. The most important sections to note are the `Controllers` and the `Factories`, which we will get into now. 
+
+### Factories
+
+One aspect of AngularJS which developers may find confusing is the difference between `Factories` and `Services`. I'll try to explain the difference as I see it.
+
+Factories allow us to add logic before creating the object that we will require (often required by a `Controller` - which we will define shortly after.) We can create an object, add properties to it, and then return the same object. By passing this object to the `Controller`, that `Controller` will have access to these same properties. Other than that, `Factories`:
+
+* Can use other dependencies
+* Useful for non-configurable services
+* Singleton object
+
+On the other hand, a `Service` (which is not used in this application) creates a service object through use of the `new` keyword. We can then add properties to it and return the object using `return this`. `Services` also:
+
+* Gives us an instance of a function/object which we can augment with new properties and return through `this`.
+* Singleton object, will only be created once.
+* Dependencies will be injected as arguments to the constructor
+* Used for simple object creation logic
+
+With the terminology out of the way, we will create a factory which is in charge of returning a function to retrieve issue data from our ExpressJS API endpoint. 
+
+{% highlight javascript %}
+
+gitApp.factory('issuesFactory', function($http) {
+    'use strict';
+
+    return {
+        get: function(owner, repo) {
+            return $http({
+                url: '/api/issues',
+                method: 'GET',
+                params: {
+                    owner: owner,
+                    repo: repo
+                }
+            });
+        }
+    };
+});
+
+{% endhighlight %}
+
+Here we create a factory which is a function of `$http` - an AngularJS service for reading data from remote servers. We return a `get` method which is a function of `owner` and `repo`, which will be passed in through a form object inside of one of our `partials` (which we have not implemented yet). Remember those query parameters `repo.query.owner` and `repo.query.repo` from our `issues.js` route in ExpressJS? Those parameters will be sent through this HTTP request. 
+
+With our `issue` factory implemented, we move onto implementing our first `Controller`.
+
+### Controllers
+
+`Controllers` in AngularJS are nothing more than JavaScript functions which are bound to a particular scope. We use `Controllers` to add logic to our view (our `partials`, which we implement in the next section). Simply put, `Controllers` bind data to our views and act as the glue between our model (data) and the view. 
+
+In more technical terms, `Controllers` allow us to augment the `$scope` object with data which we will make available in the view. 
+
+Before writing our first functional controller, we must first get some initialization out of the way. We need to define a controller which will handle our routing based on the current page we are on.
+
+{% highlight javascript %}
+
+gitApp.controller('gitController', function($scope, $location) {
+    'use strict';
+
+    $scope.siteTitle = 'Git-Technetium';
+
+    $scope.$on('$stateChangeSuccess', function(event, toState) {
+        $scope.pageTitle = toState.data.pageTitle;
+    });
+
+    $scope.isActive = function(viewLocation) {
+        return viewLocation === $location.path();
+    };
+});
+
+{% endhighlight %}
+
+
+With that out of the way, here is our first controller, `issuesController.js`:
+
+{% highlight javascript %}
+
+gitApp.controller('issuesController', function($scope, issuesFactory) {
+    'use strict';
+
+    $scope.pageData = [];
+
+    $scope.submitQuery = function() {
+        $scope.pageData = issuesFactory.get($scope.owner, $scope.repo).success(function(data) {
+            $scope.pageData = data;
+        });
+    };
+});
+
+{% endhighlight %}
+
+Here we create a `Controller` which is a function of the `$scope` object and our `issuesFactory` factory. When we submit our form, we will augment `$scope` with `pageData` - which will contain the result of retrieving data from our ExpressJS issues API endpoint through our `get` method inside of `issuesFactory.js`. Once the data returns successfully, we augment `$scope.pageData` with the data returned in our callback function. 
+
+### App.js
+
+With our `Factory` and `Controller` implemented, we will define the routes of our application. Using AngularJS's `ui.router` library, we can define `states` which dictate which template, controller and data to map to a specific URL in our application. Let us go ahead and define a URL with which to view issues at:
+
+{% highlight javascript %}
+
+wvar gitApp = angular.module('gitApp', [
+    'ui.router'
+])
+.config(function($stateProvider, $urlRouterProvider) {
+    'use strict';
+
+    $stateProvider
+        .state('issues', {
+            url: '/issues',
+            templateUrl: 'partials/issues.partial.html',
+            controller: 'issuesController',
+            data: {
+                pageTitle: 'Issues'
+            }
+        });
+});
+
+
+{% endhighlight %}
+
+By navigating to `localhost/#/issues`, we will be able to view a form which will allow us to query a repository for all issues. Before we can do so, let us finally define our first `partial` - `issues.partial.html`. 
+
+### Partials 
+
+Partials are HTML fragments which are similar to AngularJS templates. Due to our data from the controllers binding the data to our `$scope` object - we can use the AngularJS directive `ng-repeat` to iterate over an array of elements in our User Interface. As we mentioned before, we will use a form to pass in the repository owner name (`owner`) and the repository name (`repo`). Below is the HTML for our `issues.partial.html`:
+
+{% highlight html %}
+
+<body>
+    <div id="wrapper">
+        <!-- Include navbar and sidebar addons -->
+        <div ng-include="'addons/navbar.html'"></div>
+        <div ng-include="'addons/sidebar.html'"></div>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Issues </h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <form ng-submit="submitQuery()">
+                                    <p>
+                                        <strong>Repository Owner's Name: </strong><input type="text" ng-model="owner" required><br>
+                                        <strong>Repository Name: </strong><input type="text" ng-model="repo" required><br>
+                                        <button type="submit">Get Issues</button>
+                                    </p>
+                                </form>
+
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped tablesorter">
+                                            <thead>
+                                                <tr>
+                                                    <th class="header">#</th>
+                                                    <th class="header">Title</th>
+                                                    <th class="header">State</th>
+                                                    <th class="header">Opened by</th>
+                                                    <th class="header">Assigned to</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-ng-repeat="issue in pageData">
+                                                    <td>{{ issue.number }}</td>
+                                                    <td><a ng-href="http://github.com/DrkSephy/git-technetium/issues/{{ issue.number }}">{{ issue.title }}</a></td>
+                                                    <td>{{ issue.state }}</td>
+                                                    <td><a ng-href="http://github.com/{{ issue.creator }}">{{ issue.creator }}</a></td>
+                                                    <td><a ng-href="http://github.com/{{ issue.assignee }}">{{ issue.assignee }}</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div> <!-- /panel-body -->
+                        </div> <!-- /panel panel-default-->
+                    </div> <!-- /col-lg-12 -->
+                </div> <!-- /.row -->
+            </div> <!-- /container-fluid -->
+        </div> <!-- /page-wrapper-->
+    <div> <!-- /wrapper -->
+</body>
+
+{% endhighlight %}
+
+Most of the above is simply Bootstrap code, but let us break down the important AngularJS specific parts. 
+
+{% highlight html %}
+
+<form ng-submit="submitQuery()">
+    <p>
+        <strong>Repository Owner's Name: </strong><input type="text" ng-model="owner" required><br>
+        <strong>Repository Name: </strong><input type="text" ng-model="repo" required><br>
+        <button type="submit">Get Issues</button>
+    </p>
+</form>
+
+{% endhighlight %}
+
+Here we create a form which contains `ng-model` - used to bind form properties to the `$scope` object. It provides two-way data binding between the form and the Controller, which in turn will pass it's values to our Factory method and subsequently down to our ExpressJS API issues endpoint. 
+
+{% highlight html %}
+
+<tbody>
+  <tr data-ng-repeat="issue in pageData">
+      <td>{{ issue.number }}</td>
+      <td><a ng-href="http://github.com/DrkSephy/git-technetium/issues/{{ issue.number }}">{{ issue.title }}</a></td>
+      <td>{{ issue.state }}</td>
+      <td><a ng-href="http://github.com/{{ issue.creator }}">{{ issue.creator }}</a></td>
+      <td><a ng-href="http://github.com/{{ issue.assignee }}">{{ issue.assignee }}</a></td>
+  </tr>
+</tbody>
+
+{% endhighlight %}
+
+Here we simply use the AngularJS directive `ng-repeat` to loop over each entry within `pageData` - which comes from our Controller. We display the issue number, issue title, issue state, issue creator and issue assignee. 
+
+Go ahead and re-run your server if you aren't running it already. Input a repository owner name and repository name, and you should see the User Interface update once the data is returned. 
+
+![Sample](/img/issues.png)
+
+#### Wrapping up
+
+Go
+
+If you've made it this far, congratulations! You've successfully developed an application in which you've built your own RESTful API using ExpressJS, NodeJS and a client in AngularJS to consume our API.
