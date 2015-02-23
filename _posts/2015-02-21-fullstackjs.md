@@ -706,6 +706,8 @@ Go ahead and re-run your server if you aren't running it already. Input a reposi
 
 #### Wrapping up
 
-Go
+If you've made it this far, congratulations! You've successfully developed an application in which you've built your own RESTful API using ExpressJS, NodeJS and a client in AngularJS to consume our API. While we have only covered a single API endpoint and only use GET requests, you should now have some intuition on how to extend this application.
 
-If you've made it this far, congratulations! You've successfully developed an application in which you've built your own RESTful API using ExpressJS, NodeJS and a client in AngularJS to consume our API.
+For those interested in a broader application which covers more endpoints of the Github API, feel free to [check out Git-Techetium](https://github.com/DrkSephy/git-technetium), which covers endpoints such as commits, issues opened, issues closed, issues assigned, pull requests, lines of code and more. 
+
+Thanks for reading!
