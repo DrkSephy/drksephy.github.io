@@ -5,6 +5,7 @@ subtitle: "Learn to build an application using ExpressJS, NodeJS, AngularJS and 
 date: 2015-02-21
 tags: [Tutorial]
 author: "David Leonard"
+header-img: "images/mean.png"
 ---
 
 With JavaScript becoming an increasingly popular language through frameworks such as NodeJS and AngularJS, I decided to work on a project which involved MongoDB, ExpressJS, NodeJS, AngularJS and the Github API. The motivation for this project was to build a useful tool for quickly visualizing statistics in a repository while learning how to build web applications using full-stack JavaScript. 
@@ -140,6 +141,8 @@ We will also need some packages for our server-side application. Set up a `packa
 {% endhighlight %}
 
 With this, we now run `npm install` to install the packages listed within our `package.json` file. 
+
+<blockquote><b>Tip:</b> For OS X users, you will have to run <b>sudo npm install</b>.</blockquote>
 
 #### Setting up your Github Developer Account
 
