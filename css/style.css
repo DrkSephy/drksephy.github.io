@@ -100,13 +100,11 @@ body a{
 	color: #FC645F;
 	padding: 0.4em 0em;
 	font-size: 1em;
-	font-weight: 400;
+	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
-	font-weight: 300;
 	font-family: 'open_sanslight';
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	margin: 0 1.7em;
 }
 .top-nav ul li.active a,
