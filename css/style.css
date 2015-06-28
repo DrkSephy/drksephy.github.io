@@ -98,14 +98,14 @@ body a{
 }
 .top-nav ul li a{
 	color: #FC645F;
-	padding: 0.4em 0em;
 	font-size: 1em;
 	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;
-	position: relative;
 	font-family: 'open_sanslight';
 	margin: 0 1.7em;
+	margin-left: auto;
+	margin-right: auto;
 }
 .top-nav ul li.active a,
 .top-nav ul li a:hover{
