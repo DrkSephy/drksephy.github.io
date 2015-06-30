@@ -204,105 +204,37 @@
     <!-- /.content-section-a -->
 
     <a name="portfolio"></a>
-    <div class="portfolio-box">
-        <div class="container">
-            <div class="about-head text-center">
-                <br>
-                <h3>Project <span>Portfolio</span></h3>
-            </div>
-            <script type="text/javascript">
-                $(function () {
-                    var filterList = {
-                        init: function () {
-                        
-                            // MixItUp plugin
-                            // http://mixitup.io
-                            $('#portfoliolist').mixitup({
-                                targetSelector: '.portfolio',
-                                filterSelector: '.filter',
-                                effects: ['fade'],
-                                easing: 'snap',
-                                // call the hover effect
-                                onMixEnd: filterList.hoverEffect()
-                            });             
-                        
-                        },
-                        hoverEffect: function () {
-                            // Simple parallax effect
-                            $('#portfoliolist .portfolio').hover(
-                                function () {
-                                    $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-                                    $(this).find('img').stop().animate({top: -30}, 750, 'easeOutQuad');             
-                                },
-                                function () {
-                                    $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-                                    $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
-                                }       
-                            );              
-                        
-                        }
-            
-                    };
-                    // Run the show!
-                    filterList.init();
-                }); 
-            </script>
-
-            <ul id="filters" class="clearfix">
-                <li><span class="filter active" data-filter="web games compiler crypto">All</span> /</li>
-                <li><span class="filter" data-filter="web">WEB</span> /</li>
-                <li><span class="filter" data-filter="games">GAMES</span> /</li>
-                <li><span class="filter" data-filter="compiler">COMPILERS</span> /</li>
-                <li><span class="filter" data-filter="crypto">CRYPTOGRAPHY</span></li>
-            </ul>
-            
-            <div id="portfoliolist">
-            <div class="portfolio games mix_all port-big-grid" data-cat="games" style="display: inline-block; opacity: 1;">
-                <div class="portfolio-wrapper">     
-                    <a data-toggle="modal" data-target=".bs-example-modal-md" href="http://drksephy.github.io/2014/03/30/fireemblem/" class="b-link-stripe b-animate-go  thickbox">
-                     <img class="p-img" src="img/pfe.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><i style="margin-top: 80px;" class="fa fa-search-plus fa-3x"></i></h2>
-                    </div></a>
-                </div>
-            </div>              
-            <div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
-                <div class="portfolio-wrapper">     
-                    <a data-toggle="modal" data-target=".bs-example-modal-md" href="http://drksephy.github.io/2014/04/01/technetium/" class="b-link-stripe b-animate-go  thickbox">
-                     <img class="p-img" src="img/pissue.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><i style="margin-top: 80px;" class="fa fa-search-plus fa-3x"></i></h2>
-                    </div></a>
-                </div>
-            </div>      
-            <div class="portfolio compiler mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
-                <div class="portfolio-wrapper">     
-                    <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                     <img class="p-img" src="img/pcompiler.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><i style="margin-top: 80px;" class="fa fa-search-plus fa-3x"></i></h2>
-                    </div></a>
-                </div>
-            </div>              
-            <div class="portfolio games mix_all" data-cat="games" style="display: inline-block; opacity: 1;">
-                <div class="portfolio-wrapper">     
-                    <a data-toggle="modal" data-target=".bs-example-modal-md" href="http://drksephy.github.io/2013/08/13/mario/" class="b-link-stripe b-animate-go  thickbox">
-                     <img class="p-img" src="img/pmario.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><i style="margin-top: 80px;" class="fa fa-search-plus fa-3x"></i></h2>
-                    </div></a>
-                </div>
-            </div>  
-            <div class="portfolio crypto mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
-                <div class="portfolio-wrapper">     
-                    <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                     <img class="p-img" src="img/pcrypt.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><i style="margin-top: 80px;" class="fa fa-search-plus fa-3x"></i></h2>
-                    </div></a>
-                </div>
-            </div>          
-            <div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
-                <div class="portfolio-wrapper">     
-                    <a data-toggle="modal" data-target=".bs-example-modal-md" href="http://drksephy.github.io/2013/07/01/caesium/" class="b-link-stripe b-animate-go  thickbox">
-                     <img class="p-img" src="img/pcaseium.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><i style="margin-top: 80px;" class="fa fa-search-plus fa-3x"></i></h2>
-                    </div></a>
-                </div>
-            </div>  
-            <div class="clearfix"> </div>   
-            
-        </div>
+    <div id="w">
+    <div class="about-head text-center">
+        <br>
+        <h3>Project <span>Portfolio</span></h3>
     </div>
+    
+    <ul id="filter-list" class="clearfix">
+      <li class="filter" data-filter="all">All</li>
+      <li class="filter" data-filter="web">Web</li>
+      <li class="filter" data-filter="games">Games</li>
+      <li class="filter" data-filter="compiler">Compilers</li>
+      <li class="filter" data-filter="crypto">Cryptography</li>
+    </ul><!-- @end #filter-list -->
+    
+    <ul id="portfolio">
+      <li class="item games"><a href="http://drksephy.github.io/2014/03/30/fireemblem/"><img src="img/pfe.jpg" alt="Fire Emblem"></a></li>
+      <li class="item web"><a href="http://drksephy.github.io/2014/04/01/technetium/"><img src="img/pissue.jpg" alt="Technetium"></a></li>
+      <li class="item compiler"><a href="#"><img src="img/pcompiler.jpg" alt="Pascal Compiler"></a></li>
+      <li class="item games"><a href="http://drksephy.github.io/2013/08/13/mario/"><img src="img/pmario.jpg" alt="Super Mario Koopa Krisis"></a></li>
+      <li class="item crypto"><a href="#"><img src="img/pcrypt.jpg" alt="El Gamal Encryption"></a></li>
+      <li class="item web"><a href="http://drksephy.github.io/2013/07/01/caesium/"><img src="img/pcaseium.jpg"  alt="Notification System"></a></li>
+    </ul><!-- @end #portfolio -->
+  </div><!-- @end #w -->
+    <script type="text/javascript">
+        $(function(){
+          $('#portfolio').mixitup({
+            targetSelector: '.item',
+            transitionSpeed: 450
+          });
+        });
+    </script>
 
 
 
