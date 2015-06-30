@@ -455,44 +455,12 @@ a.wedobtn{
 .b-link-stripe:hover .b-line{
     opacity:1;
 }
-/*-----------------------------------------------------------------------------------*/
-/*  Animation effects
-/*-----------------------------------------------------------------------------------*/
-.b-animate-go{
-    text-decoration:none;
-}
-.b-animate{
-    transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    visibility: hidden;
-    font-size:1.1em;
-    font-weight:700;
-}
-.b-animate img{
-    margin-top: 26%;
-    display: -webkit-inline-box;
-}
-/* lt-ie9 */
-.b-animate-go:hover .b-animate{
-    visibility:visible;
-}
-.b-from-left{
-    position: relative;
-    left: -100%;
-    background: rgba(214, 95, 88, 0.95);
-    height: 100%;
-    margin: 0;
-}
-.b-animate-go:hover .b-from-left{
-    left:0;
-}
+
 span.m_4{
     font-size:14px;
     font-weight:400;
 }
+
 p.m_5 {
     margin: 2% auto 5%;
     width: 70%;
@@ -502,158 +470,7 @@ p.m_5 {
     line-height: 1.5em;
     text-align: center;
 }
+
 .p-img {
     width:100%;
-}
-.more-ports span{
-    width: 92px;
-    height: 92px;
-    display: inline-block;
-    background: url(../images/p-btn-bg.png) no-repeat 0px 0px;
-}
-.more-ports{
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    margin-top:2%;
-}
-/*----*/
-a.load-ports{
-    background: #FC635E;
-    color: #FFF;
-    padding: 0.9em 2em;
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 0.5em;
-    -webkit-border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    -o-border-radius: 0.5em;
-    -ms-border-radius: 0.5em;
-    margin-top: 1.3em;
-    width: 18.44%;
-    margin: 3em auto;
-    display: block;
-}
-.load-ports:hover{
-    background: #868686;
-    text-decoration:none;
-    color:#FFF;
-}
-.portfolio-box{
-    position:relative;
-}
-a.port-down-arrow{
-    width: 28px;
-    height: 28px;
-    display: block;
-    background: url(../images/down-arrow.png) no-repeat 0px 0px;
-    position: absolute;
-    bottom: 4%;
-    left: 49%;
-}
-span.port-mouse{
-    width: 120px;
-    height: 191px;
-    display: inline-block;
-    background: url(../images/pmouse.png) no-repeat 0px 0px;
-    position: absolute;
-    bottom:4%;
-    left: 58%;
-}
-
-/** page structure **/
-#w {
-  display: block;
-  max-width: 1100px;
-  min-width: 280px;
-  padding-top: 20px;
-  margin: 0 auto;
-}
-
-
-/** filters list **/
-#filter-list {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-#filter-list li {
-  display: inline-block;
-  width: auto;
-  padding: 6px 10px;
-    margin-right: 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    text-shadow: 1px 1px 0 #fff;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-#filter-list li:hover {
-    background: #e7e2eb;
-}
-#filter-list li.active {
-    font-weight: bold;
-    background: #d8c5e7;
-}
-
-
-/** portfolio list **/
-#portfolio {
-    display: block;
-  width: 100%;
-  padding: 0 12px;
-  margin-bottom: 35px;
-    text-align: center;
-}
-
-#portfolio .item {
-    display: none;
-    opacity: 0;
-    width: 40%;
-    vertical-align: top;
-    margin-bottom: 25px;
-    margin-right: 20px;
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    -moz-box-sizing: border-box;
-}
-#portfolio .item a {
-  display: inline-block;
-  max-width: 100%;
-  text-decoration: none;
-  background: #fff;
-
-}
-#portfolio .item img {
-  padding: 3px;
-  max-width: 100%;
-  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.55);
-  -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.55);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.55);
-}
-
-/** clearfix **/
-.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
-.clearfix { display: inline-block; }
- 
-html[xmlns] .clearfix { display: block; }
-* html .clearfix { height: 1%; }
-
-
-/** media queries **/
-@media screen and (max-width: 720px) {
-  h1 { font-size: 2.7em; }
-}
-
-@media screen and (max-width: 500px) {
-  h1 { font-size: 2.0em; }
-  #filter-list { padding: 0 18px; }
-  #filter-list li { display: block; margin-bottom: 3px; }
-  
-  #portfolio { margin-bottom: 20px; }
-  #portfolio .item { width: 100%; margin-bottom: 12px; margin-right: 0; }
 }
