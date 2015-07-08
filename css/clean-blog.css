@@ -587,3 +587,9 @@ body a{
   -o-transition:0.5s all;
   -ms-transition:0.5s all;
 }
+
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
