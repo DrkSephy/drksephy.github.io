@@ -5,7 +5,7 @@ subtitle: "Learn to build an application using ExpressJS, NodeJS, AngularJS and 
 date: 2015-02-21
 tags: [Tutorial]
 author: "David Leonard"
-header-img: "images/mean.png"
+header-img: ""
 ---
 
 With JavaScript becoming an increasingly popular language through frameworks such as NodeJS and AngularJS, I decided to work on a project which involved MongoDB, ExpressJS, NodeJS, AngularJS and the Github API. The motivation for this project was to build a useful tool for quickly visualizing statistics in a repository while learning how to build web applications using full-stack JavaScript. 
