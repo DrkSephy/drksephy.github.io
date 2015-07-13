@@ -15,7 +15,7 @@ Special thanks to <a style="color:#FC645F" href="https://codenameyau.github.io/"
 
 The main entry feature of Technetium is the Subscription manager, which allows the user to "subscribe" to any repository which they have read access to. 
 
-![subscriptions](/img/subscription.png){: .center-image}
+![subscriptions](/img/subscriptions.png){: .center-image}
 
 By subscribing to repositories, users can then use the centralized issue tracker along with the report generation. 
 
@@ -31,7 +31,7 @@ This feature has come in handy for various developers who are looking for a free
 
 The last feature of Technetium is the ability to automatically generate reports which summarize activity in a given repository among each contributor. For instance, users can quickly view how many issues are spread across each contributor, as well as how many issues and commits are being done in a repository. 
 
-![reports](/img/repot.png){: .center-image}
+![reports](/img/reports.png){: .center-image}
 
 Reports are built using the <a href="https://github.com/kennethreitz/grequests" style="color:#FC645F">grequests library</a> for handling multiple requests and the <a href="https://github.com/areski/python-nvd3" style="color:#FC645F">nvd3</a> library for d3 wrappers in Python. 
 
