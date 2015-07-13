@@ -585,7 +585,7 @@ With our `Factory` and `Controller` implemented, we will define the routes of ou
 
 {% highlight javascript %}
 
-wvar gitApp = angular.module('gitApp', [
+var gitApp = angular.module('gitApp', [
     'ui.router'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
