@@ -12,7 +12,7 @@ header-img: "img/sky.jpg"
 
 Special thanks to <a style="color:#FC645F" href="https://codenameyau.github.io/">Jorge Yau</a> for his guidance and contributions towards making this a great project. Feel free to check out <a style="color:#FC645F" href="https://github.com/codenameyau">his works</a>.
 
-#### Subscriptions 
+#### Subscription Manager
 
 The main entry feature of Technetium is the Subscription manager, which allows the user to "subscribe" to any repository which they have read access to. 
 
@@ -40,4 +40,4 @@ Currently, <a style="color:#FC645F" href="http://technetium.herokuapp.com">Techn
 
 #### Source
 
-The source for this project may be <a style="color:#FC645F" href="https://github.com/DrkSephy/technetium">found here</a>. If you find any bugs or have a feature request, feel free to send a pull request or <a style="color:#FC645F" href="https://github.com/DrkSephy/technetium/issues">file an issue</a>. 
+The source for this project may be <a style="color:#FC645F" href="https://github.com/DrkSephy/technetium">found here</a>. If you find any bugs or have a feature request, feel free to send a pull request or <a style="color:#FC645F" href="https://github.com/DrkSephy/technetium/issues">file an issue</a>. Thanks for reading!
