@@ -8,7 +8,7 @@ author: "David Leonard"
 header-img: "img/sky.jpg"
 ---
 
-<a style="color:#FC645F" href="http://technetium.herokuapp.com">Technetium</a> is a Bitbucket Data aggregation tool built using <a style="color:#FC645F" href="https://confluence.atlassian.com/display/BITBUCKET/Use+the+Bitbucket+REST+APIs">Bitbucket's RESTful API</a>. It features a centalized issue tracker, repository subscription manager, and reports/graphs which enumerates the commit/issue activity of each user in a subscribed repository. 
+<a style="color:#FC645F" href="https://github.com/DrkSephy/technetium">Technetium</a> is a Bitbucket Data aggregation tool built using <a style="color:#FC645F" href="https://confluence.atlassian.com/display/BITBUCKET/Use+the+Bitbucket+REST+APIs">Bitbucket's RESTful API</a>. It features a centalized issue tracker, repository subscription manager, and reports/graphs which enumerates the commit/issue activity of each user in a subscribed repository. 
 
 Special thanks to <a style="color:#FC645F" href="https://codenameyau.github.io/">Jorge Yau</a> for his guidance and contributions towards making this a great project. Feel free to check out <a style="color:#FC645F" href="https://github.com/codenameyau">his works</a>.
 
