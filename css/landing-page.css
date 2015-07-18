@@ -17,12 +17,16 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    color:#9E9898;
 }
 
 .topnav {
-    font-size: 14px; 
+    font-size: 18px; 
+    /* For some reason, despite linking to the google font, it defaults to serif
+     * so for now I am commenting this font outs */ 
+    /* font-family: 'open_sansregular'; */
 }
 
 .lead {
@@ -43,22 +47,26 @@ h6 {
     position: relative;
     padding-top: 20%;
     padding-bottom: 20%;
+    color:#ffffff;
 }
 
 .intro-message > h1 {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
+    color:#ffffff;
 }
 
 .intro-divider {
     width: 400px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0,0,0,0.2);
+    color:#ffffff;
 }
 
 .intro-message > h3 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    color:#ffffff;
 }
 
 @media(max-width:767px) {
@@ -186,7 +194,6 @@ p.copyright {
     border-bottom: 1px solid #868686;
     display: inline-block;
     padding: 0 0 0.4em;
-    font-family: 'open_sanssemibold';
 }
 .about-head h3 span{
     color:#FC635E;
@@ -228,7 +235,6 @@ a.wedobtn{
 .wedo-left p{
     color: #9E9898;
     line-height: 1.8em;
-    font-family: 'open_sanslight';
 }
 
 .wedo-grids {
@@ -259,7 +265,6 @@ a.wedobtn{
 .advertising-right p{
     color: #9E9898;
     line-height: 1.8em;
-    font-family: 'open_sanslight';
 }
 
 /*--- portfolio ---*/
@@ -384,7 +389,6 @@ a.wedobtn{
     position:relative;
     display:inline-block;
     vertical-align:top;
-     font-family: 'open_sansregular';
     font-weight: 300;
     overflow:hidden;
     width: 100%;
