@@ -70,7 +70,7 @@ body a{
 }
 /*-----start-header----*/
 .bg{
-	background: url(../images/darkscape.jpg) no-repeat 0px 0px;
+	background: url(../img/forest.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	min-height: 760px;
 }
