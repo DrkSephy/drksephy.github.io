@@ -527,3 +527,8 @@ footer .footer-above {
 footer .footer-col {
     margin-bottom: 50px;
 }
+
+.responsive-image{
+    height:auto;
+    width:100%;
+}
