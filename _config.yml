@@ -4,7 +4,7 @@ header-img: img/forest.jpg
 email: DrkSephy1025@gmail.com
 description: "Full-stack JavaScript Developer"
 baseurl: ""
-url: "http://drksephy.github.io.com"
+url: "http://drksephy.github.io"
 
 # Build settings
 markdown: kramdown
