@@ -16,7 +16,7 @@ After a closer observation of the problem, it turns out that it is actually a va
 
 ## Problem Representation
 
-Genetic Algorithms consist of various operators known as <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">Selection</a>, <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">Crossover</a> and <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)">Mutation</a>. These operators take binary strings as input, so we'll need to come up with a representation for our problem in terms of binary strings. Since we have two subsets whose difference in sums needs to be minimized, we'll generate an initial population of 20 binary strings each consisting of 50 zeroes and ones, where zeroes correspond to *"this number will belong to S<sub>1</sub>* while ones correspond to *"this number will belong to S<sub>2</sub>"*. 
+Genetic Algorithms consist of various operators known as <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)">Selection</a>, <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">Crossover</a> and <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)">Mutation</a>. These operators take binary strings as input, so we'll need to come up with a representation for our problem in terms of binary strings. Since we have two subsets whose difference in sums needs to be minimized, we'll generate an initial population of 20 binary strings each consisting of 50 zeroes and ones, where zeroes correspond to *"this number will belong to S<sub>1</sub>"* while ones correspond to *"this number will belong to S<sub>2</sub>"*. 
 
 <blockquote><b>Problem Invariant</b>: Due to the problem specifying that each subset must contain n/2 integers, meaning that all of our genetic operators must result in strings containing an equal number of zeroes and ones.</blockquote>
 
@@ -115,11 +115,113 @@ def fitnessAssessment(self, population):
 
 In this method, we compute the difference in sums between our two subsets and then sort the values. As mentioned above, we assign a higher fitness value to the strings corresponding to smaller differences, and therefore the numbers at the beginning of our sorted list will have the highest fitness values. Since our initial population consists of 20 binary strings, the first member in our sorted list will have a fitness of 19, meaning that this value is less than 19 other values in this population. With our fitness values in place, we move onto implementing our genetic operators. 
 
+## Selection
 
+At each iteration of our genetic algorithm, we will select a certain amount of strings from our initial population which will be used to breed the new generation of strings. In order to do so, we need some way of selecting these strings based on their fitness values. While it may seem beneficial to only keep the strings which have the largest fitness values, this may actually lead to our algorithm getting stuck at local minimums and therefore will never truly converge. In order to fairly select strings based on their fitness values, we will implement the <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Fitness_proportionate_selection">roulette wheel</a> selection method. 
 
+{% highlight python %}
 
+def selection(self, population):	
+	# Compute total fitness of population
+	totalFitness = 0
+	for key in self.frequency:
+		totalFitness += key
 
+	# Compute weighted fitnesses
+	weightedFitness = [float(key) / float(totalFitness) for key in self.frequency]
 
+	# Generate probability intervals
+	probabilities = [round(sum(weightedFitness[:i + 1]) * 100, 2) for i in range(len(weightedFitness))]
 
+	# Select an individual using weighted probabilities		
+	probability = random.uniform(0, 100)
+	for (n, individual) in enumerate(population):
+		if probability <= probabilities[n]:
+			return individual
 
+{% endhighlight %}
 
+Here, we compute the total fitness of our current population. Using this, we can compute a weighed fitness for each string in our population proportional to the total fitness of the population. With this, we can assign probabilities to each of our strings - where the probability for each string to be selected is proportional to their fitness values relative to the entire population. We then generate a random float between 0 and 100 and use this to select one string from our current population which will be used to generate the new generation. 
+
+## Crossover
+
+In Crossover, we select two strings from our current population and use them to generate two children to form the new generation. Each of these children will have a certain amount of "genetic material" from each parent, which should theoretically generate new generations which have closer and closer fitness values that solve our problem better. While there are several crossover methods, we'll use the simple <a style="color:#FC645F" href="https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)">One-point crossover</a> method which is implemented below:
+
+{% highlight python %}
+
+def crossover(self, count):
+	newGeneration = []
+	while len(newGeneration) < count:
+		parentOne = self.selection(self.population)
+		parentTwo = self.selection(self.population)
+		successfulFirstChild = False
+		successfulSecondChild = False
+		while successfulFirstChild == False and successfulSecondChild == False:
+			# Get a random crossover point
+			crossoverPoint = random.randint(0, 99)
+
+			# Check if we generate a first child correctly
+			if successfulFirstChild == False:
+				childOne = parentOne[0 : crossoverPoint + 1] + parentTwo[crossoverPoint + 1: 100]
+				if self.validateGene(childOne):
+					newGeneration.append(self.mutation(childOne))
+					successfulFirstChild = True
+
+			# Check if we generate a second child correctly
+			if successfulSecondChild == False:
+				childTwo = parentTwo[0 : crossoverPoint + 1] + parentOne[crossoverPoint + 1: 100]
+				if self.validateGene(childTwo):
+					newGeneration.append(self.mutation(childTwo))
+					successfulSecondChild = True
+
+	# Replace old population with new generation
+	self.population = newGeneration
+
+	# Increment generation counter
+	self.generation += 1
+	return
+
+{% endhighlight %}
+
+As mentioned in our problem invariant, we have to make sure that after crossover both of the generated children have an equal amount of zeroes and ones in their genetic material. In our crossover method, we select two parents at random by making two calls to our selection method. We then choose a random crossover point which corresponds to the index of our parent strings that we will splice to generate the children. Upon splicing both parents and generating two child strings, we check that we've successfully generated new strings that uphold our problem invariant. If this is done in one iteration of the inner while loop, we then run our mutation method on these children and then store these new children. Finally, we repeat the outer while loop until we've generated a new population of our desired size. 
+
+## Mutation
+
+Our last genetic operator, mutation - randomly toggles bit values in a string. The implementation of the mutation algorithm is shown below:
+
+{% highlight python %}
+
+def mutation(self, gene):
+	mutatedGene = ''
+	mutatedOnes = 0
+	mutatedZeroes = 0
+	for chromosome in gene:
+		mutationProbability = random.uniform(0, 100)
+		if mutationProbability < self.mutationRate:
+			mutatedGene += str(int(not int(chromosome)))
+			if chromosome == '0':
+				mutatedZeroes += 1
+			else:
+				mutatedOnes += 1
+		else:
+			mutatedGene += chromosome
+	if mutatedOnes == mutatedZeroes:
+		return mutatedGene
+	else:
+		return gene
+
+{% endhighlight %}
+
+As with our crossover algorithm, we need to uphold the problem invariant. In order to do so, we compute a mutation rate for each bit in our binary string (a child generated from our crossover method) and toggle the corresponding bits. If the number of zeroes and ones in our new mutated string are equal, then we allow the mutation and return the new mutated string. Otherwise, we simply return the child string. 
+
+With these genetic operators at play, our genetic algorithm follows the following procedure until convergence:
+
+* Generate new population 
+* Partition into subsets
+* Assign fitness values for each string in our population
+* Check for convergence (minimized difference in sums)
+* Select new individuals to breed new generation
+* Generate new children through crossover and mutation
+* Repeat
+
+Out of all of these steps, we haven't discussed what it means to "converge". 
