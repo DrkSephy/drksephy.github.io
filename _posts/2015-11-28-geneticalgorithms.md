@@ -284,6 +284,85 @@ When our `population size` is set to 20 and our `mutation rate` is at a measly 1
 
 {% endhighlight %}
 
-As we can see, the average number of populations needed to reach convergence decreases greatly as population size increases. 
+As we can see, the average number of populations needed to reach convergence decreases greatly as population size increases. What happens when the mutation rate is increased with populations of 20, 50 and 100?
+
+{% highlight python %}
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |      238.0       |         0         |      2.0      |        20       |
+|    Max    |      3986.0      |         0         |      2.0      |        20       |
+|    Med    |      1358.0      |         0         |      2.0      |        20       |
+|    Rng    |      3748.0      |         0         |      2.0      |        20       |
+|    Avg    |  1553.11111111   |         0         |      2.0      |        20       |
++-----------+------------------+-------------------+---------------+-----------------+
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |      137.0       |         0         |      2.0      |        50       |
+|    Max    |      1972.0      |         0         |      2.0      |        50       |
+|    Med    |      229.0       |         0         |      2.0      |        50       |
+|    Rng    |      1835.0      |         0         |      2.0      |        50       |
+|    Avg    |  453.666666667   |         0         |      2.0      |        50       |
++-----------+------------------+-------------------+---------------+-----------------+
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       22.0       |         0         |      2.0      |       100       |
+|    Max    |      277.0       |         0         |      2.0      |       100       |
+|    Med    |      121.0       |         0         |      2.0      |       100       |
+|    Rng    |      255.0       |         0         |      2.0      |       100       |
+|    Avg    |      129.0       |         0         |      2.0      |       100       |
++-----------+------------------+-------------------+---------------+-----------------+
+
+{% endhighlight %}
+
+With a `mutation rate` of 2% and a population size of 20, we can see that our genetic algorithm has converged more quickly on average as opposed to when the mutation rate was 1%. Likewise, the average generations needed for convergence when the population increases is also significantly lower than their 1% mutation rate counterparts. 
+
+Finally, let's observe what happens when the mutation rate is increased to 10%. 
+
+{% highlight python %}
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       67.0       |         0         |      10.0     |        20       |
+|    Max    |      1772.0      |         0         |      10.0     |        20       |
+|    Med    |      543.0       |         0         |      10.0     |        20       |
+|    Rng    |      1705.0      |         0         |      10.0     |        20       |
+|    Avg    |  724.444444444   |         0         |      10.0     |        20       |
++-----------+------------------+-------------------+---------------+-----------------+
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       35.0       |         0         |      10.0     |        50       |
+|    Max    |      524.0       |         0         |      10.0     |        50       |
+|    Med    |      278.0       |         0         |      10.0     |        50       |
+|    Rng    |      489.0       |         0         |      10.0     |        50       |
+|    Avg    |  281.555555556   |         0         |      10.0     |        50       |
++-----------+------------------+-------------------+---------------+-----------------+
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       21.0       |         0         |      10.0     |       100       |
+|    Max    |      553.0       |         0         |      10.0     |       100       |
+|    Med    |      152.0       |         0         |      10.0     |       100       |
+|    Rng    |      532.0       |         0         |      10.0     |       100       |
+|    Avg    |      197.0       |         0         |      10.0     |       100       |
++-----------+------------------+-------------------+---------------+-----------------+
+
+{% endhighlight %}
+
+While the number of generations needed for convergence when the population size is 20 or 50 is lower than previous simulations, the average gain when the population size is 100 actually increased from previous simulations. In fact, increasing the mutation rate even more while the population size is increased has very little effect on convergence - the gains are minimal or sometimes negative. 
+
+Overall, we can conclude that increasing the population size decreases the generation count for convergence, however the increasing the mutation rate only has positive effects up to a threshold. This isn't surprising, as too much mutation introduces too much diversity, generating strings which take us further away from our solution. 
+
+
+
 
 
