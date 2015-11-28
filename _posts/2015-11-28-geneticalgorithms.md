@@ -237,3 +237,53 @@ A genetic algorithm can terminate based on several conditions, based on the prob
 By sheer coincedence, it turns out that the values chosen for our Linear Congruential Generator outputs integers whose partitions can actually be minimized to <b>zero</b>. Therefore, we will say that our algorithm has converged once the difference in our partitioned sets has reached zero. If we were changing the seed values and parameters of our random number generator, we would simply keep a frequency table in order to inspect whether our genetic algorithm has converged (whether at a minimal value or a local plateau). 
 
 Last, we analyze the results of running our genetic algorithm.
+
+## Results
+
+In order to analyze the results of our genetic algorithm, we'll observe how changing the mutation rate and population size affects the number of generations that are formed until convergence. Each of our simulations consists of running our genetic algorithm 10 times with a set population size and mutation rate, which is increased for each simulation. The entire results of these simulations <a style="color:#FC645F" href="https://github.com/DrkSephy/genetic-algorithms/blob/master/results.txt">can be found here</a>.
+
+Let's take a look at some results. 
+
+{% highlight python %}
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       64.0       |         0         |      1.0      |        20       |
+|    Max    |      4179.0      |         0         |      1.0      |        20       |
+|    Med    |      1946.0      |         0         |      1.0      |        20       |
+|    Rng    |      4115.0      |         0         |      1.0      |        20       |
+|    Avg    |  1920.44444444   |         0         |      1.0      |        20       |
++-----------+------------------+-------------------+---------------+-----------------+
+
+{% endhighlight %}
+
+When our `population size` is set to 20 and our `mutation rate` is at a measly 1.0%, we can see that the average number of generations formed until convergence is 1920. What happens when we increase the population size to 50, and 100 while maintaining the same mutation rate?
+
+{% highlight python %}
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       4.0        |         0         |      1.0      |        50       |
+|    Max    |      1915.0      |         0         |      1.0      |        50       |
+|    Med    |      448.0       |         0         |      1.0      |        50       |
+|    Rng    |      1911.0      |         0         |      1.0      |        50       |
+|    Avg    |  616.333333333   |         0         |      1.0      |        50       |
++-----------+------------------+-------------------+---------------+-----------------+
+
++-----------+------------------+-------------------+---------------+-----------------+
+| Statistic | Generation Count | Convergence Value | Mutation Rate | Population Size |
++-----------+------------------+-------------------+---------------+-----------------+
+|    Min    |       17.0       |         0         |      1.0      |       100       |
+|    Max    |      825.0       |         0         |      1.0      |       100       |
+|    Med    |       72.0       |         0         |      1.0      |       100       |
+|    Rng    |      808.0       |         0         |      1.0      |       100       |
+|    Avg    |  211.777777778   |         0         |      1.0      |       100       |
++-----------+------------------+-------------------+---------------+-----------------+
+
+{% endhighlight %}
+
+As we can see, the average number of populations needed to reach convergence decreases greatly as population size increases. 
+
+
