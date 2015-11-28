@@ -5,7 +5,7 @@ subtitle: "Applying Genetic Algorithms to variants of Subset Sum Problem"
 date: 2015-11-28
 tags: [Post]
 author: "David Leonard"
-header-img: "img/todoist.jpg"
+header-img: "img/genetics.jpg"
 ---
 
 In my Artificial Intelligence class, we were given a project in which we had to use Genetic Algorithms in order to solve the following problem:
