@@ -224,4 +224,16 @@ With these genetic operators at play, our genetic algorithm follows the followin
 * Generate new children through crossover and mutation
 * Repeat
 
-Out of all of these steps, we haven't discussed what it means to "converge". 
+Out of all of these steps, we haven't discussed what it means for our algorithm to "converge". 
+
+## Convergence
+
+A genetic algorithm can terminate based on several conditions, based on the problem at hand. These conditions are shown below but not limited to:
+
+* A minimum value has been found based on the problem
+* Termination after X amount of generations have been generated
+* Newer generations fail to improve fitness over a given time
+
+By sheer coincedence, it turns out that the values chosen for our Linear Congruential Generator outputs integers whose partitions can actually be minimized to <b>zero</b>. Therefore, we will say that our algorithm has converged once the difference in our partitioned sets has reached zero. If we were changing the seed values and parameters of our random number generator, we would simply keep a frequency table in order to inspect whether our genetic algorithm has converged (whether at a minimal value or a local plateau). 
+
+Last, we analyze the results of running our genetic algorithm.
