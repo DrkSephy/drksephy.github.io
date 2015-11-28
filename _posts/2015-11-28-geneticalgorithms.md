@@ -67,9 +67,6 @@ In order to compute a fitness value for each of our binary strings, we'll have t
 {% highlight python %}
 
 def partition(self):
-	"""
-		Partitions a binary string into corresponding subsets. 
-		"""
 	population = []
 	for gene in self.population:
 		subsetOne = []
@@ -93,17 +90,7 @@ In this method, we loop over each binary string in our population and put them i
 {% highlight python %}
 
 def fitnessAssessment(self, population):
-	"""
-		Computes the fitness of each gene in our population. 
-
-		Parameters: 
-			population: list
-				- The set of all genes 
-		Returns:
-			fitness: list
-				- An array of fitness functions for our genes
-		"""
-	# Store differences between each gene
+	# Store differgences between each gene
 	differences = []
 	
 	# Compute differences between each gene
