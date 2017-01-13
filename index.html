@@ -1,314 +1,1211 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Full Stack JavaScript Developer">
-    <meta name="author" content="David Leonard">
-
-    <title>David Leonard</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400i" rel="stylesheet">
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/base-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
     <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">DrkSephy</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#showcase">Showcase</a>
-                    </li>
-                    <li>
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="http://drksephy.github.io/blog/">Blog</a>
-                    </li>
-                </ul>
-            </div>
+    <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/base-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel='stylesheet' href='css/main.css' type='text/css'>
+    <script src="https://use.fontawesome.com/628cdd5605.js"></script>
+  </head>
+  <body>
+    <!-- Left content -->
+    <div id="left">
+      <div class='container'>
+        <div>
+          <img class='profile' src='img/me.jpeg' height='100%' width='100%'>
         </div>
-    </nav>
-
-
-   
-    <!-- /.intro-header -->
-
-    <!-- About me -->
-    <a name="about"></a>
-    <div class="content-section-b">
-
-        <div class="container">
-            <div class="about-head text-center">
-                <br>
-                <h3>About <span>Me</span></h3>
-            </div>
-            <img class="img-responsive img-border img-left" src="img/avatar.jpg" alt="">
-            <br>
-            <div class="about-me">
-                <p class="lead">Hey, I'm David, a 24 year old Computer Science Master's Student at the City College of New York. I currently hold a B.E. in Computer Engineering.</p>
-                
-                <p class="lead">Throughout the years as an undergraduate student, I've worked on projects in several different fields - Computer Vision, Cryptography, Robotics, Mathematics and Mobile (Android and iOS). During my Senior year, I was introduced to the power of web development through my research on <a style="color: #FC645F" href="http://sea.ucar.edu/event/graphyte-project-design-tools-and-practices-building-collaborative-scientific-computation-and-">Graphyte</a> - a scientific collaboration tool consisting of several web services built using Django, Pyramid and MongoDB. My first contribution to this project was <a style="color:#FC645F" href="https://bitbucket.org/DrkSephy/caesium-api">Caesium</a>, a real-time notification system built using Node.js, Socket.io and Redis. </p>
-
-                <p class="lead">Since then, I've been deeply invested in all things web-related. I began creating web applications and services using all the hottest frameworks that I could get my hands on: Flask, Django, Node.js, Express.js, Angular.js, Ember.js, D3.js, and recently React.js.</p>
-
-                <p class="lead">In my spare time, I enjoy writing, reading and playing the occasional video game but mostly <a style="color: #FC645F" href="https://github.com/chessmasterhong/WaterEmblem/pulls?q=is%3Apr+is%3Aclosed+author%3ADrkSephy"> building them.</a> I am a huge <a style="color: #FC645F" href="https://github.com/DrkSephy">advocate of open-source development </a> and a firm believer in John Resig's <a style="color: #FC645F" href="http://ejohn.org/blog/write-code-every-day/">write code every day</a>. While commit streaks do not equate to the skill of a developer, they help keep my skills sharp while I work on the every day projects that I love. </p>
-            </div>
+        <div class='profile-links'>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0; font-size: 24px;">
+            David Leonard
+          </div>
+          <br/>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0;">
+            <a href='https://github.com/DrkSephy' target='_blank' style="color:white">Github</a>
+          </div>
+          <br/>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0;">
+            <a href='https://www.linkedin.com/in/drksephy' style="color:white">LinkedIn</a>
+          </div>
+          <br/>
+          <br/>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0;">
+            <a href='#projects' style="color:white">Projects</a>
+          </div>
+          <br/>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0;">
+            <a href='#talks' style="color:white">Talks</a>
+          </div>
+          <br/>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0;">
+            <a href='#tutorials' style="color:white">Tutorials</a>
+          </div>
+          <br/>
+          <div class='center-vertical' style="color: white; text-align: center; margin: 0;">
+            <a href='http://drksephy.github.io/blog/' style="color:white">Blog</a>
+          </div>
         </div>
+      </div>
     </div>
     
-    <!-- /.content-section-a -->
-
-    <div class="content-section-a">
-
-        <div class="container">
-            <div class="wedo-head text-center">
-                <h3>Project <span>Showcase</span></h3>
-            </div>
-            <br> <br> 
-            <div class="advertising-grids">
-                <div class="col-md-6 advertising-left">
-                    <img src="img/hackathon.png" class="responsive-image" title="Django Hackathon Starter" />
-                </div>
-                <div class="col-md-6 advertising-right text-right">
-                    <h4>Django Hackathon Starter<label> </label></h4>
-                    <p class="lead">A boilerplate for Django web applications. Contains various social logins such as Twitter, Github, LinkedIn, Tumblr, Facebook and much more, along with API examples using Instagram, Foursquare, Twilio, Dropbox, New York Times and more.</p>
-                    <a class="wedobtn" href="https://github.com/DrkSephy/django-hackathon-starter">Read more</a>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-
+    <!-- Right content -->
+    <div id="right">
+      <div class='header'>
+        <div class='center-vertical'>
+          ~/ About Me
         </div>
-        <!-- /.container -->
+      </div>
+      <div class='text'>
+        <p>
+        Hey, I'm David. I'm a software developer whose passion lies in gaming, simulations and all things JavaScript. I once held a Github streak of 800+ days (inspired by John Resig's <a href='http://ejohn.org/blog/write-code-every-day/' target='_blank' style="color:#ff6961;">Write Code Every Day</a>) between February 19th, 2014 to May 26th, 2016 during which time I ventured into the world of JavaScript and since then haven't looked back. My passions lie in game development, web applications and visualizations, to name a few.</p>
 
-    </div>
-    <!-- /.content-section-b -->
+        <p>I currently work at Yahoo on the <a href='https://developer.yahoo.com/' target='_blank' style="color:#ff6961">Yahoo Developer Network</a> team where I work on front-end (React.js + Redux), back-end (node.js, express.js) and occasional devops. Over my ~8 month tenure, I've worked on implementing API consoles purely in HTML, CSS and JavaScript, new components for our CMS architecture, a custom search platform supporting contextual search across domains and various internal projects while leveraging the latest JavaScript ecosystem (React, Redux, Immutable, Webpack, ES6).</p>
+      </div>
 
-    <!-- Technetium Showcase -->
-    <a name="showcase"></a>
-    <div class="content-section-b">
-
-        <div class="container">
-            <!--- wedo-grids ---->
-            <div class="wedo-grids">
-                <div class="col-md-6 wedo-left">
-                    <h4><label> </label>Technetium</h4>
-                    <p class="lead">A Bitbucket data aggregation tool built using Django, jQuery, and Bitbucket's RESTful API. Features a centralized issue tracker, repository subscription manager and reports/graphs which enumerate the commit and issue activity of each user in a subscribed repository. Technetium is currently used to monitor and visualize student activity of software engineering group projects.</p>
-                    <a class="wedobtn" href="http://drksephy.github.io/2014/04/01/technetium/">Read more</a>
-                </div>
-                <div class="col-md-6 wedo-right">
-                    <img src="img/issues.png" class="responsive-image" title="demo" />
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <!--- wedo-grids ---->
+      <div class='header'>
+        <div class='center-vertical'>
+          <div id='projects'>~/ Projects</div>
         </div>
-        <!-- /.container -->
+      </div>
 
-    </div>
-    <!-- /.content-section-a -->
-
-    <!-- Fire Emblem Chronicles of the Abyss Showcase --> 
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="advertising-grids">
-                <div class="col-md-6 advertising-left">
-                    <img src="img/start_screen.png" class="responsive-image" title="Fire Emblem" />
+      <div>
+        <div class="pure-g">
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>ES6 Cheatsheet</h2>
                 </div>
-                <div class="col-md-6 advertising-right text-right">
-                    <h4>Chronicles of the Abyss<label> </label></h4>
-                    <p class="lead">A faithful recreation of Fire Emblem - The Blazing Sword built using the ImpactJS game engine. Features customized Artificial Intelligence including A* pathfinding, deep weapon and inventory systems, player interactions (trade and assist), expansive shop system, extravagant animation systems, and a handful of new and exciting maps and chapter objectives. Includes extensions to the game engine itself with an expansive inventory and GUI system, as well as extensions to the default sound classes. Completely playable with the mouse to enhance user experience. </p>
-                    <a class="wedobtn" href="http://drksephy.github.io/2014/03/30/fireemblem/">Read more</a>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/es6.jpg' height='100%' width='100%'>
+              </div>
 
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    
-    <!-- Super Mario World Koopa Krisis Showcase --> 
-    <div class="content-section-b">
-
-        <div class="container">
-            <!--- wedo-grids ---->
-            <div class="wedo-grids">
-                <div class="col-md-6 wedo-left">
-                    <h4><label> </label>Koopa Krisis</h4>
-                        <p class="lead">An HTML5 game built on top of the ImpactJS game engine. Developed as a just-for-fun project for the City College of New York Association for Computing Machinery Game Development Student Interest Group. Features over two dozen enemies with varying artificial intelligence, power-up system, with over a dozen fun and playable levels.</p>
-                        <a class="wedobtn" href="http://drksephy.github.io/2013/08/13/mario/">Read more</a>
-                </div>
-                <div class="col-md-6 wedo-right">
-                    <img src="img/mario.jpg" class="responsive-image" title="demo" />
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <!--- wedo-grids ---->
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <!-- Portfolio items -->
-    <a name="portfolio"></a>
-    <div class="portfolio-box">
-        <div class="container">
-            <div class="about-head text-center">
-                <br>
-                <h3>Project <span>Portfolio</span></h3>
-            </div>
-
-            <ul id="filters" class="clearfix">
-                <li><span class="filter active" data-filter="web games compiler crypto">All</span> /</li>
-                <li><span class="filter" data-filter="web">WEB</span> /</li>
-                <li><span class="filter" data-filter="games">GAMES</span> /</li>
-                <li><span class="filter" data-filter="compiler">COMPILERS</span> /</li>
-                <li><span class="filter" data-filter="crypto">CRYPTOGRAPHY</span></li>
-            </ul>
-            
-            <div id="portfoliolist">
-                <div class="portfolio games mix_all port-big-grid" data-cat="games" style="display: inline-block; opacity: 1;">
-                    <a href="http://drksephy.github.io/2014/03/30/fireemblem/"><img class="p-img" src="img/pfe.jpg" /></a>
-                </div>              
-                <div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
-                    <a href="http://drksephy.github.io/2014/04/01/technetium/"><img class="p-img" src="img/pissue.jpg" /></a>
-                </div>      
-                <div class="portfolio compiler mix_all" data-cat="app" style="display: inline-block; opacity: 1;">   
-                    <a href="#"><img class="p-img" src="img/pcompiler.jpg" /></a>
-                </div>              
-                <div class="portfolio games mix_all" data-cat="games" style="display: inline-block; opacity: 1;">    
-                    <a href="http://drksephy.github.io/2013/08/13/mario/"><img class="p-img" src="img/pmario.jpg" /></a>
-                </div>  
-                <div class="portfolio crypto mix_all" data-cat="app" style="display: inline-block; opacity: 1;">   
-                    <a href="#"><img class="p-img" src="img/pcrypt.jpg" /></a>
-                </div>          
-                <div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">   
-                    <a href="http://drksephy.github.io/2013/07/01/caesium/"><img class="p-img" src="img/pcaseium.jpg" /></a>
-                </div>  
-                <div class="clearfix"> </div>   
-            </div>
-        </div>
-    </div>
-
-    <div class="clearfix"> </div>
-    
-    <footer class="text-center">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="footer-col col-md-4">
-                </div>
-                <div class="footer-col col-md-4">
-                    <div class="portfolio-head text-center">
-                        <h4>Around the Web</h4>
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
                     </div>
-                    <br>
-                    <ul class="list-inline social-buttons">
-                        <li><a href="https://github.com/DrkSephy"><i class="fa fa-github"></i></a>
-                        </li>
-                        <li><a href="https://bitbucket.org/DrkSephy"><i class="fa fa-bitbucket"></i></a>
-                        </li>
-                        <li><a href="https://www.linkedin.com/in/drksephy"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        Cheatsheet
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="footer-col col-md-4">
+              </div>
+
+              <div class='card-description'>
+                An ES6 Cheatsheet containing tips, tricks and best practices, based on my <a href='https://www.youtube.com/watch?v=mies4elKBa4' target='_blank' style="color:#ff6961;">node.js meetup talk</a>. Code snippets provide ES5 -> ES6 Equivalents.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/es6-cheatsheet" target='_blank'>Source</a></button>
+                  </div>
                 </div>
-            </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://www.youtube.com/watch?v=mies4elKBa4" target='_blank'>Video</a></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <div class='card-links'>
+                      <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=es6-cheatsheet&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=es6-cheatsheet&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+
+            </div> 
+          </div>
+
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Django Hackathon Starter</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/hackathon.jpg' height='100%' width='100%'>
+              </div>
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style="background-color:#3572A5; border-color:#3572A5;">
+                      <div class='card-tag-text'>
+                        Python
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: rgba(15, 62, 46, 0.72); border-color:#0F3E2E;'>
+                      <div class='card-tag-text'>
+                        Django
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Ionic
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                A Django boilerplate containing over two dozen API examples and several OAuth integrations, along with an Ionic application for both mobile and web applications.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/django-hackathon-starter" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <div class='card-links'>
+                      <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=django-hackathon-starter&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=django-hackathon-starter&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+
+            </div> 
+          </div>
         </div>
+      </div>
+
+      <!-- Water Emblem, Pascal Compiler -->
+      <div>
+        <div class="pure-g">
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Chronicles of the Abyss</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/pfe.jpg' height='100%' width='100%'>
+              </div>
+
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        AI
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        Game
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                 A turn-based strategy role playing game. Level up, equip and lead your army into victory against an A* powered AI army that scales to your character's growth.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/chessmasterhong/WaterEmblem" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="http://drksephy.github.io/2014/03/30/fireemblem/" target='_blank'>Blog</a></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <div class='card-links'>
+                      <iframe src="https://ghbtns.com/github-btn.html?user=chessmasterhong&repo=WaterEmblem&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=chessmasterhong&repo=WaterEmblem&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Pascal Compiler</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/pcompiler.jpg' height='100%' width='100%'>
+              </div>
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style="background-color:#3572A5; border-color:#3572A5;">
+                      <div class='card-tag-text'>
+                        Python
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                      <div class='card-tag-text'>
+                        Compiler
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Pascal
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                A Pascal compiler written purely in Python. Supports all control statements, loops, jumps, declarations amd more.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/pascal-compiler" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <!-- Multiple Traveling Salesman Problem, Shogi -->
+      <div>
+        <div class="pure-g">
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Multiple Traveling Salesman Problem</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/mtsp.jpg' height='100%' width='100%'>
+              </div>
+
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        Simulation
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        Optimization
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                A pure JavaScript implementation of the Multiple Traveling Salesman Problem using Genetic Algorithms along with a canvas-based simulation.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/mtsp" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Dobutsu Shogi w/ Alpha-Beta Pruning + Minimax</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/shogi.jpg' height='100%' width='100%'>
+              </div>
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                      <div class='card-tag-text'>
+                        AI
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Game
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                A JavaScript implementation of <a href='https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi' target='_blank' style="color:#ff6961;">Dobutsu Shogi</a>, in which the player tries to defeat an AI utilizing Mini-max w/ Alpha-Beta Pruning for 5-7 turn lookahead.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/Shogi" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <!-- Squam, Open Source Visualization -->
+      <div>
+        <div class="pure-g">
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Sea Surface Temperature Granule Visualization</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/squam.jpg' height='100%' width='100%'>
+              </div>
+
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        D3
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        Visualization
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                A JavaScript visualization utilizing D3.js and voronoi diagrams to visualize satellite granules for the <a href='http://www.noaa.gov/' target='_blank' style="color:#ff6961;">National Oceanic and Atmospheric Administration</a>.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/NOAA-Projects" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Facebook Open Source Visualization</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/viz.jpg' height='100%' width='100%'>
+              </div>
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                      <div class='card-tag-text'>
+                        D3
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Visualization
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                Dynamic visualization of the growth of open-source Facebook projects on Github using D3. Utilizes a treemap of repositories, filters, charts and more.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/https://bitbucket.org/DrkSephy/oss-dataviz" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <!--  Technetium Redux, Technetium -->
+      <div>
+        <div class="pure-g">
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Technetium-Redux</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/technetium-react.jpg' height='100%' width='100%'>
+              </div>
+
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        React
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Visualization
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                Dashboard built using React which leverages the Bitbucket API to generate beautiful reports with time series, sparklines, charts and custom date range picker.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/technetium-redux" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <div class='card-links'>
+                      <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=technetium-redux&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=technetium-redux&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+
+            </div> 
+          </div>
+
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Technetium</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/pissue.jpg' height='100%' width='100%'>
+              </div>
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style="background-color:#3572A5; border-color:#3572A5;">
+                      <div class='card-tag-text'>
+                        Python
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: rgba(15, 62, 46, 0.72); border-color: #0F3E2E;'>
+                      <div class='card-tag-text'>
+                        Django
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Visualization
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='card-description'>
+                Dashboard powered by the Bitbucket API to help measure student's productivity across team projects at the City College of New York.
+              </div>
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/technetium" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="http://drksephy.github.io/2014/04/01/technetium/" target='_blank'>Blog</a></button>
+                  </div>
+                </div>
+              </div>
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <div class='card-links'>
+                      <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=technetium&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=technetium&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <!-- Tales of Kratos, Koopa Krisis -->
+      <div>
+        <div class="pure-g">
+          <div class="pure-u-sm-1-2 pure-u-1"> 
+            <div class='card'>
+              <div class='card-header'>
+                <div class='center-vertical'>
+                  <h2>Tales of Kratos</h2>
+                </div>
+              </div>
+              <div class='card-img-container'>
+                <img src='img/game.png' height='100%' width='100%'>
+              </div>
+
+              <div class='card-tags'>
+                <div class='pure-g'>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag'>
+                      <div class='card-tag-text'>
+                        JavaScript
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                      <div class='card-tag-text'>
+                        HTML5
+                      </div>
+                    </div>
+                  </div>
+                  <div class='pure-u-1-3'>
+                    <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                      <div class='card-tag-text'>
+                        Game
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class='card-description'>
+                A turn-based strategy role playing game. Level up, equip and lead your army into victory against an A* powered AI army that scales to your character's growth.
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <button class='button'><a href="https://github.com/DrkSephy/tales-of-kratos" target='_blank'>Source</a></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class='pure-g'>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <div class='card-links'>
+                      <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=tales-of-kratos&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-2'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=tales-of-kratos&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+
+            </div> 
+          </div>
+
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card'>
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>Koopa Krisis</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <img src='img/pmario.jpg' height='100%' width='100%'>
+            </div>
+            <div class='card-tags'>
+              <div class='pure-g'>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag'>
+                    <div class='card-tag-text'>
+                      JavaScript
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                    <div class='card-tag-text'>
+                      HTML5
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                    <div class='card-tag-text'>
+                      Game
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class='card-description'>
+              A turn-based strategy role playing game. Level up, equip and lead your army into victory against an A* powered AI army that scales to your character's growth.
+            </div>
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="https://github.com/DrkSephy/smw-koopa-krisis" target='_blank'>Source</a></button>
+                </div>
+              </div>
+            </div>
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=smw-koopa-krisis&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=smw-koopa-krisis&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                </div>
+              </div>
+            </div>
+
+          </div> 
+        </div>
+      </div>
+
     </div>
 
-    
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <!-- TALKS -->
+    <div class='header'>
+      <div class='center-vertical'>
+        <div id='talks'>~/ Talks</div>
+      </div>
+    </div>
 
-    <!-- Portfolio filtering JavaScript -->
-    <script src="js/jquery.mixitup.min.js"></script>
-    
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- ES6 Talk, MEAN Talk -->
+    <div>
+      <div class="pure-g">
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card' style="height: 350px;">
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>ES6 Deep Dive</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <iframe src="//slides.com/drksephy/ecmascript-2015/embed" width="403" height="250" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
 
-    <!-- Animation easing -->
-    <script type="text/javascript" src="js/easing.js"></script>
 
-    <!-- JavaScript for filtering portfolio images -->
-    <script type="text/javascript">
-        $(function () {
-            var filterList = {
-                init: function () {
-                
-                    // MixItUp plugin
-                    // http://mixitup.io
-                    $('#portfoliolist').mixitup({
-                        targetSelector: '.portfolio',
-                        filterSelector: '.filter',
-                        effects: ['fade'],
-                        easing: 'snap',
-                        // call the hover effect
-                        onMixEnd: filterList.hoverEffect()
-                    });             
-                
-                },
-                hoverEffect: function () {
-                    // Simple parallax effect
-                    $('#portfoliolist .portfolio').hover(
-                        function () {
-                            $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-                            $(this).find('img').stop().animate({top: -30}, 750, 'easeOutQuad');             
-                        },
-                        function () {
-                            $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-                            $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
-                        }       
-                    );              
-                
-                }
-    
-            };
-            // Run the show!
-            filterList.init();
-        }); 
-    </script>
-</body>
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-eye" aria-hidden="true">17,782</i>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-heart" aria-hidden="true">102</i>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card' style="height: 350px;">
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>MEAN Stack</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <iframe src="//slides.com/drksephy/deck/embed" width="403" height="250" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
 
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-eye" aria-hidden="true">859</i>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-heart" aria-hidden="true">0</i>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>  
+      </div>
+    </div>
+
+    <!-- React, D3 -->
+    <div>
+      <div class="pure-g">
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card' style="height: 350px;">
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>Data Visualization with D3</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <iframe src="//slides.com/drksephy/deck-8/embed" width="403" height="250" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-eye" aria-hidden="true">540</i>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-heart" aria-hidden="true">2</i>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card' style="height: 350px;">
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>React + Flux</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <iframe src="//slides.com/drksephy/deck-1/embed" width="403" height="250" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-eye" aria-hidden="true">786</i>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <i class="fa fa-heart" aria-hidden="true">2</i>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>  
+      </div>
+    </div>
+
+    <!-- TUTORIALS -->
+    <div class='header'>
+      <div class='center-vertical'>
+        <div id='tutorials'>~/ Tutorials </div>
+      </div>
+    </div>
+
+    <!--  Django Tutorial, ImpactJS -->
+    <div>
+      <div class="pure-g">
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card'>
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>Django Tutorial</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <img src='img/django_tutorial.jpg' height='100%' width='100%'>
+            </div>
+
+            <div class='card-tags'>
+              <div class='pure-g'>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color:rgba(15, 62, 46, 0.72); border-color:#3572A5;'>
+                    <div class='card-tag-text'>
+                      Django
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color:#3572A5; border-color:#3572A5;'>
+                    <div class='card-tag-text'>
+                      Python
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                    <div class='card-tag-text'>
+                      Github API
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class='card-description'>
+              Build a Django application from scratch using Twitter Bootstrap, Bower, Requests and the Github API.
+            </div>
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="https://github.com/DrkSephy/django-tutorial" target='_blank'>Source</a></button>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="http://drksephy.github.io/2015/07/16/django/" target='_blank'>Tutorial</a></button>
+                </div>
+              </div>
+            </div>
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <div class='card-links'>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=django-tutorial&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=drksephy&repo=django-tutorial&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                </div>
+              </div>
+            </div>
+
+          </div> 
+        </div>
+
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card'>
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>Building a 2D Side Scroller with ImpactJS</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <img src='img/impact_tutorial.jpg' height='100%' width='100%'>
+            </div>
+            <div class='card-tags'>
+              <div class='pure-g'>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag'>
+                    <div class='card-tag-text'>
+                      JavaScript
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                    <div class='card-tag-text'>
+                      Tutorial
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                    <div class='card-tag-text'>
+                      Game
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='card-description'>
+              Learn to build a Super Mario-esque 2D side-scrolling games with ImpactJS.
+            </div>
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="https://github.com/DrkSephy/ACM-Game-Presentation" target='_blank'>Source</a></button>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="http://drksephy.github.io/2014/08/27/impactjs/" target='_blank'>Tutorial</a></button>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+    <!--  MEAN Stack, Jekyll -->
+    <div>
+      <div class="pure-g">
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card'>
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>Full-stack JavaScript w/ Github API</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <img src='img/mean_tutorial.jpg' style="margin-left: 10%;" height='100%' width='80%'>
+            </div>
+
+            <div class='card-tags'>
+              <div class='pure-g'>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag'>
+                    <div class='card-tag-text'>
+                      JavaScript
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag'>
+                    <div class='card-tag-text'>
+                      Tutorial
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                    <div class='card-tag-text'>
+                      Github API
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class='card-description'>
+              Learn to build an application using ExpressJS, NodeJS, AngularJS and the Github API.
+            </div>
+
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="https://github.com/DrkSephy/mean-stack-talk" target='_blank'>Source</a></button>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="http://drksephy.github.io/2015/02/21/fullstackjs/" target='_blank'>Tutorial</a></button>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+
+        <div class="pure-u-sm-1-2 pure-u-1"> 
+          <div class='card'>
+            <div class='card-header'>
+              <div class='center-vertical'>
+                <h2>Building your own Portfolio using Jekyll</h2>
+              </div>
+            </div>
+            <div class='card-img-container'>
+              <img src='img/jekyll_tutorial.jpg' height='100%' width='100%'>
+            </div>
+            <div class='card-tags'>
+              <div class='pure-g'>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag'>
+                    <div class='card-tag-text'>
+                      Jekyll
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #e44b23; border-color: #e44b23'>
+                    <div class='card-tag-text'>
+                      Tutorial
+                    </div>
+                  </div>
+                </div>
+                <div class='pure-u-1-3'>
+                  <div class='card-tag' style='background-color: #b19cd9; border-color: #b19cd9'>
+                    <div class='card-tag-text'>
+                      Portfolio
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='card-description'>
+              Build your own portfolio using Jekyll and deploy it using Github pages.
+            </div>
+            <div class='pure-g'>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="https://github.com/DrkSephy/ACM-Portfolio-Presentation" target='_blank'>Source</a></button>
+                </div>
+              </div>
+              <div class='pure-u-1-2'>
+                <div class='card-links'>
+                  <button class='button'><a href="http://drksephy.github.io/2014/04/09/jekyll/" target='_blank'>Tutorial</a></button>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+    <div class='header'>
+      <div class='center-vertical' style='text-align: center; font-size: 20px;'>
+         © 2017 David Leonard
+      </div>
+    </div>
+
+  </body>
 </html>
