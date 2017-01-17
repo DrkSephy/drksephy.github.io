@@ -122,13 +122,13 @@ li {
 }
 
 .card-tag {
-  margin: 3%;
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   border-color: #f1e05a;
   background-color: #f1e05a;
   height: 100%;
+  font-size: 14px;
 }
 
 .card-tag-text {
