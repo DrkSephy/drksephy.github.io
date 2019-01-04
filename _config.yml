@@ -11,3 +11,4 @@ markdown: kramdown
 highlighter: pygments
 permalink: pretty
 paginate: 15
+plugins: [jekyll-paginate]

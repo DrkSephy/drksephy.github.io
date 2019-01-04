@@ -7,18 +7,18 @@ title: "Blog"
     {% if post.tags contains 'Post' %}
         <div class="post-preview">
             <a href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="post-title">            
+                <h2 class="post-preview__title">            
                     {{ post.title }}
                 </h2>
                 {% if post.subtitle %}
-                <h3 class="post-subtitle">
+                <h3 class="post-preview__subtitle">
                     {{ post.subtitle }}
                 </h3>
                 {% endif %}
             </a>
-            <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+            <p class="post-preview__meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
         </div>
-    <hr>
+    <hr class="post-preview__separator">
     {% endif %}
 {% endfor %}
 
