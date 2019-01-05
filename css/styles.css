@@ -85,7 +85,7 @@ code > span {
   z-index: 1;
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #1faa9b;
   top: 0;
 }
 
