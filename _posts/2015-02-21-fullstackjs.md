@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Full-stack JavaScript + Github API
-subtitle: "Learn to build an application using ExpressJS, NodeJS, AngularJS and the Github API."
+subtitle: "Learn to build an application using ExpressJS, NodeJS, AngularJS and the Github API"
 date: 2015-02-21
 tags: [Tutorial]
 author: "David Leonard"
@@ -84,7 +84,7 @@ git-technetium/
 
 {% endhighlight %}
 
-For those interesting in viewing the final product right away, you may do so <a style="color:#FC645F" href="https://github.com/DrkSephy/mean-stack-talk">here</a>.
+For those interesting in viewing the final product right away, you may do so <a style="color:#1faa9b" href="https://github.com/DrkSephy/mean-stack-talk">here</a>.
 
 #### Dependency Management 
 
@@ -176,13 +176,13 @@ public/
 
 {% endhighlight %}
 
-You may grab the files listed above from <a style="color:#FC645F" href=https://github.com/DrkSephy/git-technetium/tree/master/git-technetium/public>the project repository located here</a>.
+You may grab the files listed above from <a style="color:#1faa9b" href=https://github.com/DrkSephy/git-technetium/tree/master/git-technetium/public>the project repository located here</a>.
 
 With all of that preparation out of the way, we now finally begin to build out our application!
 
 #### NodeJS and ExpressJS
 
-In this application, we will be grabbing data from the Github API and creating routes within ExpressJS which will consume various API endpoints from Github, parse and return the JSON to the AngularJS client, which will render it out. We begin by building a minimal working version of the application located <a style="color:#FC645F" href="https://github.com/DrkSephy/git-technetium">here</a>, starting with gathering issue data from a repository.
+In this application, we will be grabbing data from the Github API and creating routes within ExpressJS which will consume various API endpoints from Github, parse and return the JSON to the AngularJS client, which will render it out. We begin by building a minimal working version of the application located <a style="color:#1faa9b" href="https://github.com/DrkSephy/git-technetium">here</a>, starting with gathering issue data from a repository.
 
 ### Server.js
 
@@ -713,6 +713,6 @@ Go ahead and re-run your server if you aren't running it already. Input a reposi
 
 If you've made it this far, congratulations! You've successfully developed an application in which you've built your own RESTful API using ExpressJS, NodeJS and a client in AngularJS to consume our API. While we have only covered a single API endpoint and only use GET requests, you should now have some intuition on how to extend this application.
 
-For those interested in a broader application which covers more endpoints of the Github API, feel free to <a style="color:#FC645F" href="https://github.com/DrkSephy/git-technetium">check out Git-Techetium</a>, which covers endpoints such as commits, issues opened, issues closed, issues assigned, pull requests, lines of code and more. 
+For those interested in a broader application which covers more endpoints of the Github API, feel free to <a style="color:#1faa9b" href="https://github.com/DrkSephy/git-technetium">check out Git-Techetium</a>, which covers endpoints such as commits, issues opened, issues closed, issues assigned, pull requests, lines of code and more. 
 
 Thanks for reading!

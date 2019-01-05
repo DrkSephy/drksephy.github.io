@@ -15,46 +15,111 @@ body {
 
 a {
   color: #1faa9b;
+  font-weight: 350;
   text-decoration: none;
 }
 
 a:hover, a:active, a:focus {
   color: #0e4b45;
-  font-weight: 300;
+  font-weight: 500;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+li > b {
+  font-weight: bold;
+}
+
+blockquote {
+  line-height: 1.5;
+  color: #808080;
+  font-style: italic;
+  padding: 0.75rem 1.75rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  border-left: 3px solid #c6c6c6;
+}
+
+blockquote > * {
+  font-size: 1.25rem;
+}
+
+blockquote > b {
+  font-weight: 700;
+}
+
+figure {
+  font-family: monospace;
+  margin: 1.5rem 0;
+}
+
+pre {
+  display: block;
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  border-radius: 0;
+  font-family: monospace;
+}
+
+code > span {
+  font-family: monospace;
 }
 
 /* Navbar */
 .nav-bar {
-  padding-left: 3rem;
-  margin-left: -32px;
+  padding: 0 3rem;
+  margin: 0 -2rem;
   position: fixed;
   z-index: 1;
   background-color: white;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  height: 4rem;
   top: 0;
 }
 
 .nav-bar__list {
   padding: 0;
   margin: 0;
+  line-height: 4rem;
+  width: 100%;
+  display: flex;
 }
 
 .nav-bar__link {
   line-height: 4rem;
+  list-style: none;
   display: inline-block;
-  margin: 0 16px;
+  margin: 0 1rem;
 }
 
 .nav-bar__link-name {
-  margin: 0 1rem 0 0 ;
+  margin: 0 1rem 0 0;
+  margin-right: auto;
+}
+
+.nav-bar__link > a {
+  font-weight: 800;
+}
+
+.nav-bar__link > a:hover {
+  font-weight: 800;
 }
 
 /* Introduction Section */
 .intro-wrapper {
-  padding: 6rem 0 0 1rem;
+  margin-top: 8rem;
 }
 
 .intro-wrapper__link, .intro-wrapper__link:hover {
@@ -66,10 +131,19 @@ a:hover, a:active, a:focus {
   font-size: 3rem;
 }
 
-.intro-wrapper__section {
-  font-size: 1rem;
+.intro-wrapper__section > p,
+.intro-wrapper__section a {
+  font-size: 1.25rem;
   opacity: 0.87;
-  line-height: 1.5rem;
+  line-height: 1.5;
+}
+
+.intro-wrapper__social-links {
+  margin-bottom: 1.5rem;
+}
+
+.intro-wrapper__social-links > a {
+  font-size: 1.25rem;
 }
 
 /* Project Section */
@@ -136,15 +210,47 @@ a:hover, a:active, a:focus {
   opacity: 0.87;
 }
 
-.project-information__ul > li {
-  margin: 0.5rem 0;
+/* Blog */
+.posts-container, .post-header, .post-container {
+  margin-top: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50rem;
 }
 
-/* Blog */
-.posts-container {
-  padding: 7rem 0 7rem 1rem;
-  margin-left: 30%;
-  margin-right: 30%;
+.post-container__pager {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.post-container__pager-link {
+  margin-bottom: calc(3rem / 2);
+}
+
+.posts-container, .post-container > p {
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.post-img {
+  width: 100%;
+}
+
+.post-container > h2 {
+  font-weight: 800;
+  font-size: 1.75rem;
+}
+
+.post-container > h3 {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.post-container > h4 {
+  font-weight: 800;
+  font-size: 1.25rem;
 }
 
 .post-preview {
@@ -156,7 +262,7 @@ a:hover, a:active, a:focus {
   font-weight: 800;
   color: #1faa9b;
   margin-top: 1rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
 }
 
 .post-preview__subtitle {
@@ -166,16 +272,31 @@ a:hover, a:active, a:focus {
   line-height: 1.5;
 }
 
-.post-preview__meta {
+.post-preview__meta, .post-meta {
   font-size: 1rem;
   color: #808080;
   font-style: italic;
+}
+
+.post-preview__separator {
+  border: 0;
+  border-top: 1px solid #c6c6c6;
 }
 
 .post-preview__separator:last-child {
   display: none;
 }
 
+.post-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-header {
+  margin-bottom: -5rem;
+}
 
 @media only screen and (max-width : 768px) {
   .project {
@@ -194,10 +315,6 @@ a:hover, a:active, a:focus {
 }
 
 @media only screen and (max-width : 576px) {
-  .intro-wrapper {
-    padding: 4rem 1rem 1rem; /* change for responsive */
-  }
-
   .intro-wrapper__header {
     padding: 0.25rem 0;
     font-size: 3rem;

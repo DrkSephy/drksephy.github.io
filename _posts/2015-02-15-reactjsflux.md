@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ReactJS and Flux
-subtitle: "Learn to build a simple shopping cart application using ReactJS and Flux."
+subtitle: "Learn to build a simple shopping cart application using ReactJS and Flux"
 date: 2015-02-15
 tags: [Tutorial]
 author: "David Leonard"
@@ -47,7 +47,7 @@ flux
 
 {% endhighlight %}
 
-For those interested in simply viewing the finalized project, you may find the source code <a style="color:#FC645F" href="https://github.com/DrkSephy/flux-reactJS/tree/master/flux">here</a>.
+For those interested in simply viewing the finalized project, you may find the source code <a style="color:#1faa9b" href="https://github.com/DrkSephy/flux-reactJS/tree/master/flux">here</a>.
 
 #### Environment setup
 
