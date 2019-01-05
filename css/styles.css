@@ -79,7 +79,7 @@ code > span {
 
 /* Navbar */
 .nav-bar {
-  padding: 0 3rem;
+  padding: 0 2rem;
   margin: 0 -2rem;
   position: fixed;
   z-index: 1;
@@ -110,7 +110,7 @@ code > span {
 }
 
 .nav-bar__link > a {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .nav-bar__link > a:hover {
