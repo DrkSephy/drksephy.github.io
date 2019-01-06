@@ -79,7 +79,7 @@ Throughout this project, I have learned a multitude of new things. For the most 
 
 #### Contributors
 
-As with <a style="color:#1faa9b" href="http://drksephy.github.io//mario/">Super Mario World: Koopa Krisis</a>, this project would not have been a huge success without my teammates. Special thanks to <a style="color:#1faa9b" href="https://github.com/chessmasterhong">Kevin Chan</a> for developing the core battle system and making this project a reality. A link to his profile as well as our other contributors can be found below: 
+As with <a style="color:#1faa9b" href="https://drksephy.github.io//mario/">Super Mario World: Koopa Krisis</a>, this project would not have been a huge success without my teammates. Special thanks to <a style="color:#1faa9b" href="https://github.com/chessmasterhong">Kevin Chan</a> for developing the core battle system and making this project a reality. A link to his profile as well as our other contributors can be found below: 
 
 <ul>
     <li>  <a style="color:#1faa9b" href="https://github.com/chessmasterhong">Kevin Chan</a> </li>
