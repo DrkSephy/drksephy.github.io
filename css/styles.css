@@ -23,6 +23,10 @@ a:hover, a:active, a:focus {
   font-weight: 500;
 }
 
+b {
+  font-weight: bolder;
+}
+
 li > b {
   font-weight: bold;
 }
@@ -131,7 +135,7 @@ code > span {
 
 .nav-bar__link > a {
   font-weight: bolder;
-  font-size: 1.05rem;
+  font-size: 0.85rem;
 }
 
 .nav-bar__link > a:hover {
@@ -195,7 +199,7 @@ code > span {
 }
 
 .project-information__title {
-  margin: 1rem 0 0;
+  margin: 1rem 0 0.75rem 0;
   font-size: 1.5rem;
   font-weight: 400;
 }
@@ -231,7 +235,6 @@ code > span {
 .project-information__section-text {
   font-size: 1rem;
   line-height: 1.5rem;
-  opacity: 0.87;
 }
 
 /* Blog */

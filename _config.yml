@@ -8,7 +8,7 @@ url: "https://drksephy.github.io"
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 paginate: 15
 plugins: [jekyll-paginate]
