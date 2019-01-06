@@ -55,7 +55,7 @@ After spending 4 weeks of developing, we managed to not only get a working demo 
 
 To showcase our commitment to the project, our Github punchcard is shown below:
 
-![Github punchcard](/img/fire_emblem/punchcard.png)
+![Github punchcard](/img/fire_emblem/punchcard.png){: .post-img}
 
 Based on the punchcard, there was development on our game almost every moment of the day - which really helped us get through all of our tasks. We presented our game to over 100 students and faculty members at the annual CCNY ACM Student/Faculty mixer, where we received great feedback and acknowledgement. 
 

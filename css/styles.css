@@ -5,9 +5,8 @@ body {
 }
 
 * {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #212121;
-  font-weight: lighter;
   font-size: 1rem;
   color: #212121;
   box-sizing: border-box;
@@ -24,12 +23,24 @@ a:hover, a:active, a:focus {
   font-weight: 500;
 }
 
+li > b {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
 li {
   margin: 0.5rem 0;
 }
 
-li > b {
-  font-weight: bold;
+ul li:before {
+  content: "\2022";
+  color: #1faa9b;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
 }
 
 blockquote {
@@ -85,7 +96,7 @@ code > span {
   z-index: 1;
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid #1faa9b;
+  border-bottom: 1px solid rgba(31, 170, 155, 0.25);
   top: 0;
 }
 
@@ -104,14 +115,23 @@ code > span {
   margin: 0 1rem;
 }
 
+.nav-bar__link > li {
+  list-style: none !important;
+}
+
+.nav-bar ul li:before {
+  content: "";
+  list-style: none !important;
+}
+
 .nav-bar__link-name {
   margin: 0 1rem 0 0;
   margin-right: auto;
 }
 
 .nav-bar__link > a {
-  font-weight: 700;
-  font-size: 0.75rem;
+  font-weight: bolder;
+  font-size: 1.05rem;
 }
 
 .nav-bar__link > a:hover {
@@ -203,6 +223,9 @@ code > span {
   font-size: 1rem;
   font-weight: lighter;
   line-height: 1.5rem;
+  margin-top: 0;
+  font-style: italic;
+  color: #808080;
 }
 
 .project-information__section-text {
