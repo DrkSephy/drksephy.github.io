@@ -135,7 +135,7 @@ code > span {
 
 .nav-bar__link > a {
   font-weight: bolder;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .nav-bar__link > a:hover {
