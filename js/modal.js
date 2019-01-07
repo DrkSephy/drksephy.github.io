@@ -1,7 +1,6 @@
 function handleClick(e) {
 	const targetId = e.target.id;
 	const targetTag = e.target.tagName;
-	const targetAlt = e.target.alt;
 
 	const modal = document.getElementById('myModal');
 	const isModalVisible = modal.style.display === 'flex' ? true : false;
