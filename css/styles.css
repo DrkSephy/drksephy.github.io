@@ -189,6 +189,8 @@ code > span {
   height: auto;
   border: 20px solid white;
   cursor: zoom-in;
+  cursor: -moz-zoom-in; 
+  cursor: -webkit-zoom-in;
 }
 
 .project-information {
