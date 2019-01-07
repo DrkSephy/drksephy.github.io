@@ -394,6 +394,10 @@ code > span {
   .modal-content {
     width: 100%;
   }
+
+  .caption {
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (max-width : 768px) {
