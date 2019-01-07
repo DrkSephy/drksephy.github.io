@@ -139,7 +139,7 @@ code > span {
 }
 
 .nav-bar__link > a:hover {
-  font-weight: 800;
+  font-weight: 350;
 }
 
 /* Introduction Section */
@@ -341,23 +341,14 @@ code > span {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* Caption of Modal Image */
-.caption {
-  position: absolute;
-  color: #fff;
-  bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-
 /* Modal Content */
 .modal-content {
-  max-width: 50%;
+  max-width: 75%;
   max-height: 100%;
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, .caption { 
+.modal-content { 
   animation-name: zoom;
   animation-duration: 0.6s;
 }
@@ -392,12 +383,7 @@ code > span {
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
   .modal-content {
-    width: 100%;
-  }
-
-  .caption {
-    font-size: 1rem;
-    padding: 0;
+    max-width: 50%;
   }
 }
 
@@ -408,6 +394,10 @@ code > span {
   }
   .project-information {
     padding: 1.25rem;
+  }
+
+  .modal-content {
+    max-width: 50%;
   }
 }
 
@@ -441,7 +431,7 @@ code > span {
     cursor: zoom-in;
   }
 
-  .caption {
-    padding: 0rem;
+  .modal-content {
+    max-width: 50%;
   }
 }

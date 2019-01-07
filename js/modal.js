@@ -21,9 +21,6 @@ function handleClick(e) {
 		document.body.style.overflow = 'hidden';
 
 		const span = document.getElementsByClassName('close')[0];
-		const captionText = document.getElementsByClassName('caption')[0];
-
-		captionText.innerHTML = targetAlt;
 
 		span.onclick = function() { 
 		  modal.style.display = 'none';
