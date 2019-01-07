@@ -397,6 +397,7 @@ code > span {
 
   .caption {
     font-size: 1rem;
+    padding: 0;
   }
 }
 
