@@ -157,7 +157,10 @@ code > span {
   font-size: 1.25rem;
   opacity: 0.87;
   line-height: 1.5;
-  font-weight: 550;
+}
+
+.intro-wrapper__section a {
+  font-weight: 600;
 }
 
 .intro-wrapper__social-links {
