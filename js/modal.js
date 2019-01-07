@@ -30,3 +30,20 @@ function handleClick(e) {
 		document.body.style.overflow = 'auto';
 	}
 }
+
+function handleKeyUp(e) {
+	const keyCode = e.keyCode;
+
+	// Escape key
+	if (keyCode === 27) {
+		const modal = document.getElementById('myModal');
+		const isModalVisible = modal.style.display === 'flex' ? true : false;
+
+		if (isModalVisible) {
+			modal.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+	}
+}
+
+document.addEventListener('keyup', handleKeyUp);
