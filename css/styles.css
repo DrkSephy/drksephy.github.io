@@ -100,7 +100,7 @@ code > span {
   z-index: 1;
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid rgba(31, 170, 155, 0.25);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.20);
   top: 0;
 }
 
@@ -428,6 +428,6 @@ code > span {
   }
 
   .modal-content {
-    max-width: 50%;
+    max-width: 90%;
   }
 }
