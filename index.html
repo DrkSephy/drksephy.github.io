@@ -4,8 +4,17 @@
     <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/modal.js"></script>
   </head>
   <body>
+    <!-- Modals -->
+    <div id="myModal" class="modal" onclick="handleClick(event)">
+      <span class="close">&times;</span>
+      <img class="modal-content"></img>
+      <div class="caption"></div>
+    </div>
+
+
     <!-- Navbar -->
     <nav class="nav-bar">
       <ul class="nav-bar__list">
@@ -28,11 +37,11 @@
     </div>
 
 
-    <div class="projects">
+    <div class="projects" onclick="handleClick(event)">
       <!--  ES6 Cheatsheet -->
       <div class="projects-row">
         <div id="es6-cheatsheet" class="col-md-6">
-          <img class="projects-row__img" src="images/es6_talk_mockup.png" alt="">
+          <img class="projects-row__img" src="images/es6_talk_mockup.png" id="es6" alt="ES6 Cheatsheet">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -57,7 +66,7 @@
       <!--  Django Hackathon Starter -->
       <div class="projects-row">
         <div id="django-hackathon-starter" class="col-md-6">
-          <img class="projects-row__img" src="images/DjangoHackathonStarter_mockup.png" alt="">
+          <img class="projects-row__img" src="images/DjangoHackathonStarter_mockup.png" id="djs" alt="Django Hackathon Starter">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -80,7 +89,7 @@
       <!--  Chronicles of the Abyss -->
       <div class="projects-row">
         <div id="chronicles-of-the-abyss" class="col-md-6">
-          <img class="projects-row__img" src="images/WaterEmblem_mockup.png" alt="">
+          <img class="projects-row__img" src="images/WaterEmblem_mockup.png" id="fe" alt="Chronicles of the Abyss">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -104,7 +113,7 @@
       <!--  Pascal Compiler -->
       <div class="projects-row">
         <div id="pascal-compiler" class="col-md-6">
-          <img class="projects-row__img" src="images/PascalCompiler_mockup.png" alt="">
+          <img class="projects-row__img" src="images/PascalCompiler_mockup.png" id="pc" alt="Pascal Compiler">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -126,7 +135,7 @@
       <!-- Multiple Traveling Salesman Problem  -->
       <div class="projects-row">
         <div id="multiple-traveling-salesman" class="col-md-6">
-          <img class="projects-row__img" src="images/TravelingSalesMan_mockup.png" alt="">
+          <img class="projects-row__img" src="images/TravelingSalesMan_mockup.png" id="mtsp" alt="Multiple Traveling Salesman">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -145,7 +154,7 @@
       <!-- Shogi  -->
       <div class="projects-row">
         <div id="shogi" class="col-md-6">
-          <img class="projects-row__img" src="images/Shogi_mockup.png" alt="">
+          <img class="projects-row__img" src="images/Shogi_mockup.png" id="shogi-game" alt="Dobutsu Shogi">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -165,7 +174,7 @@
       <!-- Facebook Open Source Visualization  -->
       <div class="projects-row">
         <div id="fb-open-source-visualization" class="col-md-6">
-          <img class="projects-row__img" src="images/FacebookOSViz_mockup.png" alt="">
+          <img class="projects-row__img" src="images/FacebookOSViz_mockup.png" id="viz" alt="Facebook Open Source Visualization">
         </div>
 
         <div class="col-md-6 align-self-center">
@@ -184,7 +193,7 @@
       <!-- Technetium Redux -->
       <div class="projects-row">
         <div id="technetium-redux" class="col-md-6">
-          <img class="projects-row__img" src="images/Technetium_mockup.png" alt="">
+          <img class="projects-row__img" src="images/Technetium_mockup.png" id="technetium" alt="Technetium Redux">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -203,7 +212,7 @@
       <!-- Tales of Kratos -->
       <div class="projects-row">
         <div id="tales-of-kratos" class="col-md-6">
-          <img class="projects-row__img" src="images/Kratos_mockup.png" alt="">
+          <img class="projects-row__img" src="images/Kratos_mockup.png" id="kratos" alt="Tales of Kratos">
         </div>
         <div class="col-md-6">
           <div class="project-information">
@@ -222,7 +231,7 @@
       <!-- Koopa Krsis -->
       <div class="projects-row">
         <div id="koopa-krisis" class="col-md-6">
-          <img class="projects-row__img" src="images/KoopaKrisis_mockup.png" alt="">
+          <img class="projects-row__img" src="images/KoopaKrisis_mockup.png" id="koopa" alt="Koopa Krisis">
         </div>
         <div class="col-md-6">
           <div class="project-information">
