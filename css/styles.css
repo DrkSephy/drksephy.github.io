@@ -374,8 +374,8 @@ code > span {
 /* Modal Close Button */
 .close {
   position: absolute;
-  top: 2rem;
-  right: 4rem;
+  top: 1rem;
+  right: 1.5rem;
   color: #fff;
   font-size: 2.5rem;
   font-weight: bold;
