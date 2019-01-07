@@ -346,13 +346,13 @@ code > span {
   position: absolute;
   color: #fff;
   bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 
 /* Modal Content */
 .modal-content {
-  max-width: 60%;
+  max-width: 50%;
   max-height: 100%;
 }
 
